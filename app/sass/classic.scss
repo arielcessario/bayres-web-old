@@ -203,31 +203,57 @@ body {
       background: linear-gradient(to bottom, #b4ddb4 0%, #006200 100%); /* W3C */
       filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#b4ddb4', endColorstr='#006200', GradientType=0); /* IE6-9 */
     }
-    /*
-    .border-form-container{
-      border:2px solid #8cc63f;
-      border-radius: 5px;
-      margin: 5px;
-    }*/
+    @media (max-width: 360px) {
+      .border-form-container{
+        flex-direction: column;
+        width: 100%;
+      }
+    }
     .cliente-form-container {
-      width: 60%;
       background-color: rgba(0, 0, 0, 0.5);
       float: left;
       margin: 5px;
       padding: 10px;
+
+      @media (min-width: 801px) {
+        width: 60%;
+      }
+      @media (min-width: 600px) {
+        width: 60%;
+      }
+      @media (max-width: 360px) {
+        //width: 78%;
+        float: none;
+      }
     }
     .password-form-container {
-      width: 31%;
       background-color: rgba(0, 0, 0, 0.5);
       float: left;
       margin: 5px;
       padding: 10px;
+
+      @media (min-width: 801px) {
+        width: 31%;
+      }
+      @media (min-width: 600px) {
+        width: 30%;
+      }
+      @media (max-width: 360px) {
+        //width: 78%;
+        float: none;
+      }
     }
     .historial-pedidos-form-container {
-      width: 650px;
       background-color: rgba(0, 0, 0, 0.5);
       margin: 5px;
       padding: 10px;
+
+      @media (min-width: 801px) {
+        width: 650px;
+      }
+      @media (min-width: 600px) {
+        width: 650px;
+      }
 
       span {
         padding: 5px;
@@ -239,15 +265,30 @@ body {
         font-size: 16px;
       }
     }
+    .mi-cuenta-titulo{
+      margin-bottom:15px;
+      text-align: center;
+    }
     .title-mi-cuenta {
       //font-weight: bold;
       font-size: 24px;
       color: #68A52F;
       margin-left: 5px;
     }
+    @media (min-width: 600px) {
+      .small-button {
+        width:40px !important;
+      }
+    }
+
     .flexcontainer {
       display: -webkit-flex;
       display: flex;
+
+      @media (max-width: 360px) {
+        flex-direction: column;
+        align-items: center;
+      }
     }
     .cuenta-subtotal {
       //font-weight:bold;
@@ -258,6 +299,18 @@ body {
     .row-1 {
       -webkit-flex: 1;
       flex: 1;
+
+      @media (min-width: 801px) {
+        .margin-button{
+          margin-top:60px;
+        }
+      }
+      @media (min-width: 600px){
+        .margin-button{
+          margin-top:60px;
+        }
+      }
+
     }
     .row-2 {
       -webkit-flex: 2;
@@ -267,6 +320,10 @@ body {
       -webkit-flex: 3;
       flex: 3;
 
+      @media (max-width: 360px) {
+        width: 100%;
+        text-align: center;
+      }
       .cuenta-controls {
         label {
           font-size: 20px;
@@ -282,6 +339,12 @@ body {
     .ultimos-pedidos {
       margin-bottom: 15px;
       text-align: center;
+
+      @media (max-width: 360px) {
+        .mob-pedidos {
+          width: 80%;
+        }
+      }
     }
 
     #detalle-pedido {

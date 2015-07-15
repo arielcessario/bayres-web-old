@@ -294,7 +294,7 @@
                         <div class="border-form-container" style="flex-direction:row;">
                             <div style="min-height:180px;">
                                 <div class="cliente-form-container">
-                                    <div style="margin-bottom:15px;">
+                                    <div class="mi-cuenta-titulo">
                                         <label class="title-mi-cuenta">Modificar datos personales</label>
                                     </div>
                                     <div class="flexcontainer">
@@ -322,10 +322,10 @@
                                             </div>
                                         </div>
                                         <div class="row-1">
-                                            <div style="margin-top:60px;">
+                                            <div class="margin-button">
                                                 <button ng-if="!mainCtrl.creaCliente"
                                                         ng-click="mainCtrl.actualizarCliente();"
-                                                        style="width:40px !important;">Ok
+                                                        class="small-button">Ok
                                                 </button>
                                             </div>
                                         </div>
@@ -335,7 +335,7 @@
                                     </div>
                                 </div>
                                 <div class="password-form-container">
-                                    <div style="margin-bottom:15px;">
+                                    <div class="mi-cuenta-titulo">
                                         <label class="title-mi-cuenta">Modificar Contraseña</label>
                                     </div>
                                     <div class="flexcontainer">
@@ -354,9 +354,9 @@
                                             </div>
                                         </div>
                                         <div class="row-1">
-                                            <div style="margin-top:60px;">
+                                            <div class="margin-button">
                                                 <button ng-click="mainCtrl.modificarPass();"
-                                                        style="width:40px !important;">Ok
+                                                        class="small-button">Ok
                                                 </button>
                                             </div>
                                         </div>
@@ -377,7 +377,8 @@
                                             pedidos</label>
                                         <select ng-click="mainCtrl.detalle = mainCtrl.pedido.detalles;"
                                                 ng-model="mainCtrl.pedido"
-                                                ng-options="pedido.carrito_id + ' - ' + pedido.fecha + ' - ' + pedido.total for  pedido in mainCtrl.historico_pedidos">
+                                                ng-options="pedido.carrito_id + ' - ' + pedido.fecha + ' - ' + pedido.total for  pedido in mainCtrl.historico_pedidos"
+                                                class="mob-pedidos">
                                         </select>
                                     </div>
                                     <div id="detalle-pedido">
