@@ -1,4 +1,4 @@
-/* line 5, ../../../../../../var/lib/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 5, ../../../../../Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -20,45 +20,45 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-/* line 22, ../../../../../../var/lib/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 22, ../../../../../Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 html {
   line-height: 1;
 }
 
-/* line 24, ../../../../../../var/lib/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 24, ../../../../../Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 ol, ul {
   list-style: none;
 }
 
-/* line 26, ../../../../../../var/lib/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 26, ../../../../../Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* line 28, ../../../../../../var/lib/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 28, ../../../../../Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 caption, th, td {
   text-align: left;
   font-weight: normal;
   vertical-align: middle;
 }
 
-/* line 30, ../../../../../../var/lib/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 30, ../../../../../Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 q, blockquote {
   quotes: none;
 }
-/* line 103, ../../../../../../var/lib/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 103, ../../../../../Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 q:before, q:after, blockquote:before, blockquote:after {
   content: "";
   content: none;
 }
 
-/* line 32, ../../../../../../var/lib/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 32, ../../../../../Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 a img {
   border: none;
 }
 
-/* line 116, ../../../../../../var/lib/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 116, ../../../../../Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
   display: block;
 }
@@ -1985,18 +1985,12 @@ body {
   background-color: #FCFCFC;
   font-family: 'Myriad Pro Bold Condensed', serif;
   width: 100%;
-  display: flex;
   color: #8cc63f;
   font-size: 20px;
   white-space: nowrap;
 }
-/* line 1538, ../sass/classic.scss */
-#medios div:nth-child(2) {
-  min-width: 600px;
-}
 /* line 1541, ../sass/classic.scss */
 #medios div {
-  margin-top: 20px;
   flex: 1;
   display: flex;
   flex-wrap: nowrap;
@@ -2008,8 +2002,49 @@ body {
   max-width: 40px;
   margin-bottom: 10px;
 }
+/* line 1555, ../sass/classic.scss */
+#medios .medio-pago:nth-child(1) {
+  order: 0;
+  flex: 0 1 auto;
+  align-self: auto;
+  margin-top: 15px;
+}
+@media (max-width: 360px) {
+  /* line 1555, ../sass/classic.scss */
+  #medios .medio-pago:nth-child(1) {
+    display: none;
+  }
+}
+/* line 1564, ../sass/classic.scss */
+#medios .medio-pago:nth-child(2) {
+  order: 0;
+  flex: 0 1 auto;
+  align-self: auto;
+  margin-top: 10px;
+}
+/* line 1569, ../sass/classic.scss */
+#medios .medio-pago:nth-child(2) img {
+  margin-left: 15px;
+  max-width: 40px;
+  margin-bottom: 10px;
+  max-height: 30px;
+}
+/* line 1576, ../sass/classic.scss */
+#medios .medio-pago:nth-child(3) {
+  order: 0;
+  flex: 0 1 auto;
+  align-self: auto;
+  margin-top: 10px;
+}
+/* line 1581, ../sass/classic.scss */
+#medios .medio-pago:nth-child(3) img {
+  margin-left: 15px;
+  max-width: 40px;
+  margin-bottom: 10px;
+  max-height: 30px;
+}
 
-/* line 1558, ../sass/classic.scss */
+/* line 1591, ../sass/classic.scss */
 #footer {
   width: 100%;
   overflow-x: auto;
@@ -2017,23 +2052,23 @@ body {
   background: #000000 url("../img/footer_01.png") 50% 50% no-repeat;
   font-family: 'Myriad Pro Bold Condensed', serif;
 }
-/* line 1565, ../sass/classic.scss */
+/* line 1598, ../sass/classic.scss */
 #footer .footer-outer {
   width: 100%;
   max-width: 800px;
 }
-/* line 1570, ../sass/classic.scss */
+/* line 1603, ../sass/classic.scss */
 #footer .footer-inner {
   width: 100%;
   max-width: 800px;
 }
-/* line 1575, ../sass/classic.scss */
+/* line 1608, ../sass/classic.scss */
 #footer .footer-container {
   max-width: 800px;
   width: 100%;
   height: 450px;
 }
-/* line 1581, ../sass/classic.scss */
+/* line 1614, ../sass/classic.scss */
 #footer #footer-lower {
   margin-top: 25px;
   height: 60%;
@@ -2044,25 +2079,25 @@ body {
   flex-wrap: nowrap;
 }
 @media (max-width: 600px) {
-  /* line 1581, ../sass/classic.scss */
+  /* line 1614, ../sass/classic.scss */
   #footer #footer-lower {
     min-width: 100%;
     text-align: center;
   }
 }
-/* line 1595, ../sass/classic.scss */
+/* line 1628, ../sass/classic.scss */
 #footer #footer-lower div {
   max-width: 198px;
   width: 198px;
   font-family: 'Myriad Pro Bold Condensed', serif;
 }
-/* line 1599, ../sass/classic.scss */
+/* line 1632, ../sass/classic.scss */
 #footer #footer-lower div .footer-lower-title {
   width: 100%;
   color: #8cc63f;
   font-size: 19px;
 }
-/* line 1605, ../sass/classic.scss */
+/* line 1638, ../sass/classic.scss */
 #footer #footer-lower div .footer-lower-link {
   font-family: 'Myriad Pro Condensed', serif;
   width: 100%;
@@ -2072,18 +2107,18 @@ body {
   line-height: 22px;
   cursor: pointer;
 }
-/* line 1614, ../sass/classic.scss */
+/* line 1647, ../sass/classic.scss */
 #footer #footer-lower div img {
   margin-left: 5px;
   height: 24px;
   width: 24px;
   cursor: pointer;
 }
-/* line 1624, ../sass/classic.scss */
+/* line 1657, ../sass/classic.scss */
 #footer #footer-upper {
   height: 40%;
 }
-/* line 1626, ../sass/classic.scss */
+/* line 1659, ../sass/classic.scss */
 #footer #footer-upper img {
   width: 100%;
   margin-top: 25px;
@@ -2105,7 +2140,7 @@ body {
     transform: translate(1500px, 0);
   }
 }
-/* line 1655, ../sass/classic.scss */
+/* line 1688, ../sass/classic.scss */
 .nav-button div {
   cursor: pointer;
   width: 20px;
@@ -2120,7 +2155,7 @@ body {
   transition: all 0.4s;
 }
 
-/* line 1669, ../sass/classic.scss */
+/* line 1702, ../sass/classic.scss */
 #menu-mobile {
   width: 20px;
   position: fixed;
@@ -2129,7 +2164,7 @@ body {
   top: 35px;
 }
 
-/* line 1678, ../sass/classic.scss */
+/* line 1711, ../sass/classic.scss */
 #menu-mobile-detail {
   position: fixed;
   right: 0px;
@@ -2141,13 +2176,13 @@ body {
   transform-origin: 100% 0;
 }
 
-/* line 1690, ../sass/classic.scss */
+/* line 1723, ../sass/classic.scss */
 #menu-mobile-detail.ng-enter {
   -webkit-animation: menu-mobile-detail-enter 0.3s;
   animation: menu-mobile-detail-enter 0.3s;
 }
 
-/* line 1695, ../sass/classic.scss */
+/* line 1728, ../sass/classic.scss */
 #menu-mobile-detail.ng-leave {
   -webkit-animation: menu-mobile-detail-leave 0.3s;
   animation: menu-mobile-detail-leave 0.3s;
@@ -2169,7 +2204,7 @@ body {
     transform: scale(1, 0);
   }
 }
-/* line 1723, ../sass/classic.scss */
+/* line 1756, ../sass/classic.scss */
 .cuenta-input input {
   width: 160px !important;
   height: 19px !important;
