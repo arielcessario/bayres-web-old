@@ -618,6 +618,7 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
         vm.detalle = {};
         vm.details = false;
         scrollTo(vm.top_before);
+        $location.path('/commerce/main');
         //document.getElementById("parallax").scrollTop = vm.top_before;
 
         //for(var i = vm.top; i > vm.top_before; i--){
