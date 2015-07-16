@@ -1762,6 +1762,62 @@ body {
   transition: all 0.4s;
 }
 
+#menu-categorias-detalle{
+  position: fixed;
+  //  z-index: 100;
+  right: 0px;
+  left: 0px;
+  top: 75px;
+  height: 150px;
+  background-color: #006200;
+  transform: translate(1, 1);
+  transform-origin: 100% 0%;
+  display: flex;
+  //justify-content: flex-start;
+  flex-direction: column;
+  flex-wrap: wrap;
+  color: #ffffff;
+  align-items: flex-start;
+  div {
+    //    background-color: #00fefe;
+    margin-left: 20px;
+    margin-top: 5px;
+    height: 20px;
+    width: 50px;
+    z-index: 300 !important;
+  }
+}
+#menu-categorias-detalle.ng-enter{
+  -webkit-animation: menu-categorias-detalle-enter 0.3s;
+  animation: menu-categorias-detalle-enter 0.3s;
+}
+#menu-categorias-detalle.ng-leave{
+  -webkit-animation: menu-categorias-detalle-leave 0.3s;
+  animation: menu-categorias-detalle-leave 0.3s;
+}
+
+
+@-webkit-keyframes menu-categorias-detalle-enter {
+  0% {
+    transform: scale(1, 0);
+  }
+
+  100% {
+    transform: translate(1, 1);
+  }
+}
+
+@-webkit-keyframes menu-categorias-detalle-leave {
+  0% {
+    transform: translate(1, 1);
+  }
+
+  100% {
+    transform: scale(1, 0);
+  }
+}
+
+
 #menu-mobile {
   //  background-color: #ffffff;
   width: 20px;
@@ -1771,16 +1827,32 @@ body {
   top: 35px;
 }
 
+
 #menu-mobile-detail {
   position: fixed;
   //  z-index: 100;
-  right: 0px;
+  //right: 0px;
   left: 0px;
   top: 75px;
-  height: 40px;
+  bottom: 0px;
+  width: 200px;
+  //height: 40px;
   background-color: #006200;
   transform: translate(1, 1);
-  transform-origin: 100% 0;
+  transform-origin: 0% 100%;
+  display: flex;
+  //justify-content: flex-start;
+  flex-direction: column;
+  color: #ffffff;
+  align-items: flex-start;
+  div {
+    //    background-color: #00fefe;
+    margin-left: 20px;
+    margin-top: 5px;
+    height: 20px;
+    width: 100%;
+    z-index: 300 !important;
+  }
 }
 
 #menu-mobile-detail.ng-enter {
@@ -1795,7 +1867,7 @@ body {
 
 @-webkit-keyframes menu-mobile-detail-enter {
   0% {
-    transform: scale(1, 0);
+    transform: scale(0, 1);
   }
 
   100% {
@@ -1809,7 +1881,7 @@ body {
   }
 
   100% {
-    transform: scale(1, 0);
+    transform: scale(0, 1);
   }
 }
 

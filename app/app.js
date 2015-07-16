@@ -17,9 +17,11 @@ angular.module('myApp', [
 
 
 MainController.$inject = ['acAngularProductosService', 'acAngularCarritoServiceAcciones', '$scope', '$document',
-    'LoginService', 'acAngularSucursalesService', '$timeout', '$routeParams', '$location', '$interval'];
+    'LoginService', 'acAngularSucursalesService', '$timeout', '$routeParams', '$location', '$interval',
+'acAngularCategoriasService'];
 function MainController(acAngularProductosService, acAngularCarritoServiceAcciones, $scope, $document,
-                        LoginService, acAngularSucursalesService, $timeout, $routeParams, $location, $interval) {
+                        LoginService, acAngularSucursalesService, $timeout, $routeParams, $location, $interval,
+                        acAngularCategoriasService) {
     var vm = this;
     vm.ofertas = [];
     vm.destacados = [];
@@ -77,6 +79,7 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
     vm.ofertasForm = ofertasForm;
     vm.contacto = contacto;
     vm.mapa = mapa;
+    vm.getByCategoria = getByCategoria;
     vm.detalles = [];
     vm.pass_old = '';
     vm.pass_new = '';
@@ -90,6 +93,7 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
 
     vm.menu_mobile = false;
     vm.menu_mobile_open = false;
+    vm.categorias = [];
 
 
     vm.scrollTo = scrollTo;
@@ -97,8 +101,21 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
     $interval(cambiarSlide, 10000);
 
     function cambiarSlide(){
-        console.log('onals');
         vm.slider_nro = (vm.slider_nro == 4)?vm.slider_nro=1:vm.slider_nro+=1;
+    }
+
+
+    acAngularCategoriasService.getCategorias(function(data){
+        //console.log(data);
+        vm.categorias = data;
+    });
+
+
+    function getByCategoria(categoria_id){
+        acAngularProductosService.getProductosByCategoria(categoria_id, function(data){
+            $location.path('/commerce/search');
+            vm.productos = data;
+        })
     }
 
 

@@ -64,6 +64,11 @@
                 <div ng-if="!mainCtrl.menu_mobile" id="menu-home" ng-click="mainCtrl.inicio();">
                     <div><img src="img/home.png" alt="compras"/></div>
                 </div>
+                <div ng-if="!mainCtrl.menu_mobile" id="menu-categorias"
+                     ng-init="mainCtrl.showCategorias = false"
+                     ng-click="mainCtrl.showCategorias = !mainCtrl.showCategorias;">
+                    <span>Categorias</span>
+                </div>
                 <div ng-if="!mainCtrl.menu_mobile" id="menu-carrito" ng-click="mainCtrl.comprar();">
                     <span>Mi Carrito</span>
                 </div>
@@ -82,7 +87,12 @@
                     </div>
 
                 </div>
-
+                <div ng-if="mainCtrl.showCategorias" id="menu-categorias-detalle">
+                    <div ng-repeat="categoria in mainCtrl.categorias">
+                        <div ng-click="mainCtrl.getByCategoria(categoria.categoria_id);">{{categoria.nombre}}</div>
+                        <div ng-repeat="subcategoria in categoria.subcategorias">{{subcategoria.nombre}}</div>
+                    </div>
+                </div>
 
                 <div
                         id="menu-mobile-detail" ng-if="mainCtrl.menu_mobile && mainCtrl.menu_mobile_open">
@@ -91,6 +101,11 @@
                     <div ng-click="mainCtrl.comprar();">Mi Carrito</div>
                     <div ng-click="mainCtrl.cuenta();">Mi Cuenta</div>
                     <div ng-click="mainCtrl.comprar();">Finalizar Compra</div>
+                    <div>CATEGORIAS</div>
+                    <div ng-repeat="categoria in mainCtrl.categorias">
+                        <div ng-click="mainCtrl.getByCategoria(categoria.categoria_id);">{{categoria.nombre}}</div>
+                        <div ng-repeat="subcategoria in categoria.subcategorias">{{subcategoria.nombre}}</div>
+                    </div>
                 </div>
 
             </div>
