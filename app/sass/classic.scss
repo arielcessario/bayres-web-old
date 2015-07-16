@@ -288,12 +288,30 @@ body {
       @media (max-width: 360px) {
         flex-direction: column;
         align-items: center;
+
+        .flex-row{
+          flex-direction: row;
+        }
+        .btn-pedilo{
+          width: 60px;
+        }
       }
     }
     .cuenta-subtotal {
       //font-weight:bold;
       font-size: 32px;
       color: #fff;
+      @media (max-width: 360px) {
+        font-size: 25px;
+      }
+    }
+    .pedido-total{
+      width:140px !important;
+      text-align: right;
+      font-weight: bold;
+      @media (max-width: 360px) {
+        width:95px !important;
+      }
     }
 
     .row-1 {
@@ -363,20 +381,31 @@ body {
       //  float: left;
       //}
       .producto-titulo {
-        width: 40%;
         float: left;
         color: #68A52F;
         text-align: center;
+        width: 40%;
+
+        @media (max-width: 360px) {
+            width: 30%;
+        }
       }
       .producto-titulo-2 {
         //width: 14%;
         text-align: center;
         margin: auto 30px;
+
+        @media (max-width: 360px) {
+            margin: auto 13px;
+        }
       }
       .producto-nombre-2 {
         width: 40%;
         float: left;
         text-align: center;
+        @media (max-width: 360px) {
+          width: 30%;
+        }
       }
       .producto-carrito {
         margin: auto;
@@ -1761,22 +1790,22 @@ body {
   -o-transition: all 0.4s;
   transition: all 0.4s;
 }
-
 #menu-categorias-detalle{
   position: fixed;
   //  z-index: 100;
   right: 0px;
   left: 0px;
   top: 75px;
-  height: 150px;
-  background-color: #006200;
+  min-height: 150px;
+  //background-color: #006200;
   transform: translate(1, 1);
   transform-origin: 100% 0%;
+  background: rgba(0, 98, 0, 0.9);
   display: flex;
   //justify-content: flex-start;
   flex-direction: column;
   flex-wrap: wrap;
-  color: #ffffff;
+  color: #ffff00;
   align-items: flex-start;
   div {
     //    background-color: #00fefe;
@@ -1835,15 +1864,16 @@ body {
   left: 0px;
   top: 75px;
   bottom: 0px;
-  width: 200px;
+  width: 70%;
   //height: 40px;
-  background-color: #006200;
+  //background-color: #006200;
+  background: rgba(0, 98, 0, 0.9);
   transform: translate(1, 1);
   transform-origin: 0% 100%;
   display: flex;
   //justify-content: flex-start;
   flex-direction: column;
-  color: #ffffff;
+  color:#ffff00;
   align-items: flex-start;
   div {
     //    background-color: #00fefe;
@@ -1852,6 +1882,9 @@ body {
     height: 20px;
     width: 100%;
     z-index: 300 !important;
+  }
+  .margin-top{
+    margin-top: 30px;
   }
 }
 

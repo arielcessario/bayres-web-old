@@ -11,6 +11,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Bayres No Problem</title>
+    <link rel="shortcut icon" type="image/x-icon" href="./img/favicon.ico" />
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="bower_components/html5-boilerplate/css/normalize.css">
@@ -94,15 +95,13 @@
                     </div>
                 </div>
 
-                <div
-                        id="menu-mobile-detail" ng-if="mainCtrl.menu_mobile && mainCtrl.menu_mobile_open">
-
-                    <div ng-click="mainCtrl.inicio();">Inicio</div>
+                <div id="menu-mobile-detail" ng-if="mainCtrl.menu_mobile && mainCtrl.menu_mobile_open">
+                    <div ng-click="mainCtrl.inicio();" class="margin-top">Inicio</div>
                     <div ng-click="mainCtrl.comprar();">Mi Carrito</div>
                     <div ng-click="mainCtrl.cuenta();">Mi Cuenta</div>
                     <div ng-click="mainCtrl.comprar();">Finalizar Compra</div>
-                    <div>CATEGORIAS</div>
-                    <div ng-repeat="categoria in mainCtrl.categorias">
+                    <div class="margin-top">CATEGORIAS:</div>
+                    <div ng-repeat="categoria in mainCtrl.categorias" class="sub-categoria">
                         <div ng-click="mainCtrl.getByCategoria(categoria.categoria_id);">{{categoria.nombre}}</div>
                         <div ng-repeat="subcategoria in categoria.subcategorias">{{subcategoria.nombre}}</div>
                     </div>
@@ -416,18 +415,18 @@
                                         </div>
                                     </div>
                                     <div style="display: inline-block;width: 100%;">
-                                        <div class="flexcontainer">
+                                        <div class="flexcontainer flex-row">
                                             <div style="flex:1">
                                                 <!--button ng-click="mainCtrl.borrarCarrito();" >Borrar</button-->
-                                                <button ng-click="mainCtrl.confirmarCarrito();">Pedilo!</button>
+                                                <button ng-click="mainCtrl.confirmarCarrito();" class="btn-pedilo">Pedilo!</button>
                                             </div>
                                             <div style="flex:1;margin-top:30px;">
                                                 <div style="float: right">
                                                     <label class="cuenta-subtotal"
                                                            style="margin-right: 10px">Subtotal:</label>
-                                                    <input ng-model="mainCtrl.pedido.total | currency" type="text"
+                                                    <input ng-model="mainCtrl.pedido.total" type="text"
                                                            readonly
-                                                           style="width:140px !important;text-align: right;font-weight: bold;"/>
+                                                           class="pedido-total"/>
                                                 </div>
                                             </div>
                                         </div>

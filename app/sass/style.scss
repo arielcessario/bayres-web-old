@@ -105,6 +105,10 @@ body {
           margin-left: 5px !important;
         }
       }
+      .sub-categoria{
+        color: #fff;
+        margin-left: 0;
+      }
       #menu-home {
         max-height: 50px;
         background-color: #305139;
@@ -114,6 +118,18 @@ body {
         flex: 1;
         line-height: 60px;
         text-align: center;
+        min-width: 45px;
+      }
+      #menu-categorias{
+        background-color: #006200;
+        max-height: 40px;
+        min-width: 68px;
+        padding: 10px 5px 0 5px;
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+        flex: 1;
+        color: #ffff00;
       }
       #menu-carrito {
         max-height: 50px;
@@ -124,7 +140,7 @@ body {
         flex: 1;
         line-height: 60px;
         text-align: center;
-
+        min-width: 45px;
       }
       #menu-account {
         max-height: 50px;
@@ -136,6 +152,7 @@ body {
         line-height: 60px;
         text-align: center;
         color: #ffffff;
+        min-width: 45px;
       }
       #menu-checkout {
         max-height: 50px;
@@ -146,7 +163,7 @@ body {
         flex: 1;
         line-height: 60px;
         text-align: center;
-
+        min-width: 45px;
       }
       #menu-detalle {
         max-height: 50px;

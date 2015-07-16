@@ -231,6 +231,8 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
         //document.getElementById("parallax").scrollTop = 0;
         //vm.active_form = 'main';
         $location.path('/commerce/main');
+        if(vm.menu_mobile_open)
+            vm.menu_mobile_open = false;
     }
 
     function destacadosForm() {
@@ -421,7 +423,7 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
                 LoginService.getHistoricoPedidos(LoginService.checkLogged().cliente[0].cliente_id,
                     function (data2) {
                         //console.log('entra');
-                        //console.log(data2);
+                        console.log(data2);
                         vm.historico_pedidos = data2;
                         //$scope.$apply();
                     });
@@ -516,7 +518,7 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
 
                 LoginService.getHistoricoPedidos(LoginService.checkLogged().cliente[0].cliente_id,
                     function (data2) {
-                        //console.log(data2);
+                        console.log(data2);
                         vm.historico_pedidos = data2;
                     });
 
@@ -532,7 +534,7 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
     if (LoginService.checkLogged()) {
         LoginService.getHistoricoPedidos(LoginService.checkLogged().cliente[0].cliente_id,
             function (data) {
-                //console.log(data);
+                console.log(data);
                 vm.historico_pedidos = data;
             });
     }
@@ -548,6 +550,8 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
             //vm.active_form = 'carrito';
             $location.path('/commerce/carrito');
         }
+        if(vm.menu_mobile_open)
+            vm.menu_mobile_open = false;
         //if (!acAngularCarritoServiceAcciones.comprar()) {
         //    vm.active_form = 'login';
         //} else {
@@ -567,6 +571,8 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
             //vm.active_form = 'cuenta';
             $location.path('/commerce/cuenta');
         }
+        if(vm.menu_mobile_open)
+            vm.menu_mobile_open = false;
     }
 
     function showDetailsOferta(oferta) {
