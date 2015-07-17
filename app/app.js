@@ -113,8 +113,11 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
 
     function getByCategoria(categoria_id){
         acAngularProductosService.getProductosByCategoria(categoria_id, function(data){
+            scrollTo(700);
             $location.path('/commerce/search');
             vm.productos = data;
+            if(vm.menu_mobile_open)
+                vm.menu_mobile_open = false;
         })
     }
 

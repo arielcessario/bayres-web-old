@@ -89,9 +89,17 @@
 
                 </div>
                 <div ng-if="mainCtrl.showCategorias" id="menu-categorias-detalle">
+                    <div class="menu-categoria">
+                        <div ng-click="mainCtrl.inicio();" class="margin-top">Inicio</div>
+                        <div ng-click="mainCtrl.comprar();">Mi Carrito</div>
+                        <div ng-click="mainCtrl.cuenta();">Mi Cuenta</div>
+                        <div ng-click="mainCtrl.comprar();">Finalizar Compra</div>
+                    </div>
                     <div ng-repeat="categoria in mainCtrl.categorias">
-                        <div ng-click="mainCtrl.getByCategoria(categoria.categoria_id);">{{categoria.nombre}}</div>
-                        <div ng-repeat="subcategoria in categoria.subcategorias">{{subcategoria.nombre}}</div>
+                        <div class="menu-subcategoria">
+                            <div ng-click="mainCtrl.getByCategoria(categoria.categoria_id);">{{categoria.nombre}}</div>
+                            <div ng-repeat="subcategoria in categoria.subcategorias">{{subcategoria.nombre}}</div>
+                        </div>
                     </div>
                 </div>
 
@@ -415,13 +423,13 @@
                                         </div>
                                     </div>
                                     <div style="display: inline-block;width: 100%;">
-                                        <div class="flexcontainer flex-row">
-                                            <div style="flex:1">
+                                        <div class="flexcontainer">
+                                            <div class="flexcontainer-1">
                                                 <!--button ng-click="mainCtrl.borrarCarrito();" >Borrar</button-->
                                                 <button ng-click="mainCtrl.confirmarCarrito();" class="btn-pedilo">Pedilo!</button>
                                             </div>
-                                            <div style="flex:1;margin-top:30px;">
-                                                <div style="float: right">
+                                            <div class="flexcontainer-1">
+                                                <div style="float: right;margin-top: 25px;">
                                                     <label class="cuenta-subtotal"
                                                            style="margin-right: 10px">Subtotal:</label>
                                                     <input ng-model="mainCtrl.pedido.total" type="text"

@@ -285,18 +285,17 @@ body {
       display: -webkit-flex;
       display: flex;
 
+      .flexcontainer-1{
+        order: 0;
+        flex: 1 1 auto;
+        align-self: auto;
+      }
       @media (max-width: 360px) {
         flex-direction: column;
         align-items: center;
-
-        .flex-row{
-          flex-direction: row;
-        }
-        .btn-pedilo{
-          width: 60px;
-        }
       }
     }
+
     .cuenta-subtotal {
       //font-weight:bold;
       font-size: 32px;
@@ -1803,18 +1802,35 @@ body {
   background: rgba(0, 98, 0, 0.9);
   display: flex;
   //justify-content: flex-start;
-  flex-direction: column;
+  flex-direction: row;
   flex-wrap: wrap;
   color: #ffff00;
   align-items: flex-start;
+  justify-content: center;
   div {
     //    background-color: #00fefe;
     margin-left: 20px;
     margin-top: 5px;
     height: 20px;
-    width: 50px;
+    //width: 50px;
     z-index: 300 !important;
+    cursor: pointer;
   }
+}
+.menu-categoria{
+  order: 0;
+  flex: 0 1 auto;
+  align-self: auto;
+  margin-top: 40px !important;
+}
+.menu-subcategoria{
+  order: 0;
+  flex: 0 1 auto;
+  align-self: auto;
+  color: #fff;
+  margin-top: 40px !important;
+  font-weight: bold;
+  text-transform: capitalize;
 }
 #menu-categorias-detalle.ng-enter{
   -webkit-animation: menu-categorias-detalle-enter 0.3s;
@@ -1882,6 +1898,7 @@ body {
     height: 20px;
     width: 100%;
     z-index: 300 !important;
+    font-size: 16px;
   }
   .margin-top{
     margin-top: 30px;
