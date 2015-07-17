@@ -1921,12 +1921,14 @@ body {
   }
 }
 
-#menu-mobile-detail.ng-enter {
+#menu-mobile-detail.ng-enter
+{
   -webkit-animation: menu-mobile-detail-enter 0.3s;
   animation: menu-mobile-detail-enter 0.3s;
 }
 
-#menu-mobile-detail.ng-leave {
+#menu-mobile-detail.ng-leave
+{
   -webkit-animation: menu-mobile-detail-leave 0.3s;
   animation: menu-mobile-detail-leave 0.3s;
 }
