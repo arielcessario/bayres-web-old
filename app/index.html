@@ -103,6 +103,11 @@
                     </div>
                 </div>
 
+                <div id="courtain"
+                     ng-if="mainCtrl.menu_mobile && mainCtrl.menu_mobile_open">
+
+                </div>
+
                 <div id="menu-mobile-detail" ng-if="mainCtrl.menu_mobile && mainCtrl.menu_mobile_open">
                     <div ng-click="mainCtrl.inicio();" class="margin-top">Inicio</div>
                     <div ng-click="mainCtrl.comprar();">Mi Carrito</div>
