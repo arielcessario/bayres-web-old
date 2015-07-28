@@ -13,15 +13,19 @@ angular.module('myApp', [
         $routeProvider.when('/commerce/:parameter', {
             controller: 'MainController'
         });
-    }]).controller('MainController', MainController);
+    }])
+    .controller('MainController', MainController)
+    .factory('MainService', MainService);
 
 
 MainController.$inject = ['acAngularProductosService', 'acAngularCarritoServiceAcciones', '$scope', '$document',
     'LoginService', 'acAngularSucursalesService', '$timeout', '$routeParams', '$location', '$interval',
-'acAngularCategoriasService'];
+    'acAngularCategoriasService', 'MainService'];
+MainService.$inject = ['$http'];
+
 function MainController(acAngularProductosService, acAngularCarritoServiceAcciones, $scope, $document,
                         LoginService, acAngularSucursalesService, $timeout, $routeParams, $location, $interval,
-                        acAngularCategoriasService) {
+                        acAngularCategoriasService, MainService) {
     var vm = this;
     vm.ofertas = [];
     vm.destacados = [];
@@ -84,12 +88,18 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
     vm.pass_old = '';
     vm.pass_new = '';
     vm.sucursal_contacto = 1;
+    vm.enviarConsulta = enviarConsulta;
+    vm.nombreContacto = '';
+    vm.apellidoContacto = '';
+    vm.emailContacto = '';
+    vm.consulta = '';
 
     //Manejo de errores
     vm.message_error = '';
     vm.update_error = '0';
     vm.change_pwd_error = '0';
     vm.carrito_mensaje = '0';
+    vm.contacto_enviado = '0';
 
     vm.menu_mobile = false;
     vm.menu_mobile_open = false;
@@ -219,6 +229,16 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
         //document.getElementById("parallax").scrollTop = 0;
         //vm.active_form = 'main';
         $location.path('/commerce/contact');
+
+        inicializarVariables();
+        limpiarDatosContacto();
+    }
+
+    function limpiarDatosContacto() {
+        vm.nombreContacto = '';
+        vm.apellidoContacto = '';
+        vm.emailContacto = '';
+        vm.consulta = '';
     }
 
     function mapa(sucursal_id) {
@@ -329,6 +349,7 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
         vm.change_pwd_error = '0';
         vm.message_error = '';
         vm.carrito_mensaje = '0';
+        vm.contacto_enviado = '0';
     }
 
     function actualizarCliente() {
@@ -407,6 +428,52 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
     function ValidateEmail(email) {
         var re = /\S+@\S+\.\S+/;
         return re.test(email)
+    }
+
+    function enviarConsulta() {
+        inicializarVariables();
+
+        if((vm.nombreContacto.trim().length == 0) || (vm.apellidoContacto.trim().length == 0) ||
+            (vm.emailContacto.trim().length == 0) || (vm.consulta.trim().length == 0)) {
+            console.log('Por favor ingrese todos los datos para poder enviar el Mail');
+            vm.contacto_enviado = '1';
+            vm.message_error = 'Por favor ingrese todos los datos para poder enviar el Mail';
+        }
+        else {
+            if (ValidateEmail(vm.emailContacto.trim())) {
+                MainService.sendMail(vm.nombreContacto.trim().capitalize(),
+                                    vm.apellidoContacto.trim().capitalize(),
+                                    vm.emailContacto.toLowerCase().trim(),
+                                    vm.consulta.trim(),
+                                    function(enviado) {
+                    //console.log(enviado);
+                    if(enviado == "true") {
+                        limpiarDatosContacto();
+                        console.log('Su consulta fue enviada. Gracias por contactarse');
+                        vm.contacto_enviado = '1';
+                        vm.message_error = 'Su consulta fue enviada. Gracias por contactarse';
+                    }
+                    else {
+                        console.log('Se produjo un error al enviar el mail');
+                        vm.contacto_enviado = '1';
+                        vm.message_error = 'Se produjo un error al enviar el mail';
+                    }
+                });
+            }
+            else {
+                console.log('El mail ingresado no es valido');
+                vm.contacto_enviado = '1';
+                vm.message_error = 'El mail ingresado no es valido';
+            }
+        }
+    }
+
+    /**
+     * Función que pone en mayuscula la primera letra de cada palabra
+     * @returns {string}
+     */
+    String.prototype.capitalize = function(){
+        return this.charAt(0).toUpperCase() + this.slice(1);
     }
 
     function finalizarCompra() {
@@ -745,4 +812,30 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
 
         }
     }, false);
+}
+
+function MainService($http) {
+
+    //Variables
+    var service = {};
+
+    service.sendMail = sendMail;
+
+    return service;
+
+    function sendMail(nombre, apellido, email, mensaje, callback) {
+        mensaje = mensaje + "\n\n" + "Consulta de " + apellido + ", " + nombre + "\n\n" + "Correo: " + email;
+        //console.log(mensaje);
+        return $http.post('contact.php',
+            {
+                'email': email,
+                'mensaje': mensaje
+            })
+            .success(function (data) {
+                //console.log(data);
+                callback(data);
+            })
+            .error()
+    }
+
 }

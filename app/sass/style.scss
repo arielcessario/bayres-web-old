@@ -331,7 +331,7 @@ body {
   z-index: 80;
   #menu-container {
     //    position: absolute;
-    background-color: green;
+    background-color: darkgray;
     z-index: 80;
     height: 100%;
     width: 100%;
@@ -872,4 +872,5 @@ body {
   top : 40px;
   width : 82px;
   height : 26px;
+  cursor: pointer;
 }
