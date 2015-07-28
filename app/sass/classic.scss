@@ -6,6 +6,95 @@ body {
   overflow-x: hidden;
 }
 
+#agreement-form{
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background-color: #005B16;
+  z-index: 200000;
+}
+
+.agreement-acepto{
+  background-image : url("../img/boton_acepto.png");
+  background-repeat : no-repeat;
+  position : relative;
+  margin: auto;
+  width : 82px;
+  height : 26px;
+}
+
+
+.agreement-noacepto{
+  background-image : url(../img/boton_no_acepto.png);
+  background-repeat : no-repeat;
+  position : relative;
+  margin: auto;
+  width : 82px;
+  height: 26px;
+
+}
+
+.agreement-contenedor-boton{
+  position: relative;
+  display: flex;
+  width: 200px;
+  height: 26px;
+  margin: auto;
+
+
+}
+
+.agreement-logo{
+  background-image : url(../img/logo_bayres.png);
+  background-repeat : no-repeat;
+  position : relative;
+  margin: auto;
+  width: 700px;
+  height: 200px;
+  top: 50px;
+
+
+}
+
+.agreement-titulo{
+  font-family : "Myriad Pro Bold Condensed";
+  font-size : 50px;
+  position: relative;
+  line-height : 55px;
+  color : rgb(140, 198, 63);
+  margin-top: 100px;
+  margin-left: 25%;
+  margin-right: 25%;
+}
+
+
+
+.agreement-text{
+  font-family : "Myriad Pro";
+  font-size : 15px;
+  position: relative;
+  line-height : 20px;
+  top: 10px;
+  color : white;
+  padding-bottom: 30px;
+  margin-left: 15%;
+  margin-right: 15%;
+  text-align: center;
+
+}
+
+
+.agreement-contenedor {
+  text-align: center;
+  width: 50%;
+  margin: auto;
+
+}
+
+
+
+
+
 .snipet {
   //  height: 100px !important;
   //  width: 200px !important;

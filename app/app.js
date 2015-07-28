@@ -84,6 +84,7 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
     vm.contacto = contacto;
     vm.mapa = mapa;
     vm.getByCategoria = getByCategoria;
+    vm.aceptoAgreement = false;
     vm.detalles = [];
     vm.pass_old = '';
     vm.pass_new = '';
@@ -109,6 +110,7 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
     vm.scrollTo = scrollTo;
 
     $interval(cambiarSlide, 10000);
+
 
     function cambiarSlide(){
         vm.slider_nro = (vm.slider_nro == 4)?vm.slider_nro=1:vm.slider_nro+=1;

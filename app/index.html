@@ -11,7 +11,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Bayres No Problem</title>
-    <link rel="shortcut icon" type="image/x-icon" href="./img/favicon.ico" />
+    <link rel="shortcut icon" type="image/x-icon" href="./img/favicon.ico"/>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="bower_components/html5-boilerplate/css/normalize.css">
@@ -22,7 +22,29 @@
     <link rel="stylesheet" href="stylesheets/ac-parallax.css">
     <script src="bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
 </head>
-<body ng-controller="MainController as mainCtrl" ng-class="{'debug-on':mainCtrl.debug}">
+<body ng-controller="MainController as mainCtrl" ng-class="{'debug-on':mainCtrl.debug}" ng-cloak>
+<div id="agreement-form" ng-if="!mainCtrl.aceptoAgreement">
+
+    <div class="agreement-logo"></div>
+
+    <div class="agreement-titulo">CONDICIONES DE INGRESO A ESTA WEB</div>
+    <h2 class="agreement-text">Para entrar en nuestra web DEBES SER MAYOR DE EDAD. Bayres no problem GrowShop no se hace
+        responsable del uso indebido que se le pueda dar a cualquiera de nuestros productos, que son completamente
+        legales en Argentina.
+        Bayres no problem GrowShop desarrolla su actividad comercial mediante el ofrecimiento virtual de variados
+        productos o articulos de licito comercio en Argentina.
+        Bayres no problem Grow Shop insta a la responsabilidad y diligencia de cada persona sobre los actos propios y en
+        ningun caso invita ni incita a sus clientes a actuar de forma contraria a la ley, solicitando al cliente un uso
+        noble, recto, responsable y diligente de los articulos o productos adquiridos.
+        Si entras a esta web significa que eres MAYOR DE EDAD, que ENTIENDES y ACEPTAS las normas expuestas
+        anteriormente.</h2>
+
+    <div class="agreement-contenedor-boton">
+        <button class="agreement-acepto" ng-click="mainCtrl.aceptoAgreement=true;"></button>
+        <button class="agreement-noacepto" ng-click="mainCtrl.aceptoAgreement=false;"></button>
+    </div>
+</div>
+
 <div id="top">
 
     <div id="login">
@@ -103,7 +125,6 @@
                         </div>
                     </div>
                 </div>
-
 
 
                 <div id="menu-mobile-detail" ng-if="mainCtrl.menu_mobile && mainCtrl.menu_mobile_open">
@@ -427,7 +448,9 @@
                                         <div class="flexcontainer">
                                             <div class="flexcontainer-1">
                                                 <!--button ng-click="mainCtrl.borrarCarrito();" >Borrar</button-->
-                                                <button ng-click="mainCtrl.confirmarCarrito();" class="btn-pedilo">Pedilo!</button>
+                                                <button ng-click="mainCtrl.confirmarCarrito();" class="btn-pedilo">
+                                                    Pedilo!
+                                                </button>
                                             </div>
                                             <div class="flexcontainer-1">
                                                 <div style="float: right;margin-top: 25px;">
@@ -587,7 +610,6 @@
             <div class="slider_4" ng-class="{slider_selected:mainCtrl.slider_nro==4}"
                  ng-click="mainCtrl.slider_nro=4;"></div>
         </div>
-
 
 
     </div>
