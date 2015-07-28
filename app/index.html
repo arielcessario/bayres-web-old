@@ -24,7 +24,7 @@
 </head>
 <body ng-controller="MainController as mainCtrl" ng-class="{'debug-on':mainCtrl.debug}" ng-cloak>
 <div id="agreement-form" ng-if="!mainCtrl.aceptoAgreement">
-
+<div id="agreement-form-container">
     <div class="agreement-logo"></div>
 
     <div class="agreement-titulo">CONDICIONES DE INGRESO A ESTA WEB</div>
@@ -42,6 +42,8 @@
     <div class="agreement-contenedor-boton">
         <button class="agreement-acepto" ng-click="mainCtrl.aceptoAgreement=true;"></button>
         <button class="agreement-noacepto" ng-click="mainCtrl.aceptoAgreement=false;"></button>
+    </div>
+    
     </div>
 </div>
 
