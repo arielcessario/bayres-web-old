@@ -1951,7 +1951,7 @@ body {
 @media (max-width: 600px) {
   /* line 1268, ../sass/classic.scss */
   .title {
-    margin-left: 2% !important;
+    margin-left: 20% !important;
     font-size: 50px !important;
     text-align: left !important;
   }
