@@ -94,6 +94,7 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
     vm.apellidoContacto = '';
     vm.emailContacto = '';
     vm.consulta = '';
+    vm.mapa_sucursal = '';
 
     //Manejo de errores
     vm.message_error = '';

@@ -78,6 +78,14 @@ body {
   z-index: 200000;
   overflow-y: auto;
   overflow-x: hidden;
+  background: rgba(87,84,87,1);
+  background: -moz-linear-gradient(left, rgba(87,84,87,1) 0%, rgba(19,19,19,1) 53%, rgba(71,70,71,1) 100%);
+  background: -webkit-gradient(left top, right top, color-stop(0%, rgba(87,84,87,1)), color-stop(53%, rgba(19,19,19,1)), color-stop(100%, rgba(71,70,71,1)));
+  background: -webkit-linear-gradient(left, rgba(87,84,87,1) 0%, rgba(19,19,19,1) 53%, rgba(71,70,71,1) 100%);
+  background: -o-linear-gradient(left, rgba(87,84,87,1) 0%, rgba(19,19,19,1) 53%, rgba(71,70,71,1) 100%);
+  background: -ms-linear-gradient(left, rgba(87,84,87,1) 0%, rgba(19,19,19,1) 53%, rgba(71,70,71,1) 100%);
+  background: linear-gradient(to right, rgba(87,84,87,1) 0%, rgba(19,19,19,1) 53%, rgba(71,70,71,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#575457', endColorstr='#474647', GradientType=1 );
 }
 
 /* line 23, ../sass/classic.scss */
@@ -122,8 +130,9 @@ body {
 @media (max-width: 360px) {
   /* line 55, ../sass/classic.scss */
   .agreement-logo {
-    max-width: 360px;
-    top: 10px;
+    margin-left: 10%;
+    background-image : url(../img/logo_bayres_mobile.png);
+    background-size: contain;
   }
 }
 
@@ -426,6 +435,7 @@ body {
   border-radius: 12px;
   border: 0px solid;
   margin-top: 30px;
+  margin-bottom: 20px;
   background: #b4ddb4;
   /* Old browsers */
   background: -moz-linear-gradient(top, #b4ddb4 0%, #006200 100%);
@@ -2089,6 +2099,9 @@ body {
 /* line 1418, ../sass/classic.scss */
 .btn-group {
   display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: flex-start;
 }
 
 /* line 1422, ../sass/classic.scss */

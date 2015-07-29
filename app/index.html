@@ -39,9 +39,10 @@
         Si entras a esta web significa que eres MAYOR DE EDAD, que ENTIENDES y ACEPTAS las normas expuestas
         anteriormente.</h2>
 
-    <div class="agreement-contenedor-boton">
-        <button class="agreement-acepto" ng-click="mainCtrl.aceptoAgreement=true;"></button>
-        <button class="agreement-noacepto" ng-click="mainCtrl.aceptoAgreement=false;"></button>
+    <!--div class="agreement-contenedor-boton"-->
+    <div class="botonera" style="margin-bottom: 50px;">
+        <button ng-click="mainCtrl.aceptoAgreement=true;">Acepto</button>
+        <button ng-click="mainCtrl.aceptoAgreement=false;">No Acepto</button>
     </div>
     
     </div>
@@ -192,9 +193,15 @@
                             </div>
                             <div class="column">
                                 <P class="Contacto">UBICACION</P>
-                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6567.573714515767!2d-58.40511206564523!3d-34.60955085287408!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccaede1718eed%3A0x868d2862016aaeb1!2sCastelli+90%2C+C1031AAB+CABA!5e0!3m2!1sen!2sar!4v1436564045842"
-                                        width="80%" height="300" frameborder="0" style="border:0"
-                                        allowfullscreen></iframe>
+                                <div ng-if="mainCtrl.sucursal_contacto == 1">
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3282.9974986791785!2d-58.4648955!3d-34.6295035!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcc9884f572f57%3A0xa1a4f17e040d51c7!2sAv.+Rivadavia+7055%2C+C1406GMA+CABA!5e0!3m2!1ses!2sar!4v1438136409904" width="80%" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+                                </div>
+                                <div ng-if="mainCtrl.sucursal_contacto == 2">
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6567.573714515767!2d-58.40511206564523!3d-34.60955085287408!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccaede1718eed%3A0x868d2862016aaeb1!2sCastelli+90%2C+C1031AAB+CABA!5e0!3m2!1sen!2sar!4v1436564045842" width="80%" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+                                </div>
+                                <div ng-if="mainCtrl.sucursal_contacto == 3">
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3283.3146248123044!2d-58.42345969999999!3d-34.62148869999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcca572cbc037b%3A0x434076afa1e244a9!2sAv.+Independencia+4067%2C+Cdad.+Autonoma+de+Buenos+Aires!5e0!3m2!1ses!2sar!4v1438136879186" width="80%" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+                                </div>
                                 <p>
                                 </p>
                                 <div class="botonera">
@@ -258,7 +265,6 @@
                                     <!--</div>-->
                                     <!--</div>-->
                                     <div class="btn-info-detalle" ng-click="mainCtrl.hideDetails();"></div>
-                                    <div class="btn-face-detalle"></div>
                                 </div>
                             </div>
 
@@ -285,7 +291,6 @@
                                         </button>
                                     </div>
                                     <div class="btn-info" ng-click="mainCtrl.showDetails(destacado);"></div>
-                                    <div class="btn-face"></div>
                                 </div>
                             </div>
                         </div>
@@ -543,7 +548,6 @@
                         </div>
                     </div>
                     <div class="btn-info" ng-click="mainCtrl.showDetailsOferta(mainCtrl.ofertas[0]);"></div>
-                    <div class="btn-face"></div>
                 </div>
             </div>
             <div id="ofertas-container-02" ng-if="mainCtrl.slider_nro == 2;">
@@ -559,7 +563,6 @@
                         </div>
                     </div>
                     <div class="btn-info" ng-click="mainCtrl.showDetailsOferta(mainCtrl.ofertas[1]);"></div>
-                    <div class="btn-face"></div>
                 </div>
             </div>
             <div id="ofertas-container-03" ng-if="mainCtrl.slider_nro == 3;">
@@ -575,7 +578,6 @@
                         </div>
                     </div>
                     <div class="btn-info" ng-click="mainCtrl.showDetailsOferta(mainCtrl.ofertas[2]);"></div>
-                    <div class="btn-face"></div>
                 </div>
             </div>
             <div id="ofertas-container-04" ng-if="mainCtrl.slider_nro == 4;">
@@ -591,7 +593,6 @@
                         </div>
                     </div>
                     <div class="btn-info" ng-click="mainCtrl.showDetailsOferta(mainCtrl.ofertas[3]);"></div>
-                    <div class="btn-face"></div>
                 </div>
             </div>
 
@@ -645,7 +646,6 @@
                                 </button>
                             </div>
                             <div class="btn-info" ng-click="mainCtrl.showDetails(destacado);"></div>
-                            <div class="btn-face"></div>
                         </div>
                     </div>
                 </div>
@@ -680,7 +680,6 @@
                                 </button>
                             </div>
                             <div class="btn-info" ng-click="mainCtrl.showDetails(destacado);"></div>
-                            <div class="btn-face"></div>
                         </div>
                     </div>
                 </div>
