@@ -1402,7 +1402,7 @@ body {
   /* line 753, ../sass/classic.scss */
   #producto_detail .btn-group {
     position: relative !important;
-    float: right;
+    /*float: right;*/
   }
 }
 @media (max-width: 600px) {
@@ -1446,7 +1446,7 @@ body {
 #producto_detail .detail_descripcion {
   display: flex;
   font-size: 14px;
-  height: 295px;
+  height: 280px;
   max-height: 310px;
   overflow-x: hidden;
   margin-top: 10px;
@@ -1494,7 +1494,7 @@ body {
   }
   /* line 850, ../sass/classic.scss */
   #producto_detail .picture_name img {
-    width: 130px;
+    /*width: 130px;*/
     min-height: 170px;
     margin: 10px;
   }
@@ -1745,6 +1745,15 @@ body {
   text-indent: -999px;
   width: 14px;
 }
+@media (max-width: 800px) {
+  #ofertas .slider_1,
+  #ofertas .slider_2,
+  #ofertas .slider_3,
+  #ofertas .slider_4 {
+    left: 38%;
+  }
+}
+
 /* line 960, ../sass/classic.scss */
 #ofertas .slider_2 {
   margin-left: 28px;
@@ -1822,16 +1831,17 @@ body {
 #ofertas #ofertas-container-03 .oferta-titulo,
 #ofertas #ofertas-container-04 .oferta-titulo {
   position: absolute;
-  display: block;
+  /*display: block;
   right: 20%;
-  width: 200px;
-  text-align: left;
+  width: 200px;*/
+  width:50%;
+  text-align: center;
   vertical-align: middle;
-  font-size: 46px;
+  font-size: 60px;
   color: #8CC63F;
   font-family: 'Myriad Pro Bold Condensed', serif;
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.75);
-  top: 1%;
+  top: 8%;
   white-space: nowrap;
 }
 @media (max-width: 800px) {
@@ -1851,12 +1861,12 @@ body {
 #ofertas #ofertas-container-04 p {
   position: absolute;
   text-align: left;
-  width: 350px;
-  top: 15%;
-  right: 2%;
+  width: 250px;
+  top: 30%;
+  right: 7%;
   font-family: 'Myriad Pro Condensed', serif;
   color: #ffffff;
-  font-size: 20px;
+  font-size: 32px;
 }
 @media (max-width: 800px) {
   /* line 1187, ../sass/classic.scss */
@@ -1864,8 +1874,10 @@ body {
   #ofertas #ofertas-container-02 p,
   #ofertas #ofertas-container-03 p,
   #ofertas #ofertas-container-04 p {
-    left: calc(50% - 175px);
+    left: calc(65% - 175px);
     text-align: center;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
   }
 }
 /* line 1202, ../sass/classic.scss */
@@ -1883,7 +1895,7 @@ body {
   #ofertas #ofertas-container-02 .btn-group,
   #ofertas #ofertas-container-03 .btn-group,
   #ofertas #ofertas-container-04 .btn-group {
-    left: calc(50% - 150px);
+    left: calc(40% - 150px);
     width: 100%;
   }
 }

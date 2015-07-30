@@ -539,7 +539,7 @@
                 <img ng-src="./img/{{mainCtrl.ofertas[0].imagen}}" alt="{{mainCtrl.ofertas[0].imagen}}"/>
                 <span class="oferta-titulo">{{mainCtrl.ofertas[0].titulo}}</span>
 
-                <p>{{mainCtrl.ofertas[0].descripcion}}</p>
+                <p>{{mainCtrl.ofertas[0].descripcion.substring(0, 120) + "..."}}</p>
 
                 <div class="btn-group">
                     <div class="btn-comprar" ng-click="mainCtrl.agregarOferta(mainCtrl.ofertas[0])">
@@ -554,7 +554,7 @@
                 <img ng-src="./img/{{mainCtrl.ofertas[1].imagen}}" alt="{{mainCtrl.ofertas[1].imagen}}"/>
                 <span class="oferta-titulo">{{mainCtrl.ofertas[1].titulo}}</span>
 
-                <p>{{mainCtrl.ofertas[1].descripcion}}</p>
+                <p>{{mainCtrl.ofertas[1].descripcion.substring(0, 120) + "..."}}</p>
 
                 <div class="btn-group">
                     <div class="btn-comprar" ng-click="mainCtrl.agregarOferta(mainCtrl.ofertas[1])">
@@ -569,7 +569,7 @@
                 <img ng-src="./img/{{mainCtrl.ofertas[2].imagen}}" alt="{{mainCtrl.ofertas[2].imagen}}"/>
                 <span class="oferta-titulo">{{mainCtrl.ofertas[2].titulo}}</span>
 
-                <p>{{mainCtrl.ofertas[2].descripcion}}</p>
+                <p>{{mainCtrl.ofertas[2].descripcion.substring(0, 120) + "..."}}</p>
 
                 <div class="btn-group">
                     <div class="btn-comprar" ng-click="mainCtrl.agregarOferta(mainCtrl.ofertas[2])">
@@ -584,7 +584,7 @@
                 <img ng-src="./img/{{mainCtrl.ofertas[3].imagen}}" alt="{{mainCtrl.ofertas[3].imagen}}"/>
                 <span class="oferta-titulo">{{mainCtrl.ofertas[3].titulo}}</span>
 
-                <p>{{mainCtrl.ofertas[3].descripcion}}</p>
+                <p>{{mainCtrl.ofertas[3].descripcion.substring(0, 120) + "..."}}</p>
 
                 <div class="btn-group">
                     <div class="btn-comprar" ng-click="mainCtrl.agregarOferta(mainCtrl.ofertas[3])">
