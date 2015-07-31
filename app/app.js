@@ -766,13 +766,16 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
     function agregarOferta(oferta) {
         var prod_oferta = {};
 
-        prod_oferta["producto_id"] = -1;
+        //console.log(oferta);
+        //prod_oferta["producto_id"] = -1;
+        prod_oferta.oferta_id = -1;
         prod_oferta.precios = [];
         var precio = {precio: 0};
         prod_oferta.precios.push(precio);
         prod_oferta.precios[0].precio = oferta.precio;
         prod_oferta.cantidad = 1;
-        prod_oferta.oferta_id = oferta.oferta_id;
+        prod_oferta.oferta_id = -1;
+        prod_oferta.producto_id = oferta.producto_id;
         prod_oferta.nombre = oferta.titulo;
         prod_oferta.descripcion = oferta.descripcion;
         addProducto(prod_oferta);
