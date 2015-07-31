@@ -57,7 +57,7 @@
                         ng-click="mainCtrl.crearCliente();" href="">Registrate</a> o
                     <a ng-click="mainCtrl.ingresarCliente();" href="">Ingresá a tu
                         cuenta</a>
-                    <button ng-click="mainCtrl.debug = !mainCtrl.debug">debug</button>
+                    <!--button-- ng-click="mainCtrl.debug = !mainCtrl.debug">debug</button-->
                 </div>
                 <div ng-if="mainCtrl.user_is_logged">Bienvenido {{mainCtrl.cliente.nombre}}! <a
                         ng-click="mainCtrl.logout()"
@@ -124,7 +124,9 @@
                     <div ng-repeat="categoria in mainCtrl.categorias">
                         <div class="menu-subcategoria">
                             <div ng-click="mainCtrl.getByCategoria(categoria.categoria_id);">{{categoria.nombre}}</div>
-                            <div ng-repeat="subcategoria in categoria.subcategorias">{{subcategoria.nombre}}</div>
+                            <div ng-repeat="subcategoria in categoria.subcategorias">
+                                <spam class="subcategoria">{{subcategoria.nombre}}</spam>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -139,7 +141,9 @@
                     <div class="margin-top">CATEGORIAS:</div>
                     <div ng-repeat="categoria in mainCtrl.categorias" class="sub-categoria">
                         <div ng-click="mainCtrl.getByCategoria(categoria.categoria_id);">{{categoria.nombre}}</div>
-                        <div ng-repeat="subcategoria in categoria.subcategorias">{{subcategoria.nombre}}</div>
+                        <div ng-repeat="subcategoria in categoria.subcategorias">
+                            <spam class="subcategoria">{{subcategoria.nombre}}</spam>
+                        </div>
                     </div>
                 </div>
                 <div id="courtain" ng-if="mainCtrl.menu_mobile && mainCtrl.menu_mobile_open"></div>
@@ -738,8 +742,12 @@
                         <div>
                             <div class="footer-lower-title">REDES SOCIALES</div>
                             <br/>
-                            <img src="img/social_01.png" alt="facebook" ng-click=""/>
-                            <img src="img/social_02.png" alt="twitter"/>
+                            <a href="https://www.facebook.com/pages/Bayres-No-Problem-Grow-Shop/501719106529294">
+                                <img src="img/social_01.png" alt="facebook"/>
+                            </a>
+                            <a href="https://twitter.com/bayresnoproblem">
+                                <img src="img/social_02.png" alt="twitter"/>
+                            </a>
                         </div>
                     </div>
                 </div>

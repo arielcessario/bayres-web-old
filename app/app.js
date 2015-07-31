@@ -583,7 +583,8 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
         LoginService.login(vm.mail.trim(), vm.password.trim(), function (data) {
             if (data[0].nombre != null && data[0].nombre.trim().length > 0) {
                 //vm.active_form = 'carrito';
-                $location.path('/commerce/carrito');
+                //$location.path('/commerce/carrito');
+                $location.path('/commerce/main');
                 //vm.nombre = data[0].nombre;
                 vm.user_is_logged = true;
                 vm.cliente = data[0];
