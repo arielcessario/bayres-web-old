@@ -366,7 +366,7 @@ body {
 }
 /* line 318, ../sass/style.scss */
 #sucursales #sucursales-06 {
-  background: url("../img/sucursales_06.png") 50% 50% no-repeat;
+  /*background: url("../img/sucursales_06.png") 50% 50% no-repeat;*/
 }
 
 /* line 324, ../sass/style.scss */
@@ -410,15 +410,15 @@ body {
 }
 /* line 369, ../sass/style.scss */
 #tierra #tierra_04 {
-  background: url("../img/tierra_04.jpg") 50% 0% no-repeat;
+  /*background: url("../img/tierra_04.jpg") 50% 0% no-repeat;*/
 }
 /* line 372, ../sass/style.scss */
 #tierra #tierra_03 {
-  background: url("../img/tierra_03.png") 50% 50% no-repeat;
+  /*background: url("../img/tierra_03.png") 50% 50% no-repeat;*/
 }
 /* line 375, ../sass/style.scss */
 #tierra #tierra_02 {
-  background: url("../img/tierra_02.png") 50% 50% no-repeat;
+  /*background: url("../img/tierra_02.png") 50% 50% no-repeat;*/
 }
 /* line 378, ../sass/style.scss */
 #tierra #tierra_01 {
@@ -443,15 +443,15 @@ body {
 }
 /* line 419, ../sass/style.scss */
 #destacados #destacados_04 {
-  background: url("../img/destacados_04.jpg") 50% 0% no-repeat;
+  /*background: url("../img/destacados_04.jpg") 50% 0% no-repeat;*/
 }
 /* line 422, ../sass/style.scss */
 #destacados #destacados_03 {
-  background: url("../img/destacados_03.png") 50% 50% no-repeat;
+  /*background: url("../img/destacados_03.png") 50% 50% no-repeat;*/
 }
 /* line 425, ../sass/style.scss */
 #destacados #destacados_02 {
-  background: url("../img/destacados_02.png") 50% 50% no-repeat;
+  /*background: url("../img/destacados_02.png") 50% 50% no-repeat;*/
 }
 /* line 428, ../sass/style.scss */
 #destacados #destacados_01 {
@@ -501,7 +501,7 @@ body {
 }
 /* line 501, ../sass/style.scss */
 #caverna #lava_06 {
-  background: url("../img/lava_06.png") 50% 0% no-repeat;
+  /*background: url("../img/lava_06.png") 50% 0% no-repeat;*/
 }
 /* line 504, ../sass/style.scss */
 #caverna #lava_05 {

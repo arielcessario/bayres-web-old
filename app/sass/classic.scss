@@ -1824,7 +1824,7 @@ body {
   width: 100%;
   overflow-x: auto;
   overflow-y: hidden;
-  background: #000000 url("../img/footer_01.png") 50% 50% no-repeat;
+  //background: #000000 url("../img/footer_01.png") 50% 50% no-repeat;
   font-family: 'Myriad Pro Bold Condensed', serif;
 
   .footer-outer {
@@ -2210,4 +2210,12 @@ body {
 .subcategoria {
   font-size: 16px;
   margin-left: 15px;
+}
+
+#contacto-volver{
+  display: none;
+
+  @media (max-width: 600px) {
+    display: inline;
+  }
 }

@@ -2506,7 +2506,7 @@ body {
   width: 100%;
   overflow-x: auto;
   overflow-y: hidden;
-  background: #000000 url("../img/footer_01.png") 50% 50% no-repeat;
+  /*background: #000000 url("../img/footer_01.png") 50% 50% no-repeat;*/
   font-family: 'Myriad Pro Bold Condensed', serif;
 }
 /* line 1807, ../sass/classic.scss */
@@ -2870,4 +2870,14 @@ body {
 .subcategoria {
   font-size: 16px;
   margin-left: 15px;
+}
+
+#contacto-volver {
+    display: none;
+}
+
+@media (max-width: 360px) {
+    #contacto-volver {
+        display: inline;
+    }
 }

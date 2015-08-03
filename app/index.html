@@ -191,7 +191,7 @@
 
                                 <div class="botonera">
                                     <button ng-click="mainCtrl.enviarConsulta();">Enviar Mail</button>
-                                    <button ng-click="mainCtrl.inicio();">Volver</button>
+                                    <button ng-click="mainCtrl.inicio();" id="contacto-volver">Volver</button>
                                 </div>
                                 <div ng-if="mainCtrl.contacto_enviado == '1'" class="mensaje">{{mainCtrl.message_error}}</div>
                             </div>
@@ -225,11 +225,9 @@
         <div id="menu-container">
             <div class="outer-center">
                 <div class="inner-center search-box">
-                    <span>Buscar</span>
-
                     <div>
                         <input ng-model="mainCtrl.search" type="text"
-                               ng-change="mainCtrl.searchByName();"/>
+                               ng-change="mainCtrl.searchByName();" placeholder="Buscar..."/>
                         <span class="clear" ng-click="mainCtrl.search=''; mainCtrl.active_form = 'main';">x</span>
                     </div>
 
