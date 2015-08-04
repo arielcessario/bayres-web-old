@@ -811,11 +811,11 @@ body {
   .detail_descripcion {
     display: flex;
     font-size: 14px;
-    height: 280px;
+    height: 270px;
     max-height: 310px;
     overflow-x: hidden;
     //    flex: 1;
-    margin-top: 10px;
+    margin-top: 35px;
     //width: 420px;
     max-width: 550px;
     margin-bottom: 10px;
@@ -885,7 +885,8 @@ body {
         */
         display: block;
         margin-left: auto;
-        margin-right: auto
+        margin-right: auto;
+        width: 180px;
       }
 
       div {
@@ -1473,8 +1474,8 @@ body {
 
 .btn-close-detalle {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 2px;
+  right: 7px;
   background: url("../img/close.png") 50% 50% no-repeat;
   background-size: 90%;
   width: 30px;

@@ -57,6 +57,8 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
     vm.finalizarCompra = finalizarCompra;
     vm.comprar = comprar;
     vm.cuenta = cuenta;
+    vm.carritoCompras = carritoCompras;
+    vm.mostrarCategorias = mostrarCategorias;
     vm.modificarPass = modificarPass;
     vm.ingresar = ingresar;
     vm.nuevoCliente = nuevoCliente;
@@ -95,6 +97,7 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
     vm.emailContacto = '';
     vm.consulta = '';
     vm.mapa_sucursal = '';
+    vm.menu_selected = '';
 
     //Manejo de errores
     vm.message_error = '';
@@ -120,7 +123,7 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
 
 
     acAngularCategoriasService.getCategorias(function(data){
-        //console.log(data);
+        console.log(data);
         vm.categorias = data;
     });
 
@@ -231,6 +234,7 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
     });
 
     function contacto(sucursal_id) {
+        vm.menu_selected = 'contacto';
         vm.sucursal_contacto = sucursal_id;
         scrollTo(0);
         //document.getElementById("parallax").scrollTop = 0;
@@ -263,6 +267,7 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
     }
 
     function inicio() {
+        vm.menu_selected = 'inicio';
         scrollTo(0);
         //document.getElementById("parallax").scrollTop = 0;
         //vm.active_form = 'main';
@@ -499,11 +504,9 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
     }
 
     function finalizarCompra() {
-
         var envio_retira = (vm.tipo == 0) ? vm.envios : vm.sucursal.nombre;
 
         var ret_comprar = acAngularCarritoServiceAcciones.comprar(envio_retira, function (data) {
-
 
             vm.compraTerminada = true;
             $timeout(function () {
@@ -632,7 +635,17 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
             });
     }
 
-    function comprar() {
+    function carritoCompras() {
+        vm.menu_selected = 'compras';
+    }
+
+    function mostrarCategorias() {
+        vm.menu_selected = 'categorias';
+        vm.showCategorias = !vm.showCategorias;
+    }
+
+    function comprar(opcion) {
+        vm.menu_selected = opcion;
 
         scrollTo(636);
         //document.getElementById("parallax").scrollTop = 636;
@@ -650,12 +663,12 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
         //} else {
         //    vm.active_form = 'carrito';
         //}
-
         if(vm.showCategorias)
             vm.showCategorias = false;
     }
 
     function cuenta() {
+        vm.menu_selected = 'cuenta';
         inicializarVariables();
 
         scrollTo(636);

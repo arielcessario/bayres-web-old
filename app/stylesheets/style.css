@@ -187,8 +187,8 @@ body {
   background-color: darkgreen;
 }
 /* line 121, ../sass/style.scss */
-#top #shop .shop-menu #menu-home:active, #top #shop .shop-menu #menu-categorias:active, #top #shop .shop-menu #menu-contacto:active, #top #shop .shop-menu #menu-carrito:active, #top #shop .shop-menu #menu-account:active, #top #shop .shop-menu #menu-checkout:active, #top #shop .shop-menu #menu-detalle:active {
-  background-color: red;
+#top #shop .shop-menu .selected {
+  background-color: darkgreen !important;
 }
 /* line 124, ../sass/style.scss */
 #top #shop .shop-menu #menu-home {

@@ -118,8 +118,8 @@ body {
       #menu-home:hover, #menu-categorias:hover, #menu-contacto:hover, #menu-carrito:hover, #menu-account:hover, #menu-checkout:hover, #menu-detalle:hover {
         background-color:darkgreen;
       }
-      #menu-home:active, #menu-categorias:active, #menu-contacto:active, #menu-carrito:active, #menu-account:active, #menu-checkout:active, #menu-detalle:active {
-        background-color:red;
+      .selected {
+        background-color:darkgreen !important;
       }
       #menu-home {
         max-height: 50px;

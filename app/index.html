@@ -87,25 +87,32 @@
                 </div>
 
                 <div ng-if="!mainCtrl.menu_mobile" id="menu-spacer"></div>
-                <div ng-if="!mainCtrl.menu_mobile" id="menu-home" ng-click="mainCtrl.inicio();">
-                    <div><img src="img/home.png" alt="compras"/></div>
+                <div ng-if="!mainCtrl.menu_mobile" id="menu-home" ng-click="mainCtrl.inicio();"
+                     ng-class="{'selected':mainCtrl.menu_selected == 'inicio'}">
+                    <div><img src="img/home.png" alt="Inicio"/></div>
                 </div>
                 <div ng-if="!mainCtrl.menu_mobile" id="menu-categorias"
                      ng-init="mainCtrl.showCategorias = false"
-                     ng-click="mainCtrl.showCategorias = !mainCtrl.showCategorias;">
+                     ng-click="mainCtrl.mostrarCategorias();"
+                     ng-class="{'selected':mainCtrl.menu_selected == 'categorias'}"   >
+                     <!--ng-click="mainCtrl.showCategorias = !mainCtrl.showCategorias;"-->
                     <span>Categorias</span>
                     <img src="img/categorias.png" height="20" style="margin-top: 3px"/>
                 </div>
-                <div ng-if="!mainCtrl.menu_mobile" id="menu-carrito" ng-click="mainCtrl.comprar();">
+                <div ng-if="!mainCtrl.menu_mobile" id="menu-carrito" ng-click="mainCtrl.comprar('carrito');"
+                     ng-class="{'selected':mainCtrl.menu_selected == 'carrito'}">
                     <span>Mi Carrito</span>
                 </div>
-                <div ng-if="!mainCtrl.menu_mobile" id="menu-account" ng-click="mainCtrl.cuenta();">
+                <div ng-if="!mainCtrl.menu_mobile" id="menu-account" ng-click="mainCtrl.cuenta();"
+                     ng-class="{'selected':mainCtrl.menu_selected == 'cuenta'}">
                     <span>Mi Cuenta</span>
                 </div>
-                <div ng-if="!mainCtrl.menu_mobile" id="menu-checkout" ng-click="mainCtrl.comprar();">
+                <div ng-if="!mainCtrl.menu_mobile" id="menu-checkout" ng-click="mainCtrl.comprar('finalizar');"
+                     ng-class="{'selected':mainCtrl.menu_selected == 'finalizar'}">
                     <span>Finalizar Compra</span>
                 </div>
-                <div id="menu-detalle">
+                <div id="menu-detalle" ng-click="mainCtrl.carritoCompras();"
+                     ng-class="{'selected':mainCtrl.menu_selected == 'compras'}">
                     <div class="detalle-compras"><img src="img/cart.png" alt="compras"/>
                         <span>Compras</span>
                     </div>
@@ -113,7 +120,8 @@
                         <ac-angular-carrito snipet="true" class="snipet"></ac-angular-carrito>
                     </div>
                 </div>
-                <div ng-if="!mainCtrl.menu_mobile" id="menu-contacto" >
+                <div ng-if="!mainCtrl.menu_mobile" id="menu-contacto"
+                     ng-class="{'selected':mainCtrl.menu_selected == 'contacto'}">
                     <span>Contacto</span>
                     <div class="centrar-sucursales">
                         <a  href="" title="Sucursal Flores" ng-click="mainCtrl.contacto(1);">
@@ -329,7 +337,7 @@
                                type="text"/>
                         <!--<input ng-model="mainCtrl.mail" placeholder="Mail" type="text"/>-->
                         <input ng-if="mainCtrl.creaCliente"
-                               ng-model="mainCtrl.fecha_nacimiento" placeholder="Fecha de Nacimiento" type="text"/>
+                               ng-model="mainCtrl.fecha_nacimiento" placeholder="Fecha de Nacimiento (dd/mm/aaaa)" type="text"/>
                         <input ng-if="mainCtrl.creaCliente" ng-model="mainCtrl.telefono"
                                placeholder="Telefono" type="text"/>
                         <input ng-if="mainCtrl.creaCliente" ng-model="mainCtrl.direccion"
