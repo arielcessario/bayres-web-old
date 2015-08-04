@@ -539,63 +539,104 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
         $location.path('/commerce/main');
     }
 
+    function validarFormatoFecha(campo) {
+        var RegExPattern = /^\d{1,2}\/\d{1,2}\/\d{2,4}$/;
+        if ((campo.match(RegExPattern)) && (campo!='')) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     function nuevoCliente() {
         vm.message_error = '';
-        vm.usuario_creado = 0;
+        //vm.usuario_creado = 0;
+        vm.usuario_creado = -1;
+
         scrollTo(636);
         //document.getElementById("parallax").scrollTop = 636;
 
-        LoginService.existeCliente(vm.mail, function (data) {
+        if(vm.nombre === undefined) {
+            vm.message_error = "El Nombre es Obligatorio";
+        }else if(vm.nombre.trim().length == 0) {
+            vm.message_error = "El Nombre es Obligatorio";
+        }else if(vm.apellido === undefined) {
+            vm.message_error = "El Apellido es Obligatorio";
+        }else if(vm.apellido.trim().length == 0) {
+            vm.message_error = "El Apellido es Obligatorio";
+        }else if(vm.fecha_nacimiento === undefined) {
+            vm.message_error = "La Fecha de Nacimiento es Obligatoria";
+        }else if(vm.fecha_nacimiento.trim().length == 0) {
+            vm.message_error = "La Fecha de Nacimiento es Obligatoria";
+        }else if(!validarFormatoFecha(vm.fecha_nacimiento)) {
+            vm.message_error = "La Fecha de Nacimiento no tiene el formato correcto dd/mm/aaaa";
+        }else if(vm.telefono === undefined) {
+            vm.message_error = "El Teléfono es Obligatorio";
+        }else if(vm.telefono.trim().length == 0) {
+            vm.message_error = "El Teléfono es Obligatorio";
+        }else if(vm.direccion === undefined) {
+            vm.message_error = "La Dirección es Oblicatoria";
+        }else if(vm.direccion.trim().length == 0) {
+            vm.message_error = "La Dirección es Oblicatoria";
+        }else if(vm.mail === undefined) {
+            vm.message_error = "El Mail es Obligatorio";
+        }else if(vm.mail.trim().length == 0) {
+            vm.message_error = "El Mail es Obligatorio";
+        }else if(vm.mail_repeat === undefined) {
+            vm.message_error = "Debe Repetir el mismo mail";
+        }else if(vm.mail_repeat.trim().length == 0) {
+            vm.message_error = "Debe Repetir el mismo mail";
+        }else if(vm.password === undefined) {
+            vm.message_error = "La Contraseña es Obligatoria";
+        }else if(vm.password.trim().length == 0) {
+            vm.message_error = "La Contraseña es Obligatoria";
+        }else if (!ValidateEmail(vm.mail.trim())) {
+            vm.message_error = "El mail ingresado no es valido";
+        }else if (!ValidateEmail(vm.mail_repeat.trim())) {
+            vm.message_error = "El segundo mail ingresado no es valido";
+        }else {
+            LoginService.existeCliente(vm.mail, function (data) {
+                if (data == 'true') {
+                    vm.message_error = 'El mail ya se encuentra en uso. En caso de no recordar la contraseña, solicitela a través de la página.';
+                    vm.usuario_creado = -1;
+                    return;
+                }
 
-            if (data == 'true') {
+                if (vm.mail.trim().length > 0 && vm.mail_repeat.trim().length > 0) {
+                    if (vm.mail.trim() === vm.mail_repeat.trim()) {
+                        //console.log('llamando al create');
+                        LoginService.create(vm.nombre, vm.apellido, vm.mail, vm.password, vm.fecha_nacimiento,
+                            vm.telefono, vm.direccion, function (data) {
+                                if (data == 'true') {
+                                    ingresar();
 
-                vm.message_error = 'El mail ya se encuentra en uso. En caso de no recordar la contraseña, solicitela a través de la página.';
-                vm.usuario_creado = -1;
-                return;
-            }
-
-
-            if (vm.mail.trim().length > 0 && vm.mail_repeat.trim().length > 0) {
-                if (vm.mail.trim() === vm.mail_repeat.trim()) {
-                    //console.log('llamando al create');
-                    LoginService.create(vm.nombre, vm.apellido, vm.mail, vm.password, vm.fecha_nacimiento,
-                        vm.telefono, vm.direccion, function (data) {
-                            if (data == 'true') {
-                                //vm.active_form = 'main';
-
-                                ingresar();
-
-                                $location.path('/commerce/main');
-                                vm.nombre = '';
-                                vm.apellido = '';
-                                vm.mail = '';
-                                vm.password = '';
-                                vm.fecha_nacimiento = '';
-                                vm.telefono = '';
-                                vm.direccion = '';
-                                vm.mail_repeat = '';
-
-
-                            }
-                            else {
-                                vm.message_error = 'Ocurrio un error creando el usuario';
-                                vm.usuario_creado = -1;
-                            }
-                        });
+                                    $location.path('/commerce/main');
+                                    vm.nombre = '';
+                                    vm.apellido = '';
+                                    vm.mail = '';
+                                    vm.password = '';
+                                    vm.fecha_nacimiento = '';
+                                    vm.telefono = '';
+                                    vm.direccion = '';
+                                    vm.mail_repeat = '';
+                                }
+                                else {
+                                    vm.message_error = 'Ocurrio un error creando el usuario';
+                                    //vm.usuario_creado = -1;
+                                }
+                            });
+                    }
+                    else {
+                        vm.message_error = 'Los correos deben ser iguales';
+                        //vm.usuario_creado = -1;
+                    }
                 }
                 else {
-                    vm.message_error = 'Los correos deben ser iguales';
-                    vm.usuario_creado = -1;
+                    vm.message_error = 'Los correos son obligatorios';
+                    //vm.usuario_creado = -1;
                 }
-            }
-            else {
-                vm.message_error = 'Los correos son obligatorios';
-                vm.usuario_creado = -1;
-            }
-
-        });
-
-
+            });
+        }
     }
 
     function ingresar() {

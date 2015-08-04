@@ -2898,3 +2898,12 @@ body {
     display: inline;
   }
 }
+
+/* line 2245, ../sass/classic.scss */
+.mensaje-error {
+  color: #8CC63F;
+  font-size: 28px;
+  margin-bottom: 15px;
+  text-align: center;
+  padding: 0 5%;
+}
