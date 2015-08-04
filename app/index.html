@@ -270,7 +270,7 @@
                                 </div>
                                 <div class="btn-group" style="position: absolute; right: 0%;">
                                     <!--div class="spacer"></div-->
-                                    <div class="btn-comprar-detalle"
+                                    <div class="btn-comprar-detalle detalle"
                                          ng-click="mainCtrl.agregarProducto(mainCtrl.detalle)">
                                         <div class="btn-comprar-position" style="margin-right:40px">
                                             <span style="color:red;">$ </span>{{mainCtrl.detalle.precios[0].precio}}
@@ -282,11 +282,12 @@
                                     <!--<span style="color:red;">$ </span>{{mainCtrl.detalle.precios[0].precio}}-->
                                     <!--</div>-->
                                     <!--</div>-->
-                                    <div class="btn-info-detalle" ng-click="mainCtrl.hideDetails();"></div>
+
                                 </div>
                             </div>
 
                         </div>
+                        <div class="btn-close-detalle" ng-click="mainCtrl.hideDetails();"></div>
                     </div>
                 </div>
 

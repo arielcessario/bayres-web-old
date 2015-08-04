@@ -1471,6 +1471,21 @@ body {
   cursor: pointer;
 }
 
+.btn-close-detalle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: url("../img/close.png") 50% 50% no-repeat;
+  background-size: 90%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  @media (max-width: 600px) {
+    top: 5px;
+    right: 5px;
+  }
+}
+
 .btn-info-detalle:hover {
   background: url("../img/info_2b.png") 50% 50% no-repeat;
   background-size: 90%;
@@ -1481,6 +1496,7 @@ body {
 }
 
 .btn-face {
+
   //background: url("../img/face.png") 50% 50% no-repeat;
   background: url("../img/face_2.png") 50% 50% no-repeat;
   width: 40px;
@@ -1507,6 +1523,11 @@ body {
   font-size: 26px;
   text-shadow: 0px 0px 2px #111111;
   color: #ffffff;
+
+}
+
+.detalle{
+  margin-right: 60px !important;
 }
 
 .btn-comprar {
