@@ -133,6 +133,9 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
             if(vm.menu_mobile_open)
                 vm.menu_mobile_open = false;
         })
+
+        if(vm.showCategorias)
+            vm.showCategorias = false;
     }
 
 
@@ -234,6 +237,12 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
         //vm.active_form = 'main';
         $location.path('/commerce/contact');
 
+        if(vm.showCategorias)
+            vm.showCategorias = false;
+
+        if(vm.menu_mobile_open)
+            vm.menu_mobile_open = false;
+
         inicializarVariables();
         limpiarDatosContacto();
     }
@@ -260,6 +269,9 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
         $location.path('/commerce/main');
         if(vm.menu_mobile_open)
             vm.menu_mobile_open = false;
+
+        if(vm.showCategorias)
+            vm.showCategorias = false;
     }
 
     function destacadosForm() {
@@ -299,6 +311,9 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
         $location.path('/commerce/login');
         vm.creaCliente = false;
         //document.getElementById("parallax").scrollTop = 636;
+
+        if(vm.showCategorias)
+            vm.showCategorias = false;
     }
 
     function crearCliente() {
@@ -308,6 +323,9 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
         vm.creaCliente = true;
         scrollTo(636);
         //document.getElementById("parallax").scrollTop = 636;
+
+        if(vm.showCategorias)
+            vm.showCategorias = false;
     }
 
     function modificarPass() {
@@ -632,6 +650,9 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
         //} else {
         //    vm.active_form = 'carrito';
         //}
+
+        if(vm.showCategorias)
+            vm.showCategorias = false;
     }
 
     function cuenta() {
@@ -648,6 +669,9 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
         }
         if(vm.menu_mobile_open)
             vm.menu_mobile_open = false;
+
+        if(vm.showCategorias)
+            vm.showCategorias = false;
     }
 
     function showDetailsOferta(oferta) {

@@ -109,34 +109,50 @@ body {
         color: #fff;
         margin-left: 0;
       }
+      #menu-home, #menu-categorias, #menu-contacto, #menu-carrito, #menu-account, #menu-checkout, #menu-detalle {
+        background-color:darkgrey;
+        color:#fff;
+        border-left: 1px solid #fff;
+        cursor: pointer;
+      }
+      #menu-home:hover, #menu-categorias:hover, #menu-contacto:hover, #menu-carrito:hover, #menu-account:hover, #menu-checkout:hover, #menu-detalle:hover {
+        background-color:darkgreen;
+      }
       #menu-home {
         max-height: 50px;
-        background-color: #305139;
+        //background-color: #305139;
         padding-left: 5px;
         padding-right: 5px;
-        cursor: pointer;
         flex: 1;
         line-height: 60px;
         text-align: center;
         min-width: 45px;
       }
-      #menu-categorias{
-        background-color: #006200;
-        max-height: 40px;
+      #menu-categorias, #menu-contacto{
+        //background-color: #006200;
+        max-height: 45px;
         min-width: 68px;
-        padding: 10px 5px 0 5px;
+        padding: 5px 5px 0 5px;
         display: flex;
         flex-direction: column;
-        cursor: pointer;
         flex: 1;
-        color: #ffff00;
+        //color: #ffff00;
+      }
+      #menu-contacto {
+        min-width: 60px;
+        border-right: 1px solid #fff;
+        //background-color: #D6D6D6;
+        //color:#222;
+      }
+      .centrar-sucursales {
+        justify-content: center;
+        margin: 0 auto;
       }
       #menu-carrito {
         max-height: 50px;
-        background-color: #D6D6D6;
+        //background-color: #D6D6D6;
         padding-left: 5px;
         padding-right: 5px;
-        cursor: pointer;
         flex: 1;
         line-height: 60px;
         text-align: center;
@@ -144,22 +160,20 @@ body {
       }
       #menu-account {
         max-height: 50px;
-        background-color: #2E7445;
+        //background-color: #2E7445;
         padding-left: 5px;
         padding-right: 5px;
-        cursor: pointer;
         flex: 1;
         line-height: 60px;
         text-align: center;
-        color: #ffffff;
+        //color: #ffffff;
         min-width: 45px;
       }
       #menu-checkout {
         max-height: 50px;
-        background-color: #D6D6D6;
+        //background-color: #D6D6D6;
         padding-left: 5px;
         padding-right: 5px;
-        cursor: pointer;
         flex: 1;
         line-height: 60px;
         text-align: center;
@@ -168,14 +182,13 @@ body {
       #menu-detalle {
         max-height: 50px;
         min-width: 68px;
-        background-color: #005B16;
+        //background-color: #005B16;
         padding-left: 5px;
         padding-right: 5px;
         display: flex;
         flex-direction: column;
-        cursor: pointer;
         flex: 1;
-        color: #ffffff;
+        //color: #ffffff;
 
         img {
           max-width: 20px;

@@ -112,7 +112,20 @@
                     <div id="menu-detalle-bottom">
                         <ac-angular-carrito snipet="true" class="snipet"></ac-angular-carrito>
                     </div>
-
+                </div>
+                <div ng-if="!mainCtrl.menu_mobile" id="menu-contacto" >
+                    <span>Contacto</span>
+                    <div class="centrar-sucursales">
+                        <a  href="" title="Sucursal Flores" ng-click="mainCtrl.contacto(1);">
+                            <img src="img/icono_suc01.png" height="15" width="15" style="margin-top: 3px"/>
+                        </a>
+                        <a  href="" title="Sucursal Once" ng-click="mainCtrl.contacto(2);">
+                            <img src="img/icono_suc02.png" height="15" width="15" style="margin-top: 3px"/>
+                        </a>
+                        <a  href="" title="Sucursal Almagro" ng-click="mainCtrl.contacto(3);">
+                            <img src="img/icono_suc03.png" height="15" width="15" style="margin-top: 3px"/>
+                        </a>
+                    </div>
                 </div>
                 <div ng-if="mainCtrl.showCategorias" id="menu-categorias-detalle">
                     <div class="menu-categoria">
@@ -138,6 +151,9 @@
                     <div ng-click="mainCtrl.comprar();">Mi Carrito</div>
                     <div ng-click="mainCtrl.cuenta();">Mi Cuenta</div>
                     <div ng-click="mainCtrl.comprar();">Finalizar Compra</div>
+                    <div ng-click="mainCtrl.contacto(1);">Contacto Flores</div>
+                    <div ng-click="mainCtrl.contacto(2);">Contacto Once</div>
+                    <div ng-click="mainCtrl.contacto(3);">Contacto Almagro</div>
                     <div class="margin-top">CATEGORIAS:</div>
                     <div ng-repeat="categoria in mainCtrl.categorias" class="sub-categoria">
                         <div ng-click="mainCtrl.getByCategoria(categoria.categoria_id);">{{categoria.nombre}}</div>
@@ -161,9 +177,9 @@
         <div id="sucursales-03" class="parallax__layer parallax__layer--deeper-3"></div>
         <div id="sucursales-02" class="parallax__layer parallax__layer--deeper-2"></div>
         <div id="sucursales-01" class="parallax__layer "></div>
-        <div id="contacto-sucursal-03" ng-click="mainCtrl.contacto(3);"></div>
+        <!--div id="contacto-sucursal-03" ng-click="mainCtrl.contacto(3);"></div>
         <div id="contacto-sucursal-02" ng-click="mainCtrl.contacto(2);"></div>
-        <div id="contacto-sucursal-01" ng-click="mainCtrl.contacto(1);"></div>
+        <div-- id="contacto-sucursal-01" ng-click="mainCtrl.contacto(1);"></div-->
 
         <div id="contact-detail" ng-if="mainCtrl.active_form == 'contact';" class="outer-center">
             <div class="contenedor inner-center">

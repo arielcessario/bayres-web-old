@@ -176,148 +176,154 @@ body {
   margin-left: 0;
 }
 /* line 112, ../sass/style.scss */
+#top #shop .shop-menu #menu-home, #top #shop .shop-menu #menu-categorias, #top #shop .shop-menu #menu-contacto, #top #shop .shop-menu #menu-carrito, #top #shop .shop-menu #menu-account, #top #shop .shop-menu #menu-checkout, #top #shop .shop-menu #menu-detalle {
+  background-color: darkgrey;
+  color: #fff;
+  border-left: 1px solid #fff;
+  cursor: pointer;
+}
+/* line 118, ../sass/style.scss */
+#top #shop .shop-menu #menu-home:hover, #top #shop .shop-menu #menu-categorias:hover, #top #shop .shop-menu #menu-contacto:hover, #top #shop .shop-menu #menu-carrito:hover, #top #shop .shop-menu #menu-account:hover, #top #shop .shop-menu #menu-checkout:hover, #top #shop .shop-menu #menu-detalle:hover {
+  background-color: darkgreen;
+}
+/* line 121, ../sass/style.scss */
 #top #shop .shop-menu #menu-home {
   max-height: 50px;
-  background-color: #305139;
   padding-left: 5px;
   padding-right: 5px;
-  cursor: pointer;
   flex: 1;
   line-height: 60px;
   text-align: center;
   min-width: 45px;
 }
-/* line 123, ../sass/style.scss */
-#top #shop .shop-menu #menu-categorias {
-  background-color: #006200;
-  max-height: 46px;
+/* line 131, ../sass/style.scss */
+#top #shop .shop-menu #menu-categorias, #top #shop .shop-menu #menu-contacto {
+  max-height: 45px;
   min-width: 68px;
-  padding: 4px 5px 0 5px;
+  padding: 5px 5px 0 5px;
   display: flex;
   flex-direction: column;
-  cursor: pointer;
   flex: 1;
-  color: #ffff00;
 }
-/* line 134, ../sass/style.scss */
+/* line 141, ../sass/style.scss */
+#top #shop .shop-menu #menu-contacto {
+  min-width: 60px;
+  border-right: 1px solid #fff;
+}
+/* line 147, ../sass/style.scss */
+#top #shop .shop-menu .centrar-sucursales {
+  justify-content: center;
+  margin: 0 auto;
+}
+/* line 151, ../sass/style.scss */
 #top #shop .shop-menu #menu-carrito {
   max-height: 50px;
-  background-color: #D6D6D6;
   padding-left: 5px;
   padding-right: 5px;
-  cursor: pointer;
   flex: 1;
   line-height: 60px;
   text-align: center;
   min-width: 45px;
 }
-/* line 145, ../sass/style.scss */
+/* line 161, ../sass/style.scss */
 #top #shop .shop-menu #menu-account {
   max-height: 50px;
-  background-color: #2E7445;
   padding-left: 5px;
   padding-right: 5px;
-  cursor: pointer;
   flex: 1;
   line-height: 60px;
   text-align: center;
-  color: #ffffff;
   min-width: 45px;
 }
-/* line 157, ../sass/style.scss */
+/* line 172, ../sass/style.scss */
 #top #shop .shop-menu #menu-checkout {
   max-height: 50px;
-  background-color: #D6D6D6;
   padding-left: 5px;
   padding-right: 5px;
-  cursor: pointer;
   flex: 1;
   line-height: 60px;
   text-align: center;
   min-width: 45px;
 }
-/* line 168, ../sass/style.scss */
+/* line 182, ../sass/style.scss */
 #top #shop .shop-menu #menu-detalle {
   max-height: 50px;
   min-width: 68px;
-  background-color: #005B16;
   padding-left: 5px;
   padding-right: 5px;
   display: flex;
   flex-direction: column;
-  cursor: pointer;
   flex: 1;
-  color: #ffffff;
 }
-/* line 180, ../sass/style.scss */
+/* line 193, ../sass/style.scss */
 #top #shop .shop-menu #menu-detalle img {
   max-width: 20px;
 }
-/* line 185, ../sass/style.scss */
+/* line 198, ../sass/style.scss */
 #top #shop .shop-menu #menu-detalle .detalle-compras {
   display: flex;
   flex-wrap: nowrap;
   max-width: 90px;
 }
-/* line 191, ../sass/style.scss */
+/* line 204, ../sass/style.scss */
 #top #shop .shop-menu #menu-detalle .detalle-compras img {
   flex: 1;
 }
-/* line 194, ../sass/style.scss */
+/* line 207, ../sass/style.scss */
 #top #shop .shop-menu #menu-detalle .detalle-compras span {
   margin-top: 5px;
   flex: 3;
   text-align: right;
 }
-/* line 208, ../sass/style.scss */
+/* line 221, ../sass/style.scss */
 #top #shop .shop-menu #menu-detalle div {
   height: 25px;
 }
-/* line 211, ../sass/style.scss */
+/* line 224, ../sass/style.scss */
 #top #shop .shop-menu #menu-detalle div ac-angular-carrito {
   max-width: 25px !important;
   width: 25px !important;
 }
-/* line 216, ../sass/style.scss */
+/* line 229, ../sass/style.scss */
 #top #shop .shop-menu #menu-detalle div ac-angular-carrito #ac-angular-carrito-snipet {
   width: 100%;
   max-width: 100px;
 }
-/* line 219, ../sass/style.scss */
+/* line 232, ../sass/style.scss */
 #top #shop .shop-menu #menu-detalle div ac-angular-carrito #ac-angular-carrito-snipet div {
   max-width: 78px !important;
   min-width: 78px !important;
 }
-/* line 223, ../sass/style.scss */
+/* line 236, ../sass/style.scss */
 #top #shop .shop-menu #menu-detalle div ac-angular-carrito #ac-angular-carrito-snipet span {
   text-align: right;
   width: 90px;
 }
 @media (min-width: 800px) {
-  /* line 223, ../sass/style.scss */
+  /* line 236, ../sass/style.scss */
   #top #shop .shop-menu #menu-detalle div ac-angular-carrito #ac-angular-carrito-snipet span {
     width: 65px;
   }
 }
-/* line 239, ../sass/style.scss */
+/* line 252, ../sass/style.scss */
 #top .inner-top {
   width: 100%;
   max-width: 800px;
 }
-/* line 243, ../sass/style.scss */
+/* line 256, ../sass/style.scss */
 #top .outer-top {
   width: 100%;
   max-width: 800px;
 }
 
-/* line 252, ../sass/style.scss */
+/* line 265, ../sass/style.scss */
 #sucursales {
   height: 600px;
   top: 75px;
   right: 0px;
   left: 0px;
 }
-/* line 267, ../sass/style.scss */
+/* line 280, ../sass/style.scss */
 #sucursales #sucursales-01,
 #sucursales #sucursales-02,
 #sucursales #sucursales-03,
@@ -332,7 +338,7 @@ body {
   left: 0;
 }
 @media (max-width: 500px) {
-  /* line 285, ../sass/style.scss */
+  /* line 298, ../sass/style.scss */
   #sucursales #sucursales-01 {
     background: url("../img/sucursales_01M.png") 50% 50% no-repeat;
     image-rendering: pixelated;
@@ -340,36 +346,36 @@ body {
   }
 }
 @media (min-width: 501px) {
-  /* line 285, ../sass/style.scss */
+  /* line 298, ../sass/style.scss */
   #sucursales #sucursales-01 {
     background: url("../img/sucursales_01.png") 50% 50% no-repeat;
   }
 }
 @media (min-width: 501px) {
-  /* line 303, ../sass/style.scss */
+  /* line 316, ../sass/style.scss */
   #sucursales #sucursales-02 {
     background: url("../img/sucursales_02.png") 50% 50% no-repeat;
   }
 }
-/* line 308, ../sass/style.scss */
+/* line 321, ../sass/style.scss */
 #sucursales #sucursales-03 {
   background: url("../img/sucursales_03.png") 50% 50% no-repeat;
 }
-/* line 311, ../sass/style.scss */
+/* line 324, ../sass/style.scss */
 #sucursales #sucursales-04 {
   background: url("../img/sucursales_04.png") 50% 50% no-repeat;
 }
-/* line 314, ../sass/style.scss */
+/* line 327, ../sass/style.scss */
 #sucursales #sucursales-05 {
   background: url("../img/sucursales_05.png") 50% 50% no-repeat;
   height: 1500px;
 }
-/* line 318, ../sass/style.scss */
+/* line 331, ../sass/style.scss */
 #sucursales #sucursales-06 {
   /*background: url("../img/sucursales_06.png") 50% 50% no-repeat;*/
 }
 
-/* line 324, ../sass/style.scss */
+/* line 337, ../sass/style.scss */
 #menu {
   height: 50px;
   top: 675px;
@@ -378,7 +384,7 @@ body {
   background-color: khaki;
   z-index: 80;
 }
-/* line 332, ../sass/style.scss */
+/* line 345, ../sass/style.scss */
 #menu #menu-container {
   background-color: darkgray;
   z-index: 80;
@@ -386,14 +392,14 @@ body {
   width: 100%;
 }
 
-/* line 341, ../sass/style.scss */
+/* line 354, ../sass/style.scss */
 #tierra {
   height: 500px;
   top: 100px;
   right: 0px;
   left: 0px;
 }
-/* line 349, ../sass/style.scss */
+/* line 362, ../sass/style.scss */
 #tierra #tierra_09,
 #tierra #tierra_08,
 #tierra #tierra_07,
@@ -408,24 +414,12 @@ body {
   position: absolute;
   z-index: 0;
 }
-/* line 369, ../sass/style.scss */
-#tierra #tierra_04 {
-  /*background: url("../img/tierra_04.jpg") 50% 0% no-repeat;*/
-}
-/* line 372, ../sass/style.scss */
-#tierra #tierra_03 {
-  /*background: url("../img/tierra_03.png") 50% 50% no-repeat;*/
-}
-/* line 375, ../sass/style.scss */
-#tierra #tierra_02 {
-  /*background: url("../img/tierra_02.png") 50% 50% no-repeat;*/
-}
-/* line 378, ../sass/style.scss */
+/* line 391, ../sass/style.scss */
 #tierra #tierra_01 {
   background: url("../img/tierra_01.png") 50% 50% no-repeat;
 }
 
-/* line 402, ../sass/style.scss */
+/* line 415, ../sass/style.scss */
 #destacados {
   height: 500px;
   top: 100px;
@@ -433,7 +427,7 @@ body {
   left: 0px;
   z-index: 30;
 }
-/* line 410, ../sass/style.scss */
+/* line 423, ../sass/style.scss */
 #destacados #destacados_04,
 #destacados #destacados_03,
 #destacados #destacados_02,
@@ -441,31 +435,31 @@ body {
   height: 500px;
   width: 100%;
 }
-/* line 419, ../sass/style.scss */
+/* line 432, ../sass/style.scss */
 #destacados #destacados_04 {
   /*background: url("../img/destacados_04.jpg") 50% 0% no-repeat;*/
 }
-/* line 422, ../sass/style.scss */
+/* line 435, ../sass/style.scss */
 #destacados #destacados_03 {
   /*background: url("../img/destacados_03.png") 50% 50% no-repeat;*/
 }
-/* line 425, ../sass/style.scss */
+/* line 438, ../sass/style.scss */
 #destacados #destacados_02 {
   /*background: url("../img/destacados_02.png") 50% 50% no-repeat;*/
 }
-/* line 428, ../sass/style.scss */
+/* line 441, ../sass/style.scss */
 #destacados #destacados_01 {
   background: url("../img/destacados_01.png") 50% 50% no-repeat;
 }
 
-/* line 433, ../sass/style.scss */
+/* line 446, ../sass/style.scss */
 #caverna {
   height: 500px;
   top: 100px;
   right: 0px;
   left: 0px;
 }
-/* line 440, ../sass/style.scss */
+/* line 453, ../sass/style.scss */
 #caverna #lava {
   background-color: darkcyan;
   height: 400px;
@@ -473,7 +467,7 @@ body {
   right: 0px;
   left: 0px;
 }
-/* line 459, ../sass/style.scss */
+/* line 472, ../sass/style.scss */
 #caverna #lava_21,
 #caverna #lava_20,
 #caverna #lava_19,
@@ -499,36 +493,36 @@ body {
   width: 100%;
   position: absolute;
 }
-/* line 501, ../sass/style.scss */
+/* line 514, ../sass/style.scss */
 #caverna #lava_06 {
   /*background: url("../img/lava_06.png") 50% 0% no-repeat;*/
 }
-/* line 504, ../sass/style.scss */
+/* line 517, ../sass/style.scss */
 #caverna #lava_05 {
   background: url("../img/lava_05.png") 50% 0% no-repeat;
 }
-/* line 507, ../sass/style.scss */
+/* line 520, ../sass/style.scss */
 #caverna #lava_04 {
   background: url("../img/lava_04.png") 50% 0% no-repeat;
   height: 600px !important;
 }
-/* line 511, ../sass/style.scss */
+/* line 524, ../sass/style.scss */
 #caverna #lava_03 {
   background: url("../img/lava_03.png") 50% 0% no-repeat;
   height: 700px !important;
 }
-/* line 515, ../sass/style.scss */
+/* line 528, ../sass/style.scss */
 #caverna #lava_02 {
   background: url("../img/lava_02.png") 50% 50% no-repeat;
   height: 700px !important;
 }
-/* line 519, ../sass/style.scss */
+/* line 532, ../sass/style.scss */
 #caverna #lava_01 {
   background: url("../img/lava_01.png") 50% 50% no-repeat;
   height: 700px !important;
 }
 
-/* line 526, ../sass/style.scss */
+/* line 539, ../sass/style.scss */
 #medios {
   position: absolute;
   height: 50px;
@@ -539,7 +533,7 @@ body {
   background-color: blue;
 }
 
-/* line 536, ../sass/style.scss */
+/* line 549, ../sass/style.scss */
 #footer {
   position: absolute;
   height: 450px;
@@ -550,7 +544,7 @@ body {
   background-color: #000000;
 }
 
-/* line 672, ../sass/style.scss */
+/* line 685, ../sass/style.scss */
 .lineacontornoverde {
   border-style: Solid;
   border-color: #81BB3F;
@@ -566,32 +560,32 @@ body {
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
 }
-/* line 688, ../sass/style.scss */
+/* line 701, ../sass/style.scss */
 .lineacontornoverde .contenedor-inner-contacto-mapa {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 }
 @media (min-width: 800px) {
-  /* line 688, ../sass/style.scss */
+  /* line 701, ../sass/style.scss */
   .lineacontornoverde .contenedor-inner-contacto-mapa {
     flex-wrap: nowrap;
   }
 }
-/* line 697, ../sass/style.scss */
+/* line 710, ../sass/style.scss */
 .lineacontornoverde .contenedor-inner-contacto-mapa .column {
   min-width: 100%;
   min-height: 480px;
 }
 @media (min-width: 800px) {
-  /* line 697, ../sass/style.scss */
+  /* line 710, ../sass/style.scss */
   .lineacontornoverde .contenedor-inner-contacto-mapa .column {
     min-width: 50%;
     max-width: 50%;
   }
 }
 
-/* line 709, ../sass/style.scss */
+/* line 722, ../sass/style.scss */
 .Nombre {
   font-family: "Myriad Pro Regular";
   position: relative;
@@ -601,7 +595,7 @@ body {
   color: white;
 }
 
-/* line 719, ../sass/style.scss */
+/* line 732, ../sass/style.scss */
 .Consulta {
   font-family: "Myriad Pro Regular";
   position: relative;
@@ -611,7 +605,7 @@ body {
   color: white;
 }
 
-/* line 730, ../sass/style.scss */
+/* line 743, ../sass/style.scss */
 .Contacto {
   font-family: "Myriad Pro Bold Condensed";
   font-size: 50px;
@@ -622,7 +616,7 @@ body {
   top: 5px;
 }
 
-/* line 741, ../sass/style.scss */
+/* line 754, ../sass/style.scss */
 .Apellido {
   font-family: Myriad "Myriad Pro Regular";
   position: relative;
@@ -632,7 +626,7 @@ body {
   color: white;
 }
 
-/* line 751, ../sass/style.scss */
+/* line 764, ../sass/style.scss */
 .Email {
   font-family: "Myriad Pro Regular", serif;
   font-size: 17px;
@@ -642,7 +636,7 @@ body {
   color: white;
 }
 
-/* line 760, ../sass/style.scss */
+/* line 773, ../sass/style.scss */
 .rectangulogrisoscuro {
   background: #000000;
   background: black;
@@ -658,13 +652,13 @@ body {
   filter: alpha(opacity=90) progid:DXImageTransform.Microsoft.Alpha(opacity=90);
 }
 @media (max-width: 800px) {
-  /* line 760, ../sass/style.scss */
+  /* line 773, ../sass/style.scss */
   .rectangulogrisoscuro {
     overflow-y: auto;
   }
 }
 
-/* line 778, ../sass/style.scss */
+/* line 791, ../sass/style.scss */
 .input3 {
   background: -moz-linear-gradient(50% 102.13% 90deg, white 0%, #dedede 100%);
   background: -webkit-linear-gradient(90deg, white 0%, #dedede 100%);
@@ -687,7 +681,7 @@ body {
   filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=1, OffY=1, Color='#000000') progid:DXImageTransform.Microsoft.gradient(startColorstr='#DEDEDE',endColorstr='#FFFFFF' , GradientType=0);
 }
 
-/* line 800, ../sass/style.scss */
+/* line 813, ../sass/style.scss */
 .input4 {
   background: -moz-linear-gradient(50% 102.13% 90deg, white 0%, #dedede 100%);
   background: -webkit-linear-gradient(90deg, white 0%, #dedede 100%);
@@ -710,7 +704,7 @@ body {
   filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=1, OffY=1, Color='#000000') progid:DXImageTransform.Microsoft.gradient(startColorstr='#DEDEDE',endColorstr='#FFFFFF' , GradientType=0);
 }
 
-/* line 822, ../sass/style.scss */
+/* line 835, ../sass/style.scss */
 .input2 {
   background: -moz-linear-gradient(50% 102.13% 90deg, white 0%, #dedede 100%);
   background: -webkit-linear-gradient(90deg, white 0%, #dedede 100%);
@@ -733,7 +727,7 @@ body {
   filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=1, OffY=1, Color='#000000') progid:DXImageTransform.Microsoft.gradient(startColorstr='#DEDEDE',endColorstr='#FFFFFF' , GradientType=0);
 }
 
-/* line 844, ../sass/style.scss */
+/* line 857, ../sass/style.scss */
 .input1 {
   background: -moz-linear-gradient(50% 102.13% 90deg, white 0%, #dedede 100%);
   background: -webkit-linear-gradient(90deg, white 0%, #dedede 100%);
@@ -756,7 +750,7 @@ body {
   filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=1, OffY=1, Color='#000000') progid:DXImageTransform.Microsoft.gradient(startColorstr='#DEDEDE',endColorstr='#FFFFFF' , GradientType=0);
 }
 
-/* line 866, ../sass/style.scss */
+/* line 879, ../sass/style.scss */
 .boton {
   background-image: url("../img/boton-contacto.png");
   background-repeat: no-repeat;
