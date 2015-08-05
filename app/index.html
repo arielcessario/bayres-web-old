@@ -125,17 +125,17 @@
                     <span>Contacto</span>
                     <div class="centrar-sucursales">
                         <a  href="" title="Sucursal Flores" ng-click="mainCtrl.contacto(1);">
-                            <img src="img/icono_suc01.png" height="15" width="15" style="margin-top: 3px"/>
+                            <img src="img/icono_suc01.png" height="15" width="30" style="margin-top: 3px"/>
                         </a>
-                        <a  href="" title="Sucursal Once" ng-click="mainCtrl.contacto(2);">
+                        <!--a  href="" title="Sucursal Once" ng-click="mainCtrl.contacto(2);">
                             <img src="img/icono_suc02.png" height="15" width="15" style="margin-top: 3px"/>
                         </a>
                         <a  href="" title="Sucursal Almagro" ng-click="mainCtrl.contacto(3);">
                             <img src="img/icono_suc03.png" height="15" width="15" style="margin-top: 3px"/>
-                        </a>
+                        </a-->
                     </div>
                 </div>
-                <div ng-if="mainCtrl.showCategorias" id="menu-categorias-detalle">
+                <div ng-if="mainCtrl.showCategorias" id="menu-categorias-detalle" ng-mouseleave="mainCtrl.showCategorias = false;">
                     <div class="menu-categoria">
                         <div ng-click="mainCtrl.inicio();" class="margin-top">Inicio</div>
                         <div ng-click="mainCtrl.comprar();">Mi Carrito</div>
@@ -454,6 +454,7 @@
                                         <label class="title-mi-cuenta" style="margin-right: 10px">Ultimos
                                             pedidos</label>
                                         <select ng-click="mainCtrl.detalle = mainCtrl.pedido.detalles;"
+                                                ng-init="mainCtrl.historico_pedidos[0].carrito_id"
                                                 ng-model="mainCtrl.pedido"
                                                 ng-options="pedido.carrito_id + ' - ' + pedido.fecha + ' - ' + pedido.total for  pedido in mainCtrl.historico_pedidos"
                                                 class="mob-pedidos">
@@ -482,7 +483,7 @@
                                         <div class="flexcontainer">
                                             <div class="flexcontainer-1">
                                                 <!--button ng-click="mainCtrl.borrarCarrito();" >Borrar</button-->
-                                                <button ng-click="mainCtrl.confirmarCarrito();" class="btn-pedilo">
+                                                <button ng-click="mainCtrl.confirmarCarrito(mainCtrl.pedido);" class="btn-pedilo">
                                                     Pedilo!
                                                 </button>
                                             </div>

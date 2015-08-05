@@ -802,7 +802,9 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
         }
     }
 
-    function confirmarCarrito() {
+    function confirmarCarrito(pedido) {
+        console.log(pedido);
+
         inicializarVariables();
 
         vm.carrito_mensaje = '1';
