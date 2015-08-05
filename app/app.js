@@ -20,12 +20,12 @@ angular.module('myApp', [
 
 MainController.$inject = ['acAngularProductosService', 'acAngularCarritoServiceAcciones', '$scope', '$document',
     'LoginService', 'acAngularSucursalesService', '$timeout', '$routeParams', '$location', '$interval',
-    'acAngularCategoriasService', 'MainService'];
+    'acAngularCategoriasService', 'MainService', 'acAngularCarritoTotalService'];
 MainService.$inject = ['$http'];
 
 function MainController(acAngularProductosService, acAngularCarritoServiceAcciones, $scope, $document,
                         LoginService, acAngularSucursalesService, $timeout, $routeParams, $location, $interval,
-                        acAngularCategoriasService, MainService) {
+                        acAngularCategoriasService, MainService, acAngularCarritoTotalService) {
     var vm = this;
     vm.ofertas = [];
     vm.destacados = [];
@@ -109,7 +109,7 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
     vm.menu_mobile = false;
     vm.menu_mobile_open = false;
     vm.categorias = [];
-
+    vm.with_products = false;
 
     vm.scrollTo = scrollTo;
 
@@ -867,6 +867,9 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
 
         //console.log(producto);
         acAngularCarritoServiceAcciones.addProducto(producto);
+        if(acAngularCarritoTotalService.productosCarrito.length>0){
+            vm.with_products = true;
+        }
 
     }
 
