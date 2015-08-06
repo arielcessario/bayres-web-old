@@ -76,7 +76,7 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
     vm.slider_nro = 1;
     //Agregado por mateo
     vm.actualizarCliente = actualizarCliente;
-    vm.confirmarCarrito = confirmarCarrito;
+    vm.repetirCarrito = repetirCarrito;
     vm.selectDetalle = selectDetalle;
     vm.borrarCarrito = borrarCarrito;
     vm.masVendidosForm = masVendidosForm;
@@ -98,6 +98,7 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
     vm.consulta = '';
     vm.mapa_sucursal = '';
     vm.menu_selected = '';
+    vm.agregarCarrito = agregarCarrito;
 
     //Manejo de errores
     vm.message_error = '';
@@ -123,7 +124,7 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
 
 
     acAngularCategoriasService.getCategorias(function(data){
-        console.log(data);
+        //console.log(data);
         vm.categorias = data;
     });
 
@@ -671,7 +672,7 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
     if (LoginService.checkLogged()) {
         LoginService.getHistoricoPedidos(LoginService.checkLogged().cliente[0].cliente_id,
             function (data) {
-                console.log(data);
+                //console.log(data);
                 vm.historico_pedidos = data;
             });
     }
@@ -802,13 +803,21 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
         }
     }
 
-    function confirmarCarrito(pedido) {
-        console.log(pedido);
-
+    function repetirCarrito(pedido) {
         inicializarVariables();
 
-        vm.carrito_mensaje = '1';
-        vm.message_error = 'El pedido acaba de ser enviado';
+        pedido.detalles.forEach(function(producto) {
+            for(var i = 1; i <= producto.cantidad; i++ ){
+                agregarOferta(producto);
+            }
+        });
+        //vm.carrito_mensaje = '1';
+        //vm.message_error = 'El pedido acaba de ser enviado';
+    }
+
+    function agregarCarrito(detalle) {
+        //console.log(detalle);
+        agregarOferta(detalle);
     }
 
     function borrarCarrito() {
@@ -838,7 +847,6 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
 
 
     function agregarProducto(producto) {
-
         producto.oferta_id = -1;
         addProducto(producto);
     }
@@ -858,6 +866,7 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
         prod_oferta.producto_id = oferta.producto_id;
         prod_oferta.nombre = oferta.titulo;
         prod_oferta.descripcion = oferta.descripcion;
+
         addProducto(prod_oferta);
     }
 

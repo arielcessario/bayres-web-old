@@ -159,9 +159,7 @@
                     <div ng-click="mainCtrl.comprar();">Mi Carrito</div>
                     <div ng-click="mainCtrl.cuenta();">Mi Cuenta</div>
                     <div ng-click="mainCtrl.comprar();">Finalizar Compra</div>
-                    <div ng-click="mainCtrl.contacto(1);">Contacto Flores</div>
-                    <div ng-click="mainCtrl.contacto(2);">Contacto Once</div>
-                    <div ng-click="mainCtrl.contacto(3);">Contacto Almagro</div>
+                    <div ng-click="mainCtrl.contacto(1);">Contacto</div>
                     <div class="margin-top">CATEGORIAS:</div>
                     <div ng-repeat="categoria in mainCtrl.categorias" class="sub-categoria">
                         <div ng-click="mainCtrl.getByCategoria(categoria.categoria_id);">{{categoria.nombre}}</div>
@@ -454,7 +452,6 @@
                                         <label class="title-mi-cuenta" style="margin-right: 10px">Ultimos
                                             pedidos</label>
                                         <select ng-click="mainCtrl.detalle = mainCtrl.pedido.detalles;"
-                                                ng-init="mainCtrl.historico_pedidos[0].carrito_id"
                                                 ng-model="mainCtrl.pedido"
                                                 ng-options="pedido.carrito_id + ' - ' + pedido.fecha + ' - ' + pedido.total for  pedido in mainCtrl.historico_pedidos"
                                                 class="mob-pedidos">
@@ -474,7 +471,9 @@
                                                 <span class="producto-cantidad">{{detalle.cantidad}}</span>
                                                 <span class="producto-precio">{{detalle.precio | currency}}</span>
                                                 <span class="producto-precio">{{detalle.precio * detalle.cantidad | currency}}</span>
-                                                <img src="img/cart.png"/>
+                                                <a href="" ng-click="mainCtrl.agregarCarrito(detalle);">
+                                                    <img src="img/cart.png"/>
+                                                </a>
                                                 <!--input ng-model="detalle.total" ng-init="detalle.total = detalle.precio * detalle.cantidad;" type="text" readonly class="info-detalle"/-->
                                             </div>
                                         </div>
@@ -483,7 +482,7 @@
                                         <div class="flexcontainer">
                                             <div class="flexcontainer-1">
                                                 <!--button ng-click="mainCtrl.borrarCarrito();" >Borrar</button-->
-                                                <button ng-click="mainCtrl.confirmarCarrito(mainCtrl.pedido);" class="btn-pedilo">
+                                                <button ng-click="mainCtrl.repetirCarrito(mainCtrl.pedido);" class="btn-pedilo">
                                                     Pedilo!
                                                 </button>
                                             </div>
