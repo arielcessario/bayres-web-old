@@ -113,6 +113,8 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
     vm.with_products = false;
 
     vm.scrollTo = scrollTo;
+    vm.cambiarSlide = cambiarSlide;
+
 
     $interval(cambiarSlide, 10000);
 
@@ -136,7 +138,7 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
             vm.productos = data;
             if(vm.menu_mobile_open)
                 vm.menu_mobile_open = false;
-        })
+        });
 
         if(vm.showCategorias)
             vm.showCategorias = false;
