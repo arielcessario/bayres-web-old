@@ -116,7 +116,7 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
     vm.cambiarSlide = cambiarSlide;
 
 
-    $interval(cambiarSlide, 5000);
+    $interval(cambiarSlide, 9000);
 
 
     function cambiarSlide(){
