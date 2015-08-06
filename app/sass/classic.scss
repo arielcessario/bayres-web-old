@@ -900,6 +900,7 @@ body {
   overflow: hidden;
   width: 100%;
   max-width: 800px;
+
   height: 400px;
 
 
@@ -909,6 +910,7 @@ body {
   margin-top: 80px;
 
   @media (max-width: 800px) {
+    z-index: 100000;
     width: 100%;
     min-width: 100%;
     max-width: 100%;
