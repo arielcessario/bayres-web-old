@@ -876,11 +876,18 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
 
         //console.log(producto);
         acAngularCarritoServiceAcciones.addProducto(producto);
-        if(acAngularCarritoTotalService.productosCarrito.length>0){
-            vm.with_products = true;
-        }
+
 
     }
+
+
+    $scope.$on('ActualizaCarrito', function() {
+        if(acAngularCarritoTotalService.productosCarrito.length>0){
+            vm.with_products = true;
+        }else{
+            vm.with_products = false;
+        }
+    });
 
 
     var container = document.getElementsByClassName('parallax');
