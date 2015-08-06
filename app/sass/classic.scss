@@ -896,12 +896,13 @@ body {
 
 #ofertas {
   //  background: url("../img/slider_01.png") center center no-repeat;
+  z-index: 100000;
   overflow: hidden;
   width: 100%;
   max-width: 800px;
   height: 400px;
 
-  z-index: 100000;
+
   position: absolute;
   margin-left: calc(50% - 400px);
   min-width: 800px;
@@ -944,6 +945,7 @@ body {
   .slider_2,
   .slider_3,
   .slider_4 {
+    z-index: 100001;
     position: absolute;
     bottom: 5px;
     left: 48%;
