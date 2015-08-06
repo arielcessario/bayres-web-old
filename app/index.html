@@ -146,7 +146,7 @@
                         <div class="menu-subcategoria">
                             <div ng-click="mainCtrl.getByCategoria(categoria.categoria_id);">{{categoria.nombre}}</div>
                             <div ng-repeat="subcategoria in categoria.subcategorias">
-                                <spam class="subcategoria">{{subcategoria.nombre}}</spam>
+                                <spam class="subcategoria">{{subcategoria.nombre}} ({{subcategoria.productos}})</spam>
                             </div>
                         </div>
                     </div>
@@ -406,7 +406,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div ng-if="mainCtrl.update_error == '1'" style="color:#fff;font-size: 14px;">
+                                    <div ng-if="mainCtrl.update_error == '1'" style="color:#8CC63F;font-size: 14px;">
                                         {{mainCtrl.message_error}}
                                     </div>
                                 </div>
@@ -439,7 +439,7 @@
 
                                         <!--/div-->
                                     </div>
-                                    <div ng-if="mainCtrl.change_pwd_error == '1'" style="color:#fff;font-size: 14px;">
+                                    <div ng-if="mainCtrl.change_pwd_error == '1'" style="color:#8CC63F;font-size: 14px;">
                                         {{mainCtrl.message_error}}
                                     </div>
                                 </div>
@@ -497,7 +497,7 @@
                                             </div>
                                         </div>
                                         <div ng-if="mainCtrl.carrito_mensaje == '1'"
-                                             style="color:#fff;font-size: 14px;">{{mainCtrl.message_error}}
+                                             style="color:#8CC63F;font-size: 24px;text-align: center;">{{mainCtrl.message_error}}
                                         </div>
                                     </div>
                                 </div>

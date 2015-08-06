@@ -806,13 +806,16 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
     function repetirCarrito(pedido) {
         inicializarVariables();
 
-        pedido.detalles.forEach(function(producto) {
-            for(var i = 1; i <= producto.cantidad; i++ ){
-                agregarOferta(producto);
-            }
-        });
-        //vm.carrito_mensaje = '1';
-        //vm.message_error = 'El pedido acaba de ser enviado';
+        if(pedido === undefined) {
+            vm.carrito_mensaje = '1';
+            vm.message_error = 'Por favor seleccione un pedido del listado';
+        }else {
+            pedido.detalles.forEach(function(producto) {
+                for(var i = 1; i <= producto.cantidad; i++ ){
+                    agregarOferta(producto);
+                }
+            });
+        }
     }
 
     function agregarCarrito(detalle) {
