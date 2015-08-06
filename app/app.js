@@ -99,6 +99,7 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
     vm.mapa_sucursal = '';
     vm.menu_selected = '';
     vm.agregarCarrito = agregarCarrito;
+    vm.ingresarClienteEnter = ingresarClienteEnter;
 
     //Manejo de errores
     vm.message_error = '';
@@ -311,6 +312,11 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
         $location.path('/commerce/main');
     }
 
+    function ingresarClienteEnter(event) {
+        if(event.keyCode == 13) {
+            ingresar();
+        }
+    }
 
     //Estas 2 funciones solo sirven para el link del login
     function ingresarCliente() {

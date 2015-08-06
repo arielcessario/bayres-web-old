@@ -344,7 +344,7 @@
                         <input ng-model="mainCtrl.mail" placeholder="Mail" type="text"/>
                         <input ng-if="mainCtrl.creaCliente" ng-model="mainCtrl.mail_repeat" placeholder="Repita Mail"
                                type="text"/>
-                        <input ng-model="mainCtrl.password" type="password" placeholder="Password"/>
+                        <input ng-model="mainCtrl.password" type="password" placeholder="Password" ng-keyup="mainCtrl.ingresarClienteEnter($event);"/>
 
                         <div>
                             <button ng-if="!mainCtrl.creaCliente" ng-click="mainCtrl.ingresar();">Aceptar</button>
