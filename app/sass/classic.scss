@@ -1527,6 +1527,9 @@ body {
 
 .detalle {
   margin-right: 60px !important;
+  @media (max-width: 360px) {
+    margin-right:0 !important;
+  }
 }
 
 .btn-comprar {
@@ -2239,8 +2242,7 @@ body {
 }
 
 .subcategoria {
-  font-size: 16px;
-  //margin-left: 15px;
+  font-size: 15px;
 }
 
 #contacto-volver {
@@ -2261,4 +2263,12 @@ body {
 
 .with-products{
   background-color: darkred !important;
+}
+.ac-desarrollo {
+  text-decoration:none;
+  color:#fff;
+}
+.ac-desarrollo:hover {
+  text-decoration:none;
+  color: #8cc63f
 }

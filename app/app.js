@@ -820,7 +820,18 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
         }else {
             pedido.detalles.forEach(function(producto) {
                 for(var i = 1; i <= producto.cantidad; i++ ){
-                    agregarOferta(producto);
+                    var prod = {};
+
+                    prod.oferta_id = -1;
+                    prod.precios = [];
+                    var precio = {precio: 0};
+                    prod.precios.push(precio);
+                    prod.precios[0].precio = producto.precio;
+                    prod.cantidad = producto.cantidad;
+                    prod.producto_id = producto.producto_id;
+                    prod.nombre = producto.nombre;
+
+                    addProducto(prod);
                 }
             });
         }
