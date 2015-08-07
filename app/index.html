@@ -472,7 +472,7 @@
                                                 <span class="producto-precio">{{detalle.precio | currency}}</span>
                                                 <span class="producto-precio">{{detalle.precio * detalle.cantidad | currency}}</span>
                                                 <a href="" ng-click="mainCtrl.agregarCarrito(detalle);">
-                                                    <img src="img/cart.png"/>
+                                                    <img src="img/cart.png" title="Agregar Producto al Carrito" />
                                                 </a>
                                                 <!--input ng-model="detalle.total" ng-init="detalle.total = detalle.precio * detalle.cantidad;" type="text" readonly class="info-detalle"/-->
                                             </div>

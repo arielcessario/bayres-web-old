@@ -838,8 +838,18 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
     }
 
     function agregarCarrito(detalle) {
-        //console.log(detalle);
-        agregarOferta(detalle);
+        var prod = {};
+
+        prod.oferta_id = -1;
+        prod.precios = [];
+        var precio = {precio: 0};
+        prod.precios.push(precio);
+        prod.precios[0].precio = detalle.precio;
+        prod.cantidad = detalle.cantidad;
+        prod.producto_id = detalle.producto_id;
+        prod.nombre = detalle.nombre;
+
+        addProducto(prod);
     }
 
     function borrarCarrito() {
