@@ -2008,7 +2008,9 @@ body {
   align-self: auto;
   margin-top: 40px !important;
 }
-
+.menu-categoria-item:hover {
+  color:#fff;
+}
 .menu-subcategoria {
   order: 0;
   flex: 0 1 auto;
@@ -2245,11 +2247,12 @@ body {
   color: #fff;
   font-size: 14px;
 }
-
 .subcategoria {
   font-size: 16px;
 }
-
+.subcategoria:hover {
+  color: #ffff00;
+}
 #contacto-volver {
   display: none;
 
@@ -2257,7 +2260,6 @@ body {
     display: inline;
   }
 }
-
 .mensaje-error {
   color:#8CC63F;
   font-size: 28px;

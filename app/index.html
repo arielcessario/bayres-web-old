@@ -137,10 +137,10 @@
                 </div>
                 <div ng-if="mainCtrl.showCategorias" id="menu-categorias-detalle" ng-mouseleave="mainCtrl.showCategorias = false;">
                     <div class="menu-categoria">
-                        <div ng-click="mainCtrl.inicio();" class="margin-top">Inicio</div>
-                        <div ng-click="mainCtrl.comprar();">Mi Carrito</div>
-                        <div ng-click="mainCtrl.cuenta();">Mi Cuenta</div>
-                        <div ng-click="mainCtrl.comprar();">Finalizar Compra</div>
+                        <div ng-click="mainCtrl.inicio();" class="margin-top menu-categoria-item">Inicio</div>
+                        <div ng-click="mainCtrl.comprar();" class="menu-categoria-item">Mi Carrito</div>
+                        <div ng-click="mainCtrl.cuenta();" class="menu-categoria-item">Mi Cuenta</div>
+                        <div ng-click="mainCtrl.comprar();" class="menu-categoria-item">Finalizar Compra</div>
                     </div>
                     <div ng-repeat="categoria in mainCtrl.categorias">
                         <div class="menu-subcategoria">
@@ -155,11 +155,11 @@
 
                 <div id="menu-mobile-detail" ng-if="mainCtrl.menu_mobile && mainCtrl.menu_mobile_open">
 
-                    <div ng-click="mainCtrl.inicio();" class="margin-top">Inicio</div>
-                    <div ng-click="mainCtrl.comprar();">Mi Carrito</div>
-                    <div ng-click="mainCtrl.cuenta();">Mi Cuenta</div>
-                    <div ng-click="mainCtrl.comprar();">Finalizar Compra</div>
-                    <div ng-click="mainCtrl.contacto(1);">Contacto</div>
+                    <div ng-click="mainCtrl.inicio();" class="margin-top menu-categoria-item">Inicio</div>
+                    <div ng-click="mainCtrl.comprar();" class="menu-categoria-item">Mi Carrito</div>
+                    <div ng-click="mainCtrl.cuenta();" class="menu-categoria-item">Mi Cuenta</div>
+                    <div ng-click="mainCtrl.comprar();" class="menu-categoria-item">Finalizar Compra</div>
+                    <div ng-click="mainCtrl.contacto(1);" class="menu-categoria-item">Contacto</div>
                     <div class="margin-top">CATEGORIAS:</div>
                     <div ng-repeat="categoria in mainCtrl.categorias" class="sub-categoria">
                         <div ng-click="mainCtrl.getByCategoria(categoria.categoria_id);">{{categoria.nombre}}</div>
