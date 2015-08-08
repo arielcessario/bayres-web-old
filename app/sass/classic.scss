@@ -247,6 +247,11 @@ body {
     justify-content: space-around;
   }
 }
+@media (max-width: 360px) {
+  #login-form {
+    min-height: 300px !important;
+  }
+}
 
 #login-form,
 #cuenta-form,
@@ -811,7 +816,7 @@ body {
     font-family: 'MyriadProLight', Tahoma;
     font-weight: normal;
     font-style: normal;
-    font-size: 0.9em;
+    font-size: 16px;
 
     @media (max-width: 800px) {
       width: 300px;
