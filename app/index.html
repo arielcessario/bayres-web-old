@@ -145,7 +145,7 @@
                     <div ng-repeat="categoria in mainCtrl.categorias">
                         <div class="menu-subcategoria">
                             <div ng-click="mainCtrl.getByCategoria(categoria.categoria_id);">{{categoria.nombre}}</div>
-                            <div ng-repeat="subcategoria in categoria.subcategorias">
+                            <div ng-repeat="subcategoria in categoria.subcategorias" ng-click="mainCtrl.getByCategoria(subcategoria.categoria_id);">
                                 <spam class="subcategoria">{{subcategoria.nombre}} (<span style="color: #ffff00;">{{subcategoria.total_categoria}}</span>)</spam>
                             </div>
                         </div>

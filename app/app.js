@@ -131,7 +131,6 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
         vm.categorias = data;
     });
 
-
     function getByCategoria(categoria_id){
         acAngularProductosService.getProductosByCategoria(categoria_id, function(data){
             scrollTo(700);
