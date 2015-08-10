@@ -442,6 +442,7 @@ body {
   border: 0px solid;
   margin-top: 30px;
   margin-bottom: 20px;
+  cursor: pointer;
   background: #b4ddb4;
   /* Old browsers */
   background: -moz-linear-gradient(top, #b4ddb4 0%, #006200 100%);
@@ -1946,6 +1947,7 @@ body {
   font-size: 26px;
   width: 134px;
   height: 57px;
+  cursor: pointer;
 }
 /* line 1256, ../sass/classic.scss */
 #ofertas #ofertas-container-01 .btn-comprar button span,
@@ -2245,6 +2247,7 @@ body {
   background-color: transparent;
   margin-top: 7px;
   padding-right: 35px;
+  cursor: pointer;
 }
 /* line 1561, ../sass/classic.scss */
 .btn-comprar button span {
@@ -2600,22 +2603,26 @@ body {
   cursor: pointer;
 }
 /* line 1908, ../sass/classic.scss */
+#footer #footer-lower div .footer-lower-link:hover {
+  color: #ffff00;
+}
+/* line 1911, ../sass/classic.scss */
 #footer #footer-lower div img {
   margin-left: 5px;
   height: 24px;
   width: 24px;
   cursor: pointer;
 }
-/* line 1918, ../sass/classic.scss */
+/* line 1921, ../sass/classic.scss */
 #footer #footer-upper {
   height: 40%;
 }
-/* line 1920, ../sass/classic.scss */
+/* line 1923, ../sass/classic.scss */
 #footer #footer-upper img {
   width: 100%;
   margin-top: 25px;
 }
-/* line 1925, ../sass/classic.scss */
+/* line 1928, ../sass/classic.scss */
 #footer #copyright {
   height: 10%;
   width: 100%;
@@ -2640,7 +2647,7 @@ body {
     transform: translate(1500px, 0);
   }
 }
-/* line 1960, ../sass/classic.scss */
+/* line 1963, ../sass/classic.scss */
 .nav-button div {
   cursor: pointer;
   width: 20px;
@@ -2655,7 +2662,7 @@ body {
   transition: all 0.4s;
 }
 
-/* line 1974, ../sass/classic.scss */
+/* line 1977, ../sass/classic.scss */
 #menu-categorias-detalle {
   position: fixed;
   right: 0px;
@@ -2672,7 +2679,7 @@ body {
   align-items: flex-start;
   justify-content: center;
 }
-/* line 1992, ../sass/classic.scss */
+/* line 1995, ../sass/classic.scss */
 #menu-categorias-detalle div {
   margin-left: 20px;
   margin-top: 5px;
@@ -2682,7 +2689,7 @@ body {
   margin-bottom: 10px;
 }
 
-/* line 2005, ../sass/classic.scss */
+/* line 2008, ../sass/classic.scss */
 .menu-categoria {
   order: 0;
   flex: 0 1 auto;
@@ -2690,12 +2697,12 @@ body {
   margin-top: 40px !important;
 }
 
-/* line 2011, ../sass/classic.scss */
+/* line 2014, ../sass/classic.scss */
 .menu-categoria-item:hover {
   color: #fff;
 }
 
-/* line 2014, ../sass/classic.scss */
+/* line 2017, ../sass/classic.scss */
 .menu-subcategoria {
   order: 0;
   flex: 0 1 auto;
@@ -2706,13 +2713,13 @@ body {
   text-transform: capitalize;
 }
 
-/* line 2024, ../sass/classic.scss */
+/* line 2027, ../sass/classic.scss */
 #menu-categorias-detalle.ng-enter {
   -webkit-animation: menu-categorias-detalle-enter 0.3s;
   animation: menu-categorias-detalle-enter 0.3s;
 }
 
-/* line 2029, ../sass/classic.scss */
+/* line 2032, ../sass/classic.scss */
 #menu-categorias-detalle.ng-leave {
   -webkit-animation: menu-categorias-detalle-leave 0.3s;
   animation: menu-categorias-detalle-leave 0.3s;
@@ -2734,7 +2741,7 @@ body {
     transform: scale(1, 0);
   }
 }
-/* line 2054, ../sass/classic.scss */
+/* line 2057, ../sass/classic.scss */
 #menu-mobile {
   width: 20px;
   position: fixed;
@@ -2743,7 +2750,7 @@ body {
   top: 35px;
 }
 
-/* line 2063, ../sass/classic.scss */
+/* line 2066, ../sass/classic.scss */
 #courtain {
   position: fixed;
   z-index: 9998;
@@ -2754,7 +2761,7 @@ body {
   bottom: 0;
 }
 
-/* line 2073, ../sass/classic.scss */
+/* line 2076, ../sass/classic.scss */
 #menu-mobile-detail {
   position: fixed;
   z-index: 9999;
@@ -2772,7 +2779,7 @@ body {
   overflow-y: auto;
   overflow-x: hidden;
 }
-/* line 2094, ../sass/classic.scss */
+/* line 2097, ../sass/classic.scss */
 #menu-mobile-detail div {
   margin-left: 20px;
   margin-top: 5px;
@@ -2782,18 +2789,18 @@ body {
   margin-bottom: 5px;
   text-transform: capitalize;
 }
-/* line 2105, ../sass/classic.scss */
+/* line 2108, ../sass/classic.scss */
 #menu-mobile-detail .margin-top {
   margin-top: 30px;
 }
 
-/* line 2110, ../sass/classic.scss */
+/* line 2113, ../sass/classic.scss */
 #menu-mobile-detail.ng-enter {
   -webkit-animation: menu-mobile-detail-enter 0.3s;
   animation: menu-mobile-detail-enter 0.3s;
 }
 
-/* line 2115, ../sass/classic.scss */
+/* line 2118, ../sass/classic.scss */
 #menu-mobile-detail.ng-leave {
   -webkit-animation: menu-mobile-detail-leave 0.3s;
   animation: menu-mobile-detail-leave 0.3s;
@@ -2815,7 +2822,7 @@ body {
     transform: scale(0, 1);
   }
 }
-/* line 2143, ../sass/classic.scss */
+/* line 2146, ../sass/classic.scss */
 .cuenta-input input {
   width: 160px !important;
   height: 19px !important;
@@ -2877,7 +2884,7 @@ body {
   font-weight: normal;
   src: local("Myriad Pro Bold"), url("MYRIADPRO-BOLD.woff") format("woff");
 }
-/* line 2217, ../sass/classic.scss */
+/* line 2220, ../sass/classic.scss */
 .botonera {
   display: flex;
   flex-direction: row;
@@ -2886,7 +2893,7 @@ body {
   margin-top: 40px;
 }
 
-/* line 2225, ../sass/classic.scss */
+/* line 2228, ../sass/classic.scss */
 .botonera button {
   width: 100px;
   height: 30px;
@@ -2897,6 +2904,7 @@ body {
   margin-right: 7px;
   border-radius: 12px;
   border: 0px solid;
+  cursor: pointer;
   background: #b4ddb4;
   background: -moz-linear-gradient(top, #b4ddb4 0%, #006200 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #b4ddb4), color-stop(100%, #006200));
@@ -2907,35 +2915,35 @@ body {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#b4ddb4', endColorstr='#006200', GradientType=0);
 }
 
-/* line 2245, ../sass/classic.scss */
+/* line 2249, ../sass/classic.scss */
 .mensaje {
   margin-top: 10px;
   color: #fff;
   font-size: 14px;
 }
 
-/* line 2250, ../sass/classic.scss */
+/* line 2254, ../sass/classic.scss */
 .subcategoria {
   font-size: 16px;
 }
 
-/* line 2253, ../sass/classic.scss */
+/* line 2257, ../sass/classic.scss */
 .subcategoria:hover {
   color: #ffff00;
 }
 
-/* line 2256, ../sass/classic.scss */
+/* line 2260, ../sass/classic.scss */
 #contacto-volver {
   display: none;
 }
 @media (max-width: 600px) {
-  /* line 2256, ../sass/classic.scss */
+  /* line 2260, ../sass/classic.scss */
   #contacto-volver {
     display: inline;
   }
 }
 
-/* line 2263, ../sass/classic.scss */
+/* line 2267, ../sass/classic.scss */
 .mensaje-error {
   color: #8CC63F;
   font-size: 28px;
@@ -2944,18 +2952,18 @@ body {
   padding: 0 5%;
 }
 
-/* line 2271, ../sass/classic.scss */
+/* line 2275, ../sass/classic.scss */
 .with-products {
   background-color: darkred !important;
 }
 
-/* line 2274, ../sass/classic.scss */
+/* line 2278, ../sass/classic.scss */
 .ac-desarrollo {
   text-decoration: none;
   color: #fff;
 }
 
-/* line 2278, ../sass/classic.scss */
+/* line 2282, ../sass/classic.scss */
 .ac-desarrollo:hover {
   text-decoration: none;
   color: #8cc63f;

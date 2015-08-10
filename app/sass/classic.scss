@@ -315,7 +315,7 @@ body {
       border: 0px solid;
       margin-top: 30px;
       margin-bottom: 20px;
-
+      cursor: pointer;
       background: #b4ddb4; /* Old browsers */
       background: -moz-linear-gradient(top, #b4ddb4 0%, #006200 100%); /* FF3.6+ */
       background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #b4ddb4), color-stop(100%, #006200)); /* Chrome,Safari4+ */
@@ -1249,10 +1249,10 @@ body {
       }
 
       button {
-
         font-size: 26px;
         width: 134px;
         height: 57px;
+        cursor: pointer;
         span {
           font-size: 29px;
 
@@ -1557,7 +1557,7 @@ body {
     background-color: rgba(0, 0, 0, 0);
     margin-top: 7px;
     padding-right: 35px;
-
+    cursor: pointer;
     span {
       font-size: 20px;
       color: red;
@@ -1905,6 +1905,9 @@ body {
         line-height: 22px;
         cursor: pointer;
       }
+      .footer-lower-link:hover{
+        color:#ffff00;
+      }
       img {
         margin-left: 5px;
         height: 24px;
@@ -2232,6 +2235,7 @@ body {
   margin-right: 7px;
   border-radius: 12px;
   border: 0px solid;
+  cursor: pointer;
   background: #b4ddb4;
   background: -moz-linear-gradient(top, #b4ddb4 0%, #006200 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #b4ddb4), color-stop(100%, #006200));
