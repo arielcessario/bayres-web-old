@@ -52,7 +52,7 @@
 
     <div id="login">
         <div class="outer-center outer-top">
-            <div class="inner-center inner-top">
+            <div class="inner-center inner-top" style="margin-top: 5px">
                 <div ng-if="!mainCtrl.user_is_logged">Bienvenido! <a
                         ng-click="mainCtrl.crearCliente();" href="">Registrate</a> o
                     <a ng-click="mainCtrl.ingresarCliente();" href="">Ingresá a tu
@@ -69,7 +69,7 @@
     <div id="shop">
 
         <div class="outer-center outer-top">
-            <div class="inner-center inner-top shop-menu">
+            <div class="inner-center inner-top shop-menu" style="margin-top: 0">
                 <div id="menu-mobile" ng-if="mainCtrl.menu_mobile">
                     <div class="nav-button"
                          ng-click="mainCtrl.menu_mobile_open = !mainCtrl.menu_mobile_open;"
@@ -518,8 +518,7 @@
                         <div ng-if="!mainCtrl.compraTerminada" id="carrito-retira-por">
 
                             <div style="display: flex;">
-                                <select
-                                        ng-model="mainCtrl.tipo" name="" id="tipo">
+                                <select ng-model="mainCtrl.tipo" ng-init="mainCtrl.tipo='0'" name="" id="tipo">
                                     <option value="0">Envio a</option>
                                     <option value="1">Retira por</option>
 

@@ -380,6 +380,9 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
         }
     }
 
+    /**
+     *
+     */
     function inicializarVariables() {
         vm.update_error = '0';
         vm.change_pwd_error = '0';
