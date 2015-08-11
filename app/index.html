@@ -94,6 +94,7 @@
                 <div ng-if="!mainCtrl.menu_mobile" id="menu-categorias"
                      ng-init="mainCtrl.showCategorias = false"
                      ng-click="mainCtrl.mostrarCategorias();"
+                     ng-mouseover="mainCtrl.showCategorias = true;"
                      ng-class="{'selected':mainCtrl.menu_selected == 'categorias'}"   >
                      <!--ng-click="mainCtrl.showCategorias = !mainCtrl.showCategorias;"-->
                     <span>Categorias</span>
