@@ -6,6 +6,10 @@ body {
   overflow-x: hidden;
 }
 
+*:focus{
+  outline: 0;
+}
+
 #agreement-form {
   position: fixed;
   height: 100%;
