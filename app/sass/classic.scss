@@ -309,6 +309,9 @@ body {
       margin-bottom: 10px;
       font-size: 16px;
     }
+    .input-error {
+      border: 2px solid orange !important;
+    }
     button {
       width: 120px;
       height: 37px;

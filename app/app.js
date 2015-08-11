@@ -101,6 +101,7 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
     vm.agregarCarrito = agregarCarrito;
     vm.ingresarClienteEnter = ingresarClienteEnter;
     vm.goToResultado = goToResultado;
+    vm.error_code = 0;
 
     //Manejo de errores
     vm.message_error = '';
@@ -572,47 +573,67 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
 
         if(vm.nombre === undefined) {
             vm.message_error = "El Nombre es Obligatorio";
+            vm.error_code = 1;
         }else if(vm.nombre.trim().length == 0) {
             vm.message_error = "El Nombre es Obligatorio";
+            vm.error_code = 1;
         }else if(vm.apellido === undefined) {
             vm.message_error = "El Apellido es Obligatorio";
+            vm.error_code = 2;
         }else if(vm.apellido.trim().length == 0) {
             vm.message_error = "El Apellido es Obligatorio";
+            vm.error_code = 2;
         }else if(vm.fecha_nacimiento === undefined) {
             vm.message_error = "La Fecha de Nacimiento es Obligatoria";
+            vm.error_code = 3;
         }else if(vm.fecha_nacimiento.trim().length == 0) {
             vm.message_error = "La Fecha de Nacimiento es Obligatoria";
+            vm.error_code = 3;
         }else if(!validarFormatoFecha(vm.fecha_nacimiento)) {
             vm.message_error = "La Fecha de Nacimiento no tiene el formato correcto dd/mm/aaaa";
+            vm.error_code = 3;
         }else if(vm.telefono === undefined) {
             vm.message_error = "El Teléfono es Obligatorio";
+            vm.error_code = 4;
         }else if(vm.telefono.trim().length == 0) {
             vm.message_error = "El Teléfono es Obligatorio";
+            vm.error_code = 4;
         }else if(vm.direccion === undefined) {
             vm.message_error = "La Dirección es Oblicatoria";
+            vm.error_code = 5;
         }else if(vm.direccion.trim().length == 0) {
             vm.message_error = "La Dirección es Oblicatoria";
+            vm.error_code = 5;
         }else if(vm.mail === undefined) {
             vm.message_error = "El Mail es Obligatorio";
+            vm.error_code = 6;
         }else if(vm.mail.trim().length == 0) {
             vm.message_error = "El Mail es Obligatorio";
+            vm.error_code = 6;
         }else if(vm.mail_repeat === undefined) {
             vm.message_error = "Debe Repetir el mismo mail";
+            vm.error_code = 7;
         }else if(vm.mail_repeat.trim().length == 0) {
             vm.message_error = "Debe Repetir el mismo mail";
+            vm.error_code = 7;
         }else if(vm.password === undefined) {
             vm.message_error = "La Contraseña es Obligatoria";
+            vm.error_code = 8;
         }else if(vm.password.trim().length == 0) {
             vm.message_error = "La Contraseña es Obligatoria";
+            vm.error_code = 8;
         }else if (!ValidateEmail(vm.mail.trim())) {
             vm.message_error = "El mail ingresado no es valido";
+            vm.error_code = 6;
         }else if (!ValidateEmail(vm.mail_repeat.trim())) {
             vm.message_error = "El segundo mail ingresado no es valido";
+            vm.error_code = 7;
         }else {
             LoginService.existeCliente(vm.mail, function (data) {
                 if (data == 'true') {
                     vm.message_error = 'El mail ya se encuentra en uso. En caso de no recordar la contraseña, solicitela a través de la página.';
                     vm.usuario_creado = -1;
+                    vm.error_code = 6;
                     return;
                 }
 
@@ -633,6 +654,7 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
                                     vm.telefono = '';
                                     vm.direccion = '';
                                     vm.mail_repeat = '';
+                                    vm.error_code = 0;
                                 }
                                 else {
                                     vm.message_error = 'Ocurrio un error creando el usuario';

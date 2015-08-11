@@ -333,21 +333,31 @@
                     <div id="login-form-container" style="margin-top: 12%;">
                         <div ng-if="mainCtrl.usuario_creado == '-1'" class="mensaje-error">{{mainCtrl.message_error}}</div>
                         <input ng-if="mainCtrl.creaCliente" ng-model="mainCtrl.nombre" placeholder="Nombre"
+                               ng-class="{'input-error' : mainCtrl.error_code == '1'}"
                                type="text"/>
                         <input ng-if="mainCtrl.creaCliente" ng-model="mainCtrl.apellido" placeholder="Apellido"
+                               ng-class="{'input-error' : mainCtrl.error_code == '2'}"
                                type="text"/>
                         <!--<input ng-model="mainCtrl.mail" placeholder="Mail" type="text"/>-->
                         <input ng-if="mainCtrl.creaCliente"
-                               ng-model="mainCtrl.fecha_nacimiento" placeholder="Fecha de Nacimiento (dd/mm/aaaa)" type="text"/>
-                        <input ng-if="mainCtrl.creaCliente" ng-model="mainCtrl.telefono"
-                               placeholder="Telefono" type="text"/>
-                        <input ng-if="mainCtrl.creaCliente" ng-model="mainCtrl.direccion"
-                               placeholder="Dirección" type="text"/>
-                        <input ng-model="mainCtrl.mail" placeholder="Mail" type="text"/>
-                        <input ng-if="mainCtrl.creaCliente" ng-model="mainCtrl.mail_repeat" placeholder="Repita Mail"
+                               ng-model="mainCtrl.fecha_nacimiento" placeholder="Fecha de Nacimiento (dd/mm/aaaa)"
+                               ng-class="{'input-error' : mainCtrl.error_code == '3'}"
                                type="text"/>
-                        <input ng-model="mainCtrl.password" type="password" placeholder="Password" ng-keyup="mainCtrl.ingresarClienteEnter($event);"/>
-
+                        <input ng-if="mainCtrl.creaCliente" ng-model="mainCtrl.telefono" placeholder="Telefono"
+                               ng-class="{'input-error' : mainCtrl.error_code == '4'}"
+                               type="text"/>
+                        <input ng-if="mainCtrl.creaCliente" ng-model="mainCtrl.direccion" placeholder="Dirección"
+                               ng-class="{'input-error' : mainCtrl.error_code == '5'}"
+                               type="text"/>
+                        <input ng-model="mainCtrl.mail" placeholder="Mail"
+                               ng-class="{'input-error' : mainCtrl.error_code == '6'}"
+                               type="text"/>
+                        <input ng-if="mainCtrl.creaCliente" ng-model="mainCtrl.mail_repeat" placeholder="Repita Mail"
+                               ng-class="{'input-error' : mainCtrl.error_code == '7'}"
+                               type="text"/>
+                        <input ng-model="mainCtrl.password" type="password" placeholder="Password"
+                               ng-keyup="mainCtrl.ingresarClienteEnter($event);"
+                               ng-class="{'input-error' : mainCtrl.error_code == '8'}"/>
                         <div>
                             <button ng-if="!mainCtrl.creaCliente" ng-click="mainCtrl.ingresar();">Aceptar</button>
                             <button ng-if="!mainCtrl.creaCliente" ng-click="mainCtrl.creaCliente = true;">Nuevo Usuario
