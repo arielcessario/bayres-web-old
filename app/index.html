@@ -249,7 +249,8 @@
                 <div class="inner-center search-box">
                     <div>
                         <input ng-model="mainCtrl.search" type="text"
-                               ng-change="mainCtrl.searchByName();" placeholder="Buscar..."/>
+                               ng-change="mainCtrl.searchByName();" placeholder="Buscar..."
+                               ng-keyup="mainCtrl.goToResultado($event);" />
                         <span class="clear" ng-click="mainCtrl.search=''; mainCtrl.active_form = 'main';">x</span>
                     </div>
 

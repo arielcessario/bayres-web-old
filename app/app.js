@@ -100,6 +100,7 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
     vm.menu_selected = '';
     vm.agregarCarrito = agregarCarrito;
     vm.ingresarClienteEnter = ingresarClienteEnter;
+    vm.goToResultado = goToResultado;
 
     //Manejo de errores
     vm.message_error = '';
@@ -199,9 +200,10 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
 
     $scope.$on('$routeChangeSuccess', function (next, current) {
         //console.log($routeParams);
-
         vm.active_form = ($routeParams.parameter === undefined) ? 'main' : $routeParams.parameter;
         //vm.active_form =(next === undefined)?'main':next;
+        if(vm.active_form != 'search')
+            vm.search = '';
     });
 
 
@@ -796,6 +798,12 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
         //    console.log(i);
         //    document.getElementById("parallax").scrollTop = i;
         //}
+    }
+
+    function goToResultado(event) {
+        if(event.keyCode == 13) {
+            scrollTo(700);
+        }
     }
 
     function searchByName() {
