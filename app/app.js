@@ -101,6 +101,8 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
     vm.agregarCarrito = agregarCarrito;
     vm.ingresarClienteEnter = ingresarClienteEnter;
     vm.goToResultado = goToResultado;
+    vm.goToCrearCliente = goToCrearCliente;
+    vm.goToIngresar = goToIngresar;
     vm.error_code = 0;
 
     //Manejo de errores
@@ -331,6 +333,18 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
 
         if(vm.showCategorias)
             vm.showCategorias = false;
+    }
+
+    function goToIngresar() {
+        vm.creaCliente = false;
+        vm.message_error = '';
+        vm.error_code = 0;
+    }
+
+    function goToCrearCliente() {
+        vm.creaCliente = true;
+        vm.message_error = '';
+        vm.error_code = 0;
     }
 
     function crearCliente() {
@@ -676,32 +690,51 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
     }
 
     function ingresar() {
-        scrollTo(636);
-        //document.getElementById("parallax").scrollTop = 636;
-        LoginService.login(vm.mail.trim(), vm.password.trim(), function (data) {
-            if (data[0].nombre != null && data[0].nombre.trim().length > 0) {
-                //vm.active_form = 'carrito';
-                //$location.path('/commerce/carrito');
-                $location.path('/commerce/main');
-                //vm.nombre = data[0].nombre;
-                vm.user_is_logged = true;
-                vm.cliente = data[0];
-                vm.mail = '';
-                vm.password = '';
+        if(vm.mail === undefined) {
+            vm.message_error = 'Ingrese un Mail';
+            vm.error_code = 6;
+        }else if(vm.mail.trim().length == 0) {
+            vm.message_error = 'Ingrese un Mail';
+            vm.error_code = 6;
+        }else if(vm.password === undefined) {
+            vm.message_error = 'Ingrese una contraseña';
+            vm.error_code = 8;
+        }else if(vm.password.trim().length == 0) {
+            vm.message_error = 'Ingrese una contraseña';
+            vm.error_code = 8;
+        }else if (!ValidateEmail(vm.mail.trim())) {
+            vm.message_error = 'El mail ingresado no es valido';
+            vm.error_code = 6;
+        }else{
+            scrollTo(636);
+            //document.getElementById("parallax").scrollTop = 636;
+            LoginService.login(vm.mail.trim(), vm.password.trim(), function (data) {
+                if (data[0].nombre != null && data[0].nombre.trim().length > 0) {
+                    //vm.active_form = 'carrito';
+                    //$location.path('/commerce/carrito');
+                    $location.path('/commerce/main');
+                    //vm.nombre = data[0].nombre;
+                    vm.user_is_logged = true;
+                    vm.cliente = data[0];
+                    vm.mail = '';
+                    vm.password = '';
+                    vm.error_code = 0;
 
-                LoginService.getHistoricoPedidos(LoginService.checkLogged().cliente[0].cliente_id,
-                    function (data2) {
-                        console.log(data2);
-                        vm.historico_pedidos = data2;
-                    });
+                    LoginService.getHistoricoPedidos(LoginService.checkLogged().cliente[0].cliente_id,
+                        function (data2) {
+                            console.log(data2);
+                            vm.historico_pedidos = data2;
+                        });
 
-            } else {
-                vm.message_error = 'Mail o password incorrectos';
-                vm.usuario_creado = data;
-                vm.nombre = '';
-                vm.user_is_logged = false;
-            }
-        });
+                } else {
+                    vm.message_error = 'Mail o password incorrectos';
+                    vm.usuario_creado = data;
+                    vm.nombre = '';
+                    vm.user_is_logged = false;
+                }
+            });
+        }
+        console.log(vm.message_error);
     }
 
     if (LoginService.checkLogged()) {

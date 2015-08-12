@@ -360,13 +360,11 @@
                                ng-class="{'input-error' : mainCtrl.error_code == '8'}"/>
                         <div>
                             <button ng-if="!mainCtrl.creaCliente" ng-click="mainCtrl.ingresar();">Aceptar</button>
-                            <button ng-if="!mainCtrl.creaCliente" ng-click="mainCtrl.creaCliente = true;">Nuevo Usuario
-                            </button>
+                            <button ng-if="!mainCtrl.creaCliente" ng-click="mainCtrl.goToCrearCliente();">Nuevo Usuario</button>
                         </div>
                         <div style="margin-bottom: 20px">
                             <button ng-if="mainCtrl.creaCliente" ng-click="mainCtrl.nuevoCliente();">Aceptar</button>
-                            <button ng-if="mainCtrl.creaCliente" ng-click="mainCtrl.creaCliente = false;">Ingresar
-                            </button>
+                            <button ng-if="mainCtrl.creaCliente" ng-click="mainCtrl.goToIngresar();">Ingresar</button>
                         </div>
 
                         <!--div-- ng-if="mainCtrl.usuario_creado == '-1'" style="color:#fff;">{{mainCtrl.message_error}}</div-->
