@@ -301,16 +301,17 @@ body {
     }
 
     input, select {
-      padding: 5px;
+      padding: 3px;
       width: 300px;
       height: 28px;
       border-radius: 28px;
-      border: 0px solid;
+      //border: 0px solid;
+      border: 2px solid #fff;
       margin-bottom: 10px;
       font-size: 16px;
     }
     .input-error {
-      border: 4px solid #8CC63F;
+      border: 2px solid orange;
     }
     button {
       width: 120px;
@@ -2273,7 +2274,8 @@ body {
   }
 }
 .mensaje-error {
-  color:#8CC63F;
+  //color:#8CC63F;
+  color:orange;
   font-size: 28px;
   margin-bottom: 15px;
   text-align: center;

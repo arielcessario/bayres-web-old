@@ -9,7 +9,8 @@ sendMail($decoded->email, $decoded->mensaje);
 function sendMail($email, $mensaje)
 {
     //$to = 'mmaneff@gmail.com';
-    $to = 'juan.dilello@gmail.com';
+    //$to = 'juan.dilello@gmail.com';
+    $to = 'info@bayresnoproblem.com.ar';
 
     $headers = "From: " . $email . "\r\n" .
         "CC: mmaneff@gmail.com";

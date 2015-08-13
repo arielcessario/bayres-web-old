@@ -546,9 +546,11 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
                 vm.historico_pedidos = [];
                 LoginService.getHistoricoPedidos(LoginService.checkLogged().cliente[0].cliente_id,
                     function (data2) {
-                        //console.log('entra');
-                        console.log(data2);
                         vm.historico_pedidos = data2;
+                        var select_one = {pedido_id:-1, fecha:'Seleccione un pedido'};
+
+                        vm.historico_pedidos.unshift(select_one);
+                        vm.pedido = vm.historico_pedidos[0];
                         //$scope.$apply();
                     });
 
@@ -722,8 +724,12 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
 
                     LoginService.getHistoricoPedidos(LoginService.checkLogged().cliente[0].cliente_id,
                         function (data2) {
-                            console.log(data2);
+                            //console.log(data2);
                             vm.historico_pedidos = data2;
+                            var select_one = {pedido_id:-1, fecha:'Seleccione un pedido'};
+
+                            vm.historico_pedidos.unshift(select_one);
+                            vm.pedido = vm.historico_pedidos[0];
                         });
 
                 } else {
@@ -742,6 +748,10 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
             function (data) {
                 //console.log(data);
                 vm.historico_pedidos = data;
+                var select_one = {pedido_id:-1, fecha:'Seleccione un pedido'};
+
+                vm.historico_pedidos.unshift(select_one);
+                vm.pedido = vm.historico_pedidos[0];
             });
     }
 
