@@ -1269,6 +1269,15 @@ body {
       }
 
     }
+    .btn-comprar:active {
+      background: url("../img/boton-oferta-hover.png") 50% 50% no-repeat;
+      width: 134px;
+      height: 57px;
+      cursor: pointer;
+      font-size: 26px;
+      text-shadow: 0px 0px 2px #111111;
+      color: #ffffff;
+    }
   }
   //  #ofertas-container-02 {
   //    background-color: #00fefe;
@@ -1551,7 +1560,6 @@ body {
   margin-left: 5px;
   height: 40px;
   width: 90px;
-
   background: url("../img/boton.png") 50% 50% no-repeat;
 
   button {
@@ -1574,7 +1582,12 @@ body {
       margin-bottom: -5px;
     }
   }
-
+}
+.btn-comprar:active {
+  margin-left: 5px;
+  height: 40px;
+  width: 90px;
+  background: url("../img/boton-hover.png") 50% 50% no-repeat;
 }
 
 .outer-center {
