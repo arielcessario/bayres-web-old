@@ -1545,9 +1545,16 @@ body {
   font-size: 26px;
   text-shadow: 0px 0px 2px #111111;
   color: #ffffff;
-
 }
-
+.btn-comprar-detalle:active {
+  background: url("../img/boton-oferta-hover.png") 50% 50% no-repeat;
+  width: 134px;
+  height: 57px;
+  cursor: pointer;
+  font-size: 26px;
+  text-shadow: 0px 0px 2px #111111;
+  color: #ffffff;
+}
 .detalle {
   margin-right: 60px !important;
   @media (max-width: 360px) {
