@@ -692,6 +692,8 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
     }
 
     function ingresar() {
+        vm.usuario_creado = -1;
+
         if(vm.mail === undefined) {
             vm.message_error = 'Ingrese un Mail';
             vm.error_code = 6;
@@ -730,6 +732,7 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
 
                             vm.historico_pedidos.unshift(select_one);
                             vm.pedido = vm.historico_pedidos[0];
+                            //vm.usuario_creado = -1;
                         });
 
                 } else {
@@ -740,7 +743,7 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
                 }
             });
         }
-        console.log(vm.message_error);
+        //console.log(vm.message_error);
     }
 
     if (LoginService.checkLogged()) {
