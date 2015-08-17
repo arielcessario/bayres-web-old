@@ -299,7 +299,7 @@ body {
   }
 
   #sucursales-01 {
-    @media (max-width: 500px) {
+    @media (max-width: 600px) {
       background: url("../img/sucursales_01M.png") 50% 50% no-repeat;
 //      image-rendering: optimizeSpeed;             /*                     */
 //      image-rendering: -moz-crisp-edges;          /* Firefox             */
@@ -311,13 +311,13 @@ body {
 //      -ms-interpolation-mode: nearest-neighbor;   /* IE8+                */
     }
 
-    @media (min-width: 501px) {
+    @media (min-width: 601px) {
       background: url("../img/sucursales_01.png") 50% 50% no-repeat;
 
     }
   }
   #sucursales-02 {
-    @media (min-width: 501px) {
+    @media (min-width: 601px) {
       background: url("../img/sucursales_02.png") 50% 50% no-repeat;
     }
   }
