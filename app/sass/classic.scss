@@ -74,9 +74,9 @@ body {
     background-image: url(../img/logo_bayres_mobile.png);
     background-size: contain;
   }
-  @media (min-width: 361px) and (max-width: 600px) {
+  @media (min-width: 360px) and (max-width: 601px) {
     margin-left: 25%;
-    background-image: url(../img/logo_bayres_mobile.png);
+    background-image: url(../img/logo_bayres_mobile.png) !important;
     background-size: contain;
   }
 }

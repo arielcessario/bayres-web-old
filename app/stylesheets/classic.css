@@ -140,11 +140,11 @@ body {
     background-size: contain;
   }
 }
-@media (min-width: 361px) and (max-width: 600px) {
+@media (min-width: 360px) and (max-width: 60px) {
   /* line 63, ../sass/classic.scss */
   .agreement-logo {
     margin-left: 25%;
-    background-image: url(../img/logo_bayres_mobile.png);
+    background-image: url(../img/logo_bayres_mobile.png) !important;
     background-size: contain;
   }
 }
