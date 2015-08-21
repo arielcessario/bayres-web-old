@@ -289,6 +289,9 @@ body {
   @media (max-width: 360px) {
     width: 340px;
   }
+  @media (min-width: 361px) and (max-width: 601px) {
+    width: 580px;
+  }
 
   #login-form-container,
   #cuenta-form-container,
@@ -313,6 +316,9 @@ body {
 
     @media (max-width: 360px) {
       width: 340px;
+    }
+    @media (min-width: 361px) and (max-width: 601px) {
+      width: 580px;
     }
 
     input:nth-child(1) {
@@ -351,8 +357,21 @@ body {
       background: -ms-linear-gradient(top, #b4ddb4 0%, #006200 100%); /* IE10+ */
       background: linear-gradient(to bottom, #b4ddb4 0%, #006200 100%); /* W3C */
       filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#b4ddb4', endColorstr='#006200', GradientType=0); /* IE6-9 */
+
+      @media (min-width: 602px) {
+        margin-top: 18px;
+      }
+      @media (min-width: 361px) and (max-width: 601px) {
+        margin-top: 18px;
+      }
     }
     @media (max-width: 360px) {
+      .border-form-container {
+        flex-direction: column;
+        width: 100%;
+      }
+    }
+    @media (min-width: 361px) and (max-width: 601px) {
       .border-form-container {
         flex-direction: column;
         width: 100%;
@@ -367,8 +386,8 @@ body {
       @media (min-width: 801px) {
         width: 60%;
       }
-      @media (min-width: 600px) {
-        width: 60%;
+      @media (min-width: 361px) and (max-width: 601px) {
+        width: 95%;
       }
       @media (max-width: 360px) {
         //width: 78%;
@@ -384,8 +403,8 @@ body {
       @media (min-width: 801px) {
         width: 31%;
       }
-      @media (min-width: 600px) {
-        width: 30%;
+      @media (min-width: 361px) and (max-width: 601px){
+        width: 95%;
       }
       @media (max-width: 360px) {
         //width: 78%;
@@ -400,8 +419,8 @@ body {
       @media (min-width: 801px) {
         width: 650px;
       }
-      @media (min-width: 600px) {
-        width: 650px;
+      @media (min-width: 361px) and (max-width: 601px) {
+        width: 552px;
       }
 
       span {
@@ -424,9 +443,19 @@ body {
       color: #68A52F;
       margin-left: 5px;
     }
-    @media (min-width: 600px) {
+    @media (min-width: 602px){
       .small-button {
-        width: 40px !important;
+        width: 55px !important;
+      }
+    }
+    @media (min-width: 361px) and (max-width: 601px) {
+      .small-button {
+        width: 80px !important;
+      }
+    }
+    @media (max-width: 360px) {
+      .small-button {
+        width: 130px !important;
       }
     }
 
@@ -471,7 +500,12 @@ body {
           margin-top: 60px;
         }
       }
-      @media (min-width: 600px) {
+      @media (min-width: 361px) and (max-width: 601px) {
+        .margin-button {
+          margin-top: 60px;
+        }
+      }
+      @media (max-width: 360px) {
         .margin-button {
           margin-top: 60px;
         }
@@ -499,6 +533,12 @@ body {
         input {
           width: 140px !important;
           height: 20px;
+          @media (max-width: 360px) {
+            width: 250px !important;
+          }
+          @media (min-width: 361px) and (max-width: 601px){
+            width: 200px !important;
+          }
         }
       }
     }
@@ -993,8 +1033,11 @@ body {
     text-indent: -999px;
     width: 14px;
 
-    @media (max-width: 800px) {
+    @media (max-width: 360px) {
       left: 38%;
+    }
+    @media (min-width: 361px) and (max-width: 601px) {
+      left: 42%;
     }
   }
   .slider_1 {
@@ -1255,10 +1298,14 @@ body {
       position: absolute;
       bottom: 4%;
       right: 0%;
-      @media (max-width: 800px) {
+      @media (max-width: 360px) {
         left: calc(40% - 150px);
         //        text-align: center;
         //        right: 10px;
+        width: 100%;
+      }
+      @media (min-width: 361px) and (max-width: 601px){
+        left: calc(23% - 150px);
         width: 100%;
       }
     }
@@ -1720,8 +1767,8 @@ body {
   color: white;
   font-size: 71px;
   text-shadow: 2px 2px 3px rgba(#000000, 0.75);
-  @media (max-width: 600px) {
-    margin-left: 0%;
+  @media (min-width: 361px) and (max-width: 601px) {
+    margin-left: 12%;
   }
   @media (max-width: 360px) {
     margin-left: 0%;
