@@ -44,7 +44,7 @@
     <!--div class="agreement-contenedor-boton"-->
     <div class="botonera" style="margin-bottom: 50px;">
         <button ng-click="mainCtrl.aceptoAgreement=true;mainCtrl.cambiarSlide();">Acepto</button>
-        <button ng-click="mainCtrl.aceptoAgreement=false;">No Acepto</button>
+        <button ng-click="mainCtrl.aceptoAgreement=false;mainCtrl.noAcepto();">No Acepto</button>
     </div>
     
     </div>
@@ -543,8 +543,8 @@
                                 </select>
                                 <select ng-if="mainCtrl.tipo == 0"
                                         ng-model="mainCtrl.envios" name="" id="tipo_envio">
-                                    <option value="Buenos Aires" selected>Buenos Aires</option>
-                                    <option value="Interior">Interior</option>
+                                    <option value="Gran Buenos Aires" selected>Gran Buenos Aires</option>
+                                    <option value="Interior del Pais">Interior del Pais</option>
 
                                 </select>
                             </div>
@@ -776,7 +776,7 @@
                         <div>
                             <div class="footer-lower-title">REDES SOCIALES</div>
                             <br/>
-                            <a href="https://www.facebook.com/pages/Bayres-No-Problem-Grow-Shop/501719106529294">
+                            <a href="https://m.facebook.com/bayresnoproblem.grow">
                                 <img src="img/social_01.png" alt="facebook"/>
                             </a>
                             <a href="https://twitter.com/bayresnoproblem">

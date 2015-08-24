@@ -20,12 +20,12 @@ angular.module('myApp', [
 
 MainController.$inject = ['acAngularProductosService', 'acAngularCarritoServiceAcciones', '$scope', '$document',
     'LoginService', 'acAngularSucursalesService', '$timeout', '$routeParams', '$location', '$interval',
-    'acAngularCategoriasService', 'MainService', 'acAngularCarritoTotalService'];
+    'acAngularCategoriasService', 'MainService', 'acAngularCarritoTotalService', '$window'];
 MainService.$inject = ['$http'];
 
 function MainController(acAngularProductosService, acAngularCarritoServiceAcciones, $scope, $document,
                         LoginService, acAngularSucursalesService, $timeout, $routeParams, $location, $interval,
-                        acAngularCategoriasService, MainService, acAngularCarritoTotalService) {
+                        acAngularCategoriasService, MainService, acAngularCarritoTotalService, $window) {
     var vm = this;
     vm.ofertas = [];
     vm.destacados = [];
@@ -40,7 +40,7 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
     vm.sucursales = [];
     vm.sucursal = {};
     vm.tipo = 0;
-    vm.envios = 'Buenos Aires';
+    vm.envios = 'Gran Buenos Aires';
     vm.cliente = {};
 
     //vm.active_form = 'main';
@@ -104,6 +104,7 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
     vm.goToCrearCliente = goToCrearCliente;
     vm.goToIngresar = goToIngresar;
     vm.error_code = 0;
+    vm.noAcepto = noAcepto;
 
     //Manejo de errores
     vm.message_error = '';
@@ -130,6 +131,9 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
         //vm.slider_nro = 2;
     }
 
+    function noAcepto() {
+        $window.location.href = 'http://www.google.com';
+    }
 
     acAngularCategoriasService.getCategorias(function(data){
         //console.log(data);
