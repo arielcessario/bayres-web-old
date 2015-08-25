@@ -2794,31 +2794,53 @@ body {
   margin-bottom: 10px;
   max-height: 30px;
 }
+/* line 1951, ../sass/classic.scss */
+#medios .medio-pago:nth-child(4) {
+  order: 0;
+  flex: 0 1 auto;
+  align-self: auto;
+  margin-top: 10px;
+}
+/* line 1956, ../sass/classic.scss */
+#medios .medio-pago:nth-child(4) img {
+  margin-left: 15px;
+  max-width: 40px;
+  margin-bottom: 10px;
+  max-height: 30px;
+}
 
-/* line 1954, ../sass/classic.scss */
+/* line 1965, ../sass/classic.scss */
+#contacto {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  text-align: center;
+}
+
+/* line 1971, ../sass/classic.scss */
 #footer {
   width: 100%;
   overflow-x: auto;
   overflow-y: hidden;
   font-family: 'Myriad Pro Bold Condensed', serif;
 }
-/* line 1961, ../sass/classic.scss */
+/* line 1978, ../sass/classic.scss */
 #footer .footer-outer {
   width: 100%;
   max-width: 800px;
 }
-/* line 1966, ../sass/classic.scss */
+/* line 1983, ../sass/classic.scss */
 #footer .footer-inner {
   width: 100%;
   max-width: 800px;
 }
-/* line 1971, ../sass/classic.scss */
+/* line 1988, ../sass/classic.scss */
 #footer .footer-container {
   max-width: 800px;
   width: 100%;
   height: 450px;
 }
-/* line 1977, ../sass/classic.scss */
+/* line 1994, ../sass/classic.scss */
 #footer #footer-lower {
   margin-top: 25px;
   height: 45%;
@@ -2829,32 +2851,32 @@ body {
   flex-wrap: nowrap;
 }
 @media (max-width: 360px) {
-  /* line 1977, ../sass/classic.scss */
+  /* line 1994, ../sass/classic.scss */
   #footer #footer-lower {
     min-width: 100%;
     text-align: center;
   }
 }
 @media (min-width: 361px) and (max-width: 601px) {
-  /* line 1977, ../sass/classic.scss */
+  /* line 1994, ../sass/classic.scss */
   #footer #footer-lower {
     min-width: 100%;
     text-align: center;
   }
 }
-/* line 1996, ../sass/classic.scss */
+/* line 2013, ../sass/classic.scss */
 #footer #footer-lower div {
   max-width: 198px;
   width: 198px;
   font-family: 'Myriad Pro Bold Condensed', serif;
 }
-/* line 2000, ../sass/classic.scss */
+/* line 2017, ../sass/classic.scss */
 #footer #footer-lower div .footer-lower-title {
   width: 100%;
   color: #8cc63f;
   font-size: 19px;
 }
-/* line 2006, ../sass/classic.scss */
+/* line 2023, ../sass/classic.scss */
 #footer #footer-lower div .footer-lower-link {
   font-family: 'Myriad Pro Condensed', serif;
   width: 100%;
@@ -2864,32 +2886,32 @@ body {
   line-height: 22px;
   cursor: pointer;
 }
-/* line 2015, ../sass/classic.scss */
+/* line 2032, ../sass/classic.scss */
 #footer #footer-lower div .footer-lower-link:hover {
   color: #ffff00;
 }
-/* line 2018, ../sass/classic.scss */
+/* line 2035, ../sass/classic.scss */
 #footer #footer-lower div img {
   margin-left: 5px;
   height: 24px;
   width: 24px;
   cursor: pointer;
 }
-/* line 2028, ../sass/classic.scss */
+/* line 2045, ../sass/classic.scss */
 #footer #footer-upper {
   height: 40%;
 }
-/* line 2030, ../sass/classic.scss */
+/* line 2047, ../sass/classic.scss */
 #footer #footer-upper img {
   width: 100%;
   margin-top: 25px;
 }
-/* line 2035, ../sass/classic.scss */
+/* line 2052, ../sass/classic.scss */
 #footer #copyright {
   height: 10%;
   width: 100%;
   color: #fff;
-  font-size: 12px;
+  font-size: 14px;
   text-align: center;
   font-family: 'Myriad Pro Condensed', serif;
 }
@@ -2910,7 +2932,7 @@ body {
     transform: translate(1500px, 0);
   }
 }
-/* line 2071, ../sass/classic.scss */
+/* line 2088, ../sass/classic.scss */
 .nav-button div {
   cursor: pointer;
   width: 20px;
@@ -2925,7 +2947,7 @@ body {
   transition: all 0.4s;
 }
 
-/* line 2085, ../sass/classic.scss */
+/* line 2102, ../sass/classic.scss */
 #menu-categorias-detalle {
   position: fixed;
   right: 0px;
@@ -2942,7 +2964,7 @@ body {
   align-items: flex-start;
   justify-content: center;
 }
-/* line 2103, ../sass/classic.scss */
+/* line 2120, ../sass/classic.scss */
 #menu-categorias-detalle div {
   margin-left: 20px;
   margin-top: 5px;
@@ -2952,7 +2974,7 @@ body {
   margin-bottom: 10px;
 }
 
-/* line 2116, ../sass/classic.scss */
+/* line 2133, ../sass/classic.scss */
 .menu-categoria {
   order: 0;
   flex: 0 1 auto;
@@ -2960,12 +2982,12 @@ body {
   margin-top: 40px !important;
 }
 
-/* line 2122, ../sass/classic.scss */
+/* line 2139, ../sass/classic.scss */
 .menu-categoria-item:hover {
   color: #fff;
 }
 
-/* line 2125, ../sass/classic.scss */
+/* line 2142, ../sass/classic.scss */
 .menu-subcategoria {
   order: 0;
   flex: 0 1 auto;
@@ -2976,13 +2998,13 @@ body {
   text-transform: capitalize;
 }
 
-/* line 2135, ../sass/classic.scss */
+/* line 2152, ../sass/classic.scss */
 #menu-categorias-detalle.ng-enter {
   -webkit-animation: menu-categorias-detalle-enter 0.3s;
   animation: menu-categorias-detalle-enter 0.3s;
 }
 
-/* line 2140, ../sass/classic.scss */
+/* line 2157, ../sass/classic.scss */
 #menu-categorias-detalle.ng-leave {
   -webkit-animation: menu-categorias-detalle-leave 0.3s;
   animation: menu-categorias-detalle-leave 0.3s;
@@ -3004,7 +3026,7 @@ body {
     transform: scale(1, 0);
   }
 }
-/* line 2165, ../sass/classic.scss */
+/* line 2182, ../sass/classic.scss */
 #menu-mobile {
   width: 20px;
   position: fixed;
@@ -3013,7 +3035,7 @@ body {
   top: 35px;
 }
 
-/* line 2174, ../sass/classic.scss */
+/* line 2191, ../sass/classic.scss */
 #courtain {
   position: fixed;
   z-index: 9998;
@@ -3024,7 +3046,7 @@ body {
   bottom: 0;
 }
 
-/* line 2184, ../sass/classic.scss */
+/* line 2201, ../sass/classic.scss */
 #menu-mobile-detail {
   position: fixed;
   z-index: 9999;
@@ -3042,7 +3064,7 @@ body {
   overflow-y: auto;
   overflow-x: hidden;
 }
-/* line 2205, ../sass/classic.scss */
+/* line 2222, ../sass/classic.scss */
 #menu-mobile-detail div {
   margin-left: 20px;
   margin-top: 5px;
@@ -3052,18 +3074,18 @@ body {
   margin-bottom: 5px;
   text-transform: capitalize;
 }
-/* line 2216, ../sass/classic.scss */
+/* line 2233, ../sass/classic.scss */
 #menu-mobile-detail .margin-top {
   margin-top: 30px;
 }
 
-/* line 2221, ../sass/classic.scss */
+/* line 2238, ../sass/classic.scss */
 #menu-mobile-detail.ng-enter {
   -webkit-animation: menu-mobile-detail-enter 0.3s;
   animation: menu-mobile-detail-enter 0.3s;
 }
 
-/* line 2226, ../sass/classic.scss */
+/* line 2243, ../sass/classic.scss */
 #menu-mobile-detail.ng-leave {
   -webkit-animation: menu-mobile-detail-leave 0.3s;
   animation: menu-mobile-detail-leave 0.3s;
@@ -3085,7 +3107,7 @@ body {
     transform: scale(0, 1);
   }
 }
-/* line 2254, ../sass/classic.scss */
+/* line 2271, ../sass/classic.scss */
 .cuenta-input input {
   width: 160px !important;
   height: 19px !important;
@@ -3147,7 +3169,7 @@ body {
   font-weight: normal;
   src: local("Myriad Pro Bold"), url("MYRIADPRO-BOLD.woff") format("woff");
 }
-/* line 2328, ../sass/classic.scss */
+/* line 2345, ../sass/classic.scss */
 .botonera {
   display: flex;
   flex-direction: row;
@@ -3156,7 +3178,7 @@ body {
   margin-top: 40px;
 }
 
-/* line 2336, ../sass/classic.scss */
+/* line 2353, ../sass/classic.scss */
 .botonera button {
   width: 100px;
   height: 30px;
@@ -3178,7 +3200,7 @@ body {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#b4ddb4', endColorstr='#006200', GradientType=0);
 }
 @media (min-width: 361px) and (max-width: 601px) {
-  /* line 2336, ../sass/classic.scss */
+  /* line 2353, ../sass/classic.scss */
   .botonera button {
     width: 150px;
     height: 45px;
@@ -3186,35 +3208,35 @@ body {
   }
 }
 
-/* line 2363, ../sass/classic.scss */
+/* line 2380, ../sass/classic.scss */
 .mensaje {
   margin-top: 10px;
   color: #fff;
   font-size: 14px;
 }
 
-/* line 2368, ../sass/classic.scss */
+/* line 2385, ../sass/classic.scss */
 .subcategoria {
   font-size: 16px;
 }
 
-/* line 2371, ../sass/classic.scss */
+/* line 2388, ../sass/classic.scss */
 .subcategoria:hover {
   color: #ffff00;
 }
 
-/* line 2374, ../sass/classic.scss */
+/* line 2391, ../sass/classic.scss */
 #contacto-volver {
   display: none;
 }
 @media (max-width: 600px) {
-  /* line 2374, ../sass/classic.scss */
+  /* line 2391, ../sass/classic.scss */
   #contacto-volver {
     display: inline;
   }
 }
 
-/* line 2381, ../sass/classic.scss */
+/* line 2398, ../sass/classic.scss */
 .mensaje-error {
   color: orange;
   font-size: 28px;
@@ -3223,24 +3245,32 @@ body {
   padding: 0 5%;
 }
 
-/* line 2390, ../sass/classic.scss */
+/* line 2406, ../sass/classic.scss */
+.recovery-pwd {
+  font-family: 'Myriad Pro Bold Condensed', serif;
+  font-size: 14px;
+  color: #8cc63f;
+  text-decoration: none;
+}
+
+/* line 2414, ../sass/classic.scss */
 .with-products {
   background-color: darkred !important;
 }
 
-/* line 2393, ../sass/classic.scss */
+/* line 2417, ../sass/classic.scss */
 .ac-desarrollo {
   text-decoration: none;
   color: #fff;
 }
 
-/* line 2397, ../sass/classic.scss */
+/* line 2421, ../sass/classic.scss */
 .ac-desarrollo:hover {
   text-decoration: none;
   color: #8cc63f;
 }
 
-/* line 2401, ../sass/classic.scss */
+/* line 2425, ../sass/classic.scss */
 .quitar-producto {
   color: #8CC63F;
   font-size: 20px;
@@ -3249,9 +3279,18 @@ body {
   max-width: 350px;
 }
 @media (max-width: 360px) {
-  /* line 2401, ../sass/classic.scss */
+  /* line 2425, ../sass/classic.scss */
   .quitar-producto {
     max-width: 340px;
     margin-left: 15px;
   }
+}
+
+/* line 2438, ../sass/classic.scss */
+.info-envios {
+  font-family: 'Myriad Pro Condensed', serif;
+  font-size: 18px;
+  color: #8cc63f;
+  text-align: center;
+  margin: 0 10%;
 }

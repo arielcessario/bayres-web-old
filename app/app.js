@@ -105,6 +105,8 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
     vm.goToIngresar = goToIngresar;
     vm.error_code = 0;
     vm.noAcepto = noAcepto;
+    vm.recovery_pwd = 0;
+    vm.recoveryPwd = recoveryPwd;
 
     //Manejo de errores
     vm.message_error = '';
@@ -410,6 +412,7 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
         vm.message_error = '';
         vm.carrito_mensaje = '0';
         vm.contacto_enviado = '0';
+        vm.recovery_pwd = 0;
     }
 
     function actualizarCliente() {
@@ -695,6 +698,28 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
         }
     }
 
+    function recoveryPwd() {
+        if(vm.mail != undefined) {
+            if(vm.mail.trim().length > 0) {
+                if (ValidateEmail(vm.mail.trim())) {
+                    LoginService.recoveryPwd(vm.mail.trim());
+                }
+                else {
+                    vm.message_error = 'El mail ingresado no es valido';
+                    vm.error_code = 6;
+                }
+            }
+            else {
+                vm.message_error = 'Ingrese un mail';
+                vm.error_code = 6;
+            }
+        }
+        else {
+            vm.message_error = 'Error al pasar el mail';
+            vm.error_code = 6;
+        }
+    }
+
     function ingresar() {
         vm.usuario_creado = -1;
 
@@ -744,6 +769,7 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
                     vm.usuario_creado = data;
                     vm.nombre = '';
                     vm.user_is_logged = false;
+                    vm.recovery_pwd = 1;
                 }
             });
         }

@@ -1948,9 +1948,26 @@ body {
       max-height: 30px;
     }
   }
+  .medio-pago:nth-child(4) {
+    order: 0;
+    flex: 0 1 auto;
+    align-self: auto;
+    margin-top: 10px;
+    img {
+      margin-left: 15px;
+      max-width: 40px;
+      margin-bottom: 10px;
+      max-height: 30px;
+    }
+  }
 
 }
-
+#contacto {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  text-align: center;
+}
 #footer {
   width: 100%;
   overflow-x: auto;
@@ -2040,7 +2057,7 @@ body {
     //flex-direction: row;
     //flex-wrap: nowrap;
     color: #fff;
-    font-size: 12px;
+    font-size: 14px;
     text-align: center;
     font-family: 'Myriad Pro Condensed', serif;
   }
@@ -2386,6 +2403,13 @@ body {
   text-align: center;
   padding: 0 5%;
 }
+.recovery-pwd{
+  font-family: 'Myriad Pro Bold Condensed', serif;
+  font-size: 14px;
+  color: #8cc63f;
+  text-decoration: none;
+
+}
 
 .with-products{
   background-color: darkred !important;
@@ -2409,4 +2433,12 @@ body {
     max-width: 340px;
     margin-left: 15px;
   }
+}
+
+.info-envios{
+  font-family: 'Myriad Pro Condensed', serif;
+  font-size: 18px;
+  color: #8cc63f;
+  text-align: center;
+  margin:0 10%;
 }
