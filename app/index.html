@@ -192,12 +192,8 @@
         <div id="contact-detail" ng-if="mainCtrl.active_form == 'contact';" class="outer-center">
             <div class="contenedor inner-center">
                 <div class="lineacontornoverde">
-
                     <div class="rectangulogrisoscuro">
-
-
                         <div class="contenedor-inner-contacto-mapa">
-
                             <div class="column">
                                 <P class="Contacto">CONTACTO</P>
 
@@ -286,7 +282,8 @@
 
                 <!--SEARCH-->
                 <div id="search-results" ng-if="mainCtrl.active_form == 'search';">
-                    <div class="title-results">RESULTADOS</div>
+                    <!--div class="title-results">RESULTADOS</div-->
+                    <div class="title-results">{{mainCtrl.searchTitle}}</div>
                     <div id="productos_list">
                         <div class="destacado" ng-repeat="destacado in mainCtrl.productos" title="{{destacado.nombre}}">
                             <div class="outline">
@@ -717,8 +714,8 @@
                 <span>MEDIOS DE PAGO:</span>
             </div>
             <div class="medio-pago">
-                <img src="img/medio_07.png" alt=""/>
-                <img src="img/medio_08.png" alt=""/>
+                <img src="img/medio_07.png" alt="Transferencia" title="Transferencia"/>
+                <img src="img/medio_08.png" alt="Deposito Bancario" title="Deposito Bancario"/>
             </div>
             <div class="medio-pago">
                 <img src="img/medio_01.png" alt=""/>

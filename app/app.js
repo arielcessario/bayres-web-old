@@ -107,6 +107,7 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
     vm.noAcepto = noAcepto;
     vm.recovery_pwd = 0;
     vm.recoveryPwd = recoveryPwd;
+    vm.searchTitle = 'RESULTADOS';
 
     //Manejo de errores
     vm.message_error = '';
@@ -515,6 +516,7 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
                         console.log('Su consulta fue enviada. Gracias por contactarse');
                         vm.contacto_enviado = '1';
                         vm.message_error = 'Su consulta fue enviada. Gracias por contactarse';
+                        inicio();
                     }
                     else {
                         console.log('Se produjo un error al enviar el mail');
@@ -905,16 +907,20 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
     }
 
     function searchByName() {
-        //console.log(vm.search.length);
+        //console.log(vm.search);
         if (vm.search.length > 2) {
             //vm.active_form = 'search';
             $location.path('/commerce/search');
             acAngularProductosService.getProductoByName(vm.search, function (data) {
-                //console.log(data);
+                if(data.length > 0) {
+                    vm.searchTitle = 'RESULTADOS';
+                }
+                else {
+                    vm.searchTitle = 'No se encontro resultado';
+                }
                 vm.productos = data;
             });
         } else {
-
             //vm.active_form = 'main';
             $location.path('/commerce/main');
         }
