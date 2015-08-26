@@ -249,7 +249,6 @@
                                 <!--img ng-src="./img/{{destacado.fotos[0].nombre}}" alt="{{destacado.nombre}}"/-->
                                 <img ng-src="./img/{{mainCtrl.detalle.fotos[0].nombre}}"
                                      alt="{{mainCtrl.detalle.nombre}}"/>
-
                                 <div>{{mainCtrl.detalle.nombre}}</div>
                             </div>
                             <div>
@@ -275,7 +274,7 @@
                             </div>
 
                         </div>
-                        <div class="btn-close-detalle" ng-click="mainCtrl.hideDetails();"></div>
+                        <div class="btn-close-detalle" ng-click="mainCtrl.hideDetails(mainCtrl.detalle);"></div>
                     </div>
                 </div>
 
@@ -759,6 +758,15 @@
                             <br/>
                             <!--a class="footer-lower-link">COMPRAS</a><br/-->
                             <a class="footer-lower-link" ng-click="mainCtrl.comprar();">CHECKOUT</a><br/>
+                        </div>
+                        <div>
+                            <div class="footer-lower-title">LEGALES</div>
+                            <br/>
+                            <a class="footer-lower-link" ng-click="mainCtrl.verLegales();">ENVIOS/DEVOLUCIONES</a><br/>
+                            <a class="footer-lower-link" ng-click="mainCtrl.verLegales();">CONFIDENCIALIDAD</a><br/>
+                            <a class="footer-lower-link" ng-click="mainCtrl.verLegales();">CONDICIONES DE USO</a><br/>
+                            <a class="footer-lower-link" ng-click="mainCtrl.verLegales();">CONTACTENOS</a><br/>
+                            <a class="footer-lower-link" ng-click="mainCtrl.verLegales();">¿QUIENES SOMOS?</a><br/>
                         </div>
                         <div>
                             <div class="footer-lower-title">REDES SOCIALES</div>

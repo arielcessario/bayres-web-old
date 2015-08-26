@@ -109,6 +109,7 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
     vm.recoveryPwd = recoveryPwd;
     vm.searchTitle = 'RESULTADOS';
     vm.info_envio = '';
+    vm.verLegales = verLegales;
 
     //Manejo de errores
     vm.message_error = '';
@@ -281,6 +282,11 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
         //document.getElementById("parallax").scrollTop = 0;
         //vm.active_form = 'main';
         $location.path('/commerce/mapa');
+    }
+
+    function verLegales() {
+        //implementar
+        console.log('implementar');
     }
 
     function inicio() {
@@ -546,10 +552,10 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
         var envio_retira = (vm.tipo == 0) ? vm.envios : vm.sucursal.nombre;
 
         var ret_comprar = acAngularCarritoServiceAcciones.comprar(envio_retira, function (data) {
-
+            vm.info_envio = '';
             vm.compraTerminada = true;
             $timeout(function () {
-                vm.info_envio = '';
+
                 vm.compraTerminada = false;
                 //vm.active_form = 'main';
                 $location.path('/commerce/main');
@@ -889,18 +895,18 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
 
     }
 
-    function hideDetails() {
-        vm.active_form = vm.active_form_before;
-        vm.detalle = {};
-        vm.details = false;
-        scrollTo(vm.top_before);
-        $location.path('/commerce/main');
-        //document.getElementById("parallax").scrollTop = vm.top_before;
-
-        //for(var i = vm.top; i > vm.top_before; i--){
-        //    console.log(i);
-        //    document.getElementById("parallax").scrollTop = i;
-        //}
+    function hideDetails(detalle) {
+        console.log(detalle);
+        if(detalle.destacado == 1) {
+            vm.active_form = vm.active_form_before;
+            vm.detalle = {};
+            vm.details = false;
+            scrollTo(vm.top_before);
+            $location.path('/commerce/main');
+        }
+        else {
+            getByCategoria(detalle.categoria_id);
+        }
     }
 
     function goToResultado(event) {

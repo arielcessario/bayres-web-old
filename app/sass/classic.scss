@@ -2028,6 +2028,9 @@ body {
         width: 100%;
         color: #8cc63f;
         font-size: 19px;
+        @media (max-width: 360px) {
+          font-size: 14px;
+        }
       }
 
       .footer-lower-link {
@@ -2038,6 +2041,9 @@ body {
         text-decoration: none;
         line-height: 22px;
         cursor: pointer;
+        @media (max-width: 360px) {
+          font-size: 14px;
+        }
       }
       .footer-lower-link:hover{
         color:#ffff00;
