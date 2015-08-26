@@ -3257,16 +3257,14 @@ body {
 
 /* line 2407, ../sass/classic.scss */
 #contacto-volver {
-  display: none;
-}
-@media (max-width: 600px) {
-  /* line 2407, ../sass/classic.scss */
-  #contacto-volver {
+  display: inline;
+  /*
+  @media (max-width: 600px) {
     display: inline;
-  }
+  }*/
 }
 
-/* line 2414, ../sass/classic.scss */
+/* line 2415, ../sass/classic.scss */
 .mensaje-error {
   color: orange;
   font-size: 28px;
@@ -3275,7 +3273,7 @@ body {
   padding: 0 5%;
 }
 
-/* line 2422, ../sass/classic.scss */
+/* line 2423, ../sass/classic.scss */
 .recovery-pwd {
   font-family: 'Myriad Pro Bold Condensed', serif;
   font-size: 14px;
@@ -3283,24 +3281,24 @@ body {
   text-decoration: none;
 }
 
-/* line 2430, ../sass/classic.scss */
+/* line 2431, ../sass/classic.scss */
 .with-products {
   background-color: darkred !important;
 }
 
-/* line 2433, ../sass/classic.scss */
+/* line 2434, ../sass/classic.scss */
 .ac-desarrollo {
   text-decoration: none;
   color: #fff;
 }
 
-/* line 2437, ../sass/classic.scss */
+/* line 2438, ../sass/classic.scss */
 .ac-desarrollo:hover {
   text-decoration: none;
   color: #8cc63f;
 }
 
-/* line 2441, ../sass/classic.scss */
+/* line 2442, ../sass/classic.scss */
 .quitar-producto {
   color: #8CC63F;
   font-size: 20px;
@@ -3309,14 +3307,14 @@ body {
   max-width: 350px;
 }
 @media (max-width: 360px) {
-  /* line 2441, ../sass/classic.scss */
+  /* line 2442, ../sass/classic.scss */
   .quitar-producto {
     max-width: 340px;
     margin-left: 15px;
   }
 }
 
-/* line 2454, ../sass/classic.scss */
+/* line 2455, ../sass/classic.scss */
 .info-envios {
   font-family: 'Myriad Pro Condensed', serif;
   font-size: 18px;

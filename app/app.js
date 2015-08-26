@@ -108,6 +108,7 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
     vm.recovery_pwd = 0;
     vm.recoveryPwd = recoveryPwd;
     vm.searchTitle = 'RESULTADOS';
+    vm.info_envio = '';
 
     //Manejo de errores
     vm.message_error = '';
@@ -548,6 +549,7 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
 
             vm.compraTerminada = true;
             $timeout(function () {
+                vm.info_envio = '';
                 vm.compraTerminada = false;
                 //vm.active_form = 'main';
                 $location.path('/commerce/main');
@@ -810,6 +812,7 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
         } else {
             //vm.active_form = 'carrito';
             $location.path('/commerce/carrito');
+            vm.info_envio = 'Los envios se realizan por medio de cadeteria, según el tamaño y peso del pedido. El costo del mismo es a cargo del comprador, previo coordinacion con el vendedor';
         }
         if(vm.menu_mobile_open)
             vm.menu_mobile_open = false;
