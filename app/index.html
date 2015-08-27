@@ -338,6 +338,10 @@
                         <input ng-model="mainCtrl.password" type="password" placeholder="Password"
                                ng-keyup="mainCtrl.ingresarClienteEnter($event);"
                                ng-class="{'input-error' : mainCtrl.error_code == '8'}"/>
+                        <label ng-if="mainCtrl.creaCliente" class="news-letter">
+                            <input type="checkbox" ng-model="mainCtrl.newsLetter" style="width: 30px;"><span>Suscribirse a Newsletter</span>
+                        </label>
+
                         <div ng-if="mainCtrl.recovery_pwd == '1'" >
                             <a ng-click="mainCtrl.recoveryPwd();" href="" class="recovery-pwd">Recuperar contraseña</a>
                         </div>
@@ -391,11 +395,12 @@
                                             </div>
                                         </div>
                                         <div class="row-1">
-                                            <div class="margin-button">
-                                                <button ng-if="!mainCtrl.creaCliente"
-                                                        ng-click="mainCtrl.actualizarCliente();"
-                                                        class="small-button">Ok
-                                                </button>
+                                            <label ng-if="!mainCtrl.creaCliente" class="news-letter">
+                                                <span>Newsletter</span>
+                                                <input type="checkbox" ng-model="mainCtrl.newsLetterToUpdate" style="width: 30px;">
+                                            </label>
+                                            <div class="margin-button" style="margin-top:0">
+                                                <button ng-if="!mainCtrl.creaCliente" ng-click="mainCtrl.actualizarCliente();" class="small-button" style="margin-top:17px">Ok</button>
                                             </div>
                                         </div>
                                     </div>
@@ -730,6 +735,25 @@
         <div></div>
     </div>
     <div id="footer" class="parallax__group parallax__layer parallax__layer--base">
+        <!--div id="legales">
+            <div class="contenedor inner-center">
+                <div class="lineacontornoverde">
+                    <div class="rectangulogrisoscuro">
+                        <div class="contenedor-inner-contacto-mapa">
+                            <div class="column">
+                                <p class="titulo-legales">{{mainCtrl.tituloLegales}}</p>
+
+                                <p class="texto-legales">{{mainCtrl.textoLegales}}</p>
+                                <div class="botonera">
+                                    <button ng-click="mainCtrl.inicio();" id="contacto-volver">Volver</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div-->
         <div class="outer-center footer-outer">
             <div class="inner-center footer-inner">
                 <div class="footer-container">
@@ -762,11 +786,11 @@
                         <div>
                             <div class="footer-lower-title">LEGALES</div>
                             <br/>
-                            <a class="footer-lower-link" ng-click="mainCtrl.verLegales();">ENVIOS/DEVOLUCIONES</a><br/>
-                            <a class="footer-lower-link" ng-click="mainCtrl.verLegales();">CONFIDENCIALIDAD</a><br/>
-                            <a class="footer-lower-link" ng-click="mainCtrl.verLegales();">CONDICIONES DE USO</a><br/>
-                            <a class="footer-lower-link" ng-click="mainCtrl.verLegales();">CONTACTENOS</a><br/>
-                            <a class="footer-lower-link" ng-click="mainCtrl.verLegales();">¿QUIENES SOMOS?</a><br/>
+                            <a class="footer-lower-link" ng-click="mainCtrl.verLegales(1);">ENVIOS/DEVOLUCIONES</a><br/>
+                            <a class="footer-lower-link" ng-click="mainCtrl.verLegales(2);">CONFIDENCIALIDAD</a><br/>
+                            <a class="footer-lower-link" ng-click="mainCtrl.verLegales(3);">CONDICIONES DE USO</a><br/>
+                            <a class="footer-lower-link" ng-click="mainCtrl.contacto(1);">CONTACTENOS</a><br/>
+                            <a class="footer-lower-link" ng-click="mainCtrl.verLegales(4);">¿QUIENES SOMOS?</a><br/>
                         </div>
                         <div>
                             <div class="footer-lower-title">REDES SOCIALES</div>

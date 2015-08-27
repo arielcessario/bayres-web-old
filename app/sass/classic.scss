@@ -628,7 +628,9 @@ body {
       font-family: 'Myriad Pro Bold Condensed', serif;
       margin-right: 5px;
       margin-left: 5px;
-
+      @media (max-width: 360px) {
+        width: 35px;
+      }
     }
 
     #ac-carrito-precio-uni {
@@ -643,6 +645,7 @@ body {
 
       @media (max-width: 360px) {
         font-size: 16px;
+        width: 65px;
       }
     }
 
@@ -2458,10 +2461,29 @@ body {
   }
 }
 
-.info-envios{
+.info-envios {
   font-family: 'Myriad Pro Condensed', serif;
   font-size: 18px;
   color: #8cc63f;
   text-align: center;
-  margin:0 10%;
+  margin: 0 10%;
+}
+.lupa{
+  width:34px;
+  height:34px;
+  cursor:pointer;
+  margin-right:5px;
+}
+.news-letter{
+  color:#8CC63F;
+  font-size: 20px;
+
+  @media (min-width: 801px) {
+    margin-left: -15px;
+    color:#fff;
+  }
+
+  span{
+    margin-top: 5px;
+  }
 }

@@ -110,6 +110,9 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
     vm.searchTitle = 'RESULTADOS';
     vm.info_envio = '';
     vm.verLegales = verLegales;
+    vm.textoLegales = '';
+    vm.newsLetter = true;
+    vm.newsLetterToUpdate = true;
 
     //Manejo de errores
     vm.message_error = '';
@@ -284,9 +287,28 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
         $location.path('/commerce/mapa');
     }
 
-    function verLegales() {
-        //implementar
-        console.log('implementar');
+    function verLegales(option) {
+        if(option == 1){
+            vm.tituloLegales = 'Envios / Devoluciones';
+            vm.textoLegales = 'Falta información';
+        }else if(option == 2) {
+            vm.tituloLegales = 'Confidencialidad';
+            vm.textoLegales = 'Falta información';
+        }else if(option == 3) {
+            vm.tituloLegales = 'Condiciones de Uso';
+            vm.textoLegales = 'Falta información';
+        }else {
+            vm.tituloLegales = 'Quienes Somos';
+            vm.textoLegales = 'Somos una empresa joven dedicada a la distribucion mayorista y minorista de articulos de cultivo.' +
+                            'Como principal objetivo buscamos la satisfaccion de nuestros clientes, para conseguirlo brindamos ' +
+                            'el mejor asesoramiento personalizado, respondiendo a todas tus consultas pre y post venta. ' +
+                            'Contamos con un showroom con mas de 400 articulos para el cultivo, en el podras encontrar los ' +
+                            'productos que buscas para hacer rendir al maximo tus cosechas. ' +
+                            'Trabajamos con las marcas lideres del mercado, tanto nacional como importadas. ' +
+                            'En pocas palabras, brindamos soluciones. Porque para eso estamos. ' +
+                            'Te damos las gracias por dedicarle un minuto a leer nuestra muy resumida historia y te invitamos a ' +
+                            'registrarte en nuestro sitio';
+        }
     }
 
     function inicio() {
@@ -339,12 +361,12 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
 
     //Estas 2 funciones solo sirven para el link del login
     function ingresarCliente() {
+        inicializarVariables();
         //vm.active_form = 'login';
         scrollTo(363);
         $location.path('/commerce/login');
         vm.creaCliente = false;
         //document.getElementById("parallax").scrollTop = 636;
-
         if(vm.showCategorias)
             vm.showCategorias = false;
     }
@@ -390,13 +412,15 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
                     function (data) {
                         vm.change_pwd_error = '1';
                         if (data == 1) {
+                            vm.pass_new = '';
+                            vm.pass_old = '';
                             vm.message_error = 'La contrase単a se modifico satisfactoriamente';
                         }
                         else {
                             vm.change_pwd_error = '1';
                             vm.message_error = 'Error modificando la contrase単a';
                         }
-                        console.log(data);
+                        //console.log(data);
                     });
                 /*}
                  else {
@@ -439,12 +463,14 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
             if (vm.cliente.apellido.trim().length > 0 && vm.cliente.nombre.trim().length > 0 && vm.cliente.mail.trim().length > 0) {
                 if (ValidateEmail(vm.cliente.mail.trim())) {
                     LoginService.getClienteByEmail(vm.cliente.mail.trim(), function (data) {
+                        //console.log(vm.cliente);
+
                         if (data.user != null) {
                             if (vm.cliente.cliente_id == data.user.cliente_id) {
                                 //Si no encontro dentro de la db otro cliente
                                 //con el email ingresado, actualizo los datos
-                                LoginService.updateCliente(vm.cliente.cliente_id, vm.cliente.nombre.trim(), vm.cliente.apellido.trim(),
-                                    vm.cliente.mail.trim(), vm.cliente.direccion.trim(), function (data) {
+                                vm.cliente.news_letter = (vm.newsLetterToUpdate) ? 1 : 0;
+                                LoginService.updateCliente(vm.cliente, function (data) {
                                         if (data.result) {
                                             vm.update_error = '1';
                                             vm.message_error = 'Los datos se actualizaron satisfactoriamente';
@@ -463,10 +489,10 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
                         else {
                             //Si no encontro dentro de la db otro cliente
                             //con el email ingresado, actualizo los datos
-                            LoginService.updateCliente(vm.cliente.cliente_id, vm.cliente.nombre.trim(), vm.cliente.apellido.trim(),
-                                vm.cliente.mail.trim(), vm.cliente.direccion.trim(), function (data) {
-                                    console.log(data.result);
-                                    console.log((data.result) ? 1 : 0);
+                            vm.cliente.news_letter = (vm.newsLetterToUpdate) ? 1 : 0;
+                            LoginService.updateCliente(vm.cliente, function (data) {
+                                    //console.log(data.result);
+                                    //console.log((data.result) ? 1 : 0);
                                     if (data.result) {
                                         vm.update_error = '1';
                                         vm.message_error = 'Los datos se actualizaron satisfactoriamente';
@@ -506,7 +532,7 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
 
         if((vm.nombreContacto.trim().length == 0) || (vm.apellidoContacto.trim().length == 0) ||
             (vm.emailContacto.trim().length == 0) || (vm.consulta.trim().length == 0)) {
-            console.log('Por favor ingrese todos los datos para poder enviar el Mail');
+            //console.log('Por favor ingrese todos los datos para poder enviar el Mail');
             vm.contacto_enviado = '1';
             vm.message_error = 'Por favor ingrese todos los datos para poder enviar el Mail';
         }
@@ -520,20 +546,20 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
                     //console.log(enviado);
                     if(enviado == "true") {
                         limpiarDatosContacto();
-                        console.log('Su consulta fue enviada. Gracias por contactarse');
+                        //console.log('Su consulta fue enviada. Gracias por contactarse');
                         vm.contacto_enviado = '1';
                         vm.message_error = 'Su consulta fue enviada. Gracias por contactarse';
                         inicio();
                     }
                     else {
-                        console.log('Se produjo un error al enviar el mail');
+                        //console.log('Se produjo un error al enviar el mail');
                         vm.contacto_enviado = '1';
                         vm.message_error = 'Se produjo un error al enviar el mail';
                     }
                 });
             }
             else {
-                console.log('El mail ingresado no es valido');
+                //console.log('El mail ingresado no es valido');
                 vm.contacto_enviado = '1';
                 vm.message_error = 'El mail ingresado no es valido';
             }
@@ -575,7 +601,7 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
         });
 
         if (ret_comprar === false) {
-            console.log('Mensaje de Carrito Vacío');
+            //console.log('Mensaje de Carrito Vacío');
         }
     }
 
@@ -595,6 +621,7 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
             return false;
         }
     }
+
 
     function nuevoCliente() {
         vm.message_error = '';
@@ -673,8 +700,20 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
                 if (vm.mail.trim().length > 0 && vm.mail_repeat.trim().length > 0) {
                     if (vm.mail.trim() === vm.mail_repeat.trim()) {
                         //console.log('llamando al create');
-                        LoginService.create(vm.nombre, vm.apellido, vm.mail, vm.password, vm.fecha_nacimiento,
-                            vm.telefono, vm.direccion, function (data) {
+                        var cliente = {};
+                        cliente.nombre = vm.nombre;
+                        cliente.apellido = vm.apellido;
+                        cliente.mail = vm.mail;
+                        cliente.password = vm.password;
+                        cliente.fecha_nacimiento = vm.fecha_nacimiento;
+                        cliente.telefono = vm.telefono;
+                        cliente.direccion = vm.direccion;
+                        cliente.news_letter = (vm.newsLetter) ? 1 : 0;
+                        //console.log(cliente);
+
+                        /*LoginService.create(vm.nombre, vm.apellido, vm.mail, vm.password, vm.fecha_nacimiento,
+                            vm.telefono, vm.direccion, function (data) {*/
+                        LoginService.create(cliente, function (data) {
                                 if (data == 'true') {
                                     ingresar();
 
@@ -688,6 +727,7 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
                                     vm.direccion = '';
                                     vm.mail_repeat = '';
                                     vm.error_code = 0;
+                                    vm.newsLetter = true;
                                 }
                                 else {
                                     vm.message_error = 'Ocurrio un error creando el usuario';
@@ -712,10 +752,38 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
         if(vm.mail != undefined) {
             if(vm.mail.trim().length > 0) {
                 if (ValidateEmail(vm.mail.trim())) {
-                    LoginService.recoveryPwd(vm.mail.trim());
+                    LoginService.getClienteByEmail(vm.mail.trim(), function (data){
+                        if(data.cliente != "null") {
+                            var new_password = LoginService.generateRandomPassword();
+                            //console.log(new_password);
+                            //console.log(data.cliente_id);
+                            LoginService.resetPassword(data.cliente_id, new_password, function(data2){
+                                //console.log(data2);
+                                if(data2.result) {
+                                    //console.log('envio mail');
+                                    LoginService.sendPassword(vm.mail.trim(), new_password, function(enviado) {
+                                        //console.log(enviado);
+                                        if(enviado == "true") {
+                                            vm.mail = '';
+                                            vm.message_error = 'Se envio una nueva contraseña';
+                                            vm.error_code = 6;
+                                        }
+                                        else {
+                                            vm.message_error = 'Se produjo un error al enviar el mail';
+                                            vm.error_code = 6;
+                                        }
+                                    });
+                                }
+                            });
+                        }
+                        else {
+                            vm.message_error = 'El mail ingresado no existe';
+                            vm.error_code = 6;
+                        }
+                    });
                 }
                 else {
-                    vm.message_error = 'El mail ingresado no es valido';
+                    vm.message_error = 'El mail no tiene un formato valido';
                     vm.error_code = 6;
                 }
             }
@@ -758,7 +826,9 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
                     $location.path('/commerce/main');
                     //vm.nombre = data[0].nombre;
                     vm.user_is_logged = true;
+                    //console.log(data[0]);
                     vm.cliente = data[0];
+                    vm.newsLetterToUpdate = (vm.cliente.news_letter == 1) ? true : false;
                     vm.mail = '';
                     vm.password = '';
                     vm.error_code = 0;
@@ -884,7 +954,7 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
         scrollTo(636);
         //document.getElementById("parallax").scrollTop = 636;
 
-        console.log(vm.detalle);
+        //console.log(vm.detalle);
 
         //for(var i = vm.top; i <= 636; i++){
         //    console.log(i);
@@ -896,7 +966,7 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
     }
 
     function hideDetails(detalle) {
-        console.log(detalle);
+        //console.log(detalle);
         if(detalle.destacado == 1) {
             vm.active_form = vm.active_form_before;
             vm.detalle = {};
