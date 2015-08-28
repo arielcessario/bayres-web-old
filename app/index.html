@@ -462,9 +462,9 @@
                             <div style="margin-top: 15px;">
                                 <div class="historial-pedidos-form-container">
                                     <div class="ultimos-pedidos">
-                                        <label class="title-mi-cuenta" style="margin-right: 10px">Ultimos
-                                            pedidos</label>
+                                        <label class="title-mi-cuenta" style="margin-right: 10px">Ultimos pedidos</label>
                                         <select ng-click="mainCtrl.detalle = mainCtrl.pedido.detalles;"
+                                                ng-change="mainCtrl.getPedidoSelected(mainCtrl.pedido);"
                                                 ng-model="mainCtrl.pedido"
                                                 ng-options="pedido.carrito_id + ' - ' + pedido.fecha + ' - ' + pedido.total for  pedido in mainCtrl.historico_pedidos"
                                                 class="mob-pedidos">
@@ -494,10 +494,8 @@
                                     <div style="display: inline-block;width: 100%;">
                                         <div class="flexcontainer">
                                             <div class="flexcontainer-1">
-                                                <!--button ng-click="mainCtrl.borrarCarrito();" >Borrar</button-->
-                                                <button ng-click="mainCtrl.repetirCarrito(mainCtrl.pedido);" class="btn-pedilo">
-                                                    Pedilo!
-                                                </button>
+                                                <button ng-click="mainCtrl.cancelarCarrito(mainCtrl.pedido);" id="cancelar-pedido">Cancelar Pedido</button>
+                                                <button ng-click="mainCtrl.repetirCarrito(mainCtrl.pedido);" class="btn-pedilo">Pedilo!</button>
                                             </div>
                                             <div class="flexcontainer-1">
                                                 <div style="float: right;margin-top: 25px;">

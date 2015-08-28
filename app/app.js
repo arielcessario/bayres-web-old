@@ -78,7 +78,7 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
     vm.actualizarCliente = actualizarCliente;
     vm.repetirCarrito = repetirCarrito;
     vm.selectDetalle = selectDetalle;
-    vm.borrarCarrito = borrarCarrito;
+    vm.cancelarCarrito = cancelarCarrito;
     vm.masVendidosForm = masVendidosForm;
     vm.destacadosForm = destacadosForm;
     vm.sucursalesForm = sucursalesForm;
@@ -114,6 +114,7 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
     vm.newsLetter = true;
     vm.newsLetterToUpdate = true;
     vm.volverLegales = volverLegales;
+    vm.getPedidoSelected = getPedidoSelected;
 
     //Manejo de errores
     vm.message_error = '';
@@ -323,9 +324,8 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
 
     function volverLegales() {
         vm.menu_selected = 'inicio';
-        scrollTo(2000);
-        //document.getElementById("parallax").scrollTop = 0;
-        //vm.active_form = 'main';
+        scrollTo(1800);
+
         $location.path('/commerce/main');
         if(vm.menu_mobile_open)
             vm.menu_mobile_open = false;
@@ -437,11 +437,11 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
                         if (data == 1) {
                             vm.pass_new = '';
                             vm.pass_old = '';
-                            vm.message_error = 'La contrase単a se modifico satisfactoriamente';
+                            vm.message_error = 'La contraseña se modifico satisfactoriamente';
                         }
                         else {
                             vm.change_pwd_error = '1';
-                            vm.message_error = 'Error modificando la contrase単a';
+                            vm.message_error = 'Error modificando la contraseña';
                         }
                         //console.log(data);
                     });
@@ -453,7 +453,7 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
             }
             else {
                 vm.change_pwd_error = '1';
-                vm.message_error = 'Las contrase単as no pueden ser vacias';
+                vm.message_error = 'Las contraseñas no pueden ser vacias';
             }
         }
     }
@@ -1069,11 +1069,49 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
         addProducto(prod);
     }
 
-    function borrarCarrito() {
+    function cancelarCarrito(carrito) {
         inicializarVariables();
+        if(carrito.pedido_id != undefined) {
+            vm.carrito_mensaje = '1';
+            vm.message_error = 'Seleccione un pedido';
+        } else {
+            if (carrito.status == 3) {
+                vm.carrito_mensaje = '1';
+                vm.message_error = 'El Pedido ya esta confirmado. No se puede cancelar';
+            }
+            else {
+                var result = confirm('¿Esta seguro que desea Cancelar el Pedido ' + carrito.carrito_id + '?');
+                if (result) {
+                    console.log(carrito);
+                    acAngularCarritoServiceAcciones.cancelarCarrito(carrito, function (data) {
+                        if (data.status == 1) {
+                            //vm.carrito_mensaje = '1';
+                            //vm.message_error = 'Su pedido fué cancelado satisfactoriamente';
+                            alert('Su pedido fue cancelado satisfactoriamente');
+                            vm.historico_pedidos = [];
+                            LoginService.getHistoricoPedidos(LoginService.checkLogged().cliente[0].cliente_id,
+                                function (data2) {
+                                    vm.historico_pedidos = data2;
+                                    var select_one = {pedido_id:-1, fecha:'Seleccione un pedido'};
 
-        vm.carrito_mensaje = '1';
-        vm.message_error = 'El carrito se borro satisfactoriamente';
+                                    vm.historico_pedidos.unshift(select_one);
+                                    vm.pedido = vm.historico_pedidos[0];
+                                });
+                        }
+                        else {
+                            vm.carrito_mensaje = '1';
+                            vm.message_error = 'Error cancelando el pedido';
+                        }
+                    });
+                }
+            }
+        }
+    }
+
+    function getPedidoSelected(pedido) {
+        console.log(pedido);
+        vm.carrito_mensaje = '0';
+        vm.message_error = '';
     }
 
     function selectDetalle() {
