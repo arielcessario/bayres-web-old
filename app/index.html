@@ -129,12 +129,6 @@
                         <a  href="" title="Sucursal Flores" ng-click="mainCtrl.contacto(1);">
                             <img src="img/icono_suc01.png" height="15" width="30" style="margin-top: 3px"/>
                         </a>
-                        <!--a  href="" title="Sucursal Once" ng-click="mainCtrl.contacto(2);">
-                            <img src="img/icono_suc02.png" height="15" width="15" style="margin-top: 3px"/>
-                        </a>
-                        <a  href="" title="Sucursal Almagro" ng-click="mainCtrl.contacto(3);">
-                            <img src="img/icono_suc03.png" height="15" width="15" style="margin-top: 3px"/>
-                        </a-->
                     </div>
                 </div>
                 <div ng-if="mainCtrl.showCategorias" id="menu-categorias-detalle" ng-mouseleave="mainCtrl.showCategorias = false;">
@@ -214,6 +208,27 @@
                                     <button ng-click="mainCtrl.inicio();" id="contacto-volver">Volver</button>
                                 </div>
                                 <div ng-if="mainCtrl.contacto_enviado == '1'" class="mensaje">{{mainCtrl.message_error}}</div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="legales" ng-if="mainCtrl.active_form == 'legales';" class="outer-center">
+            <div class="contenedor inner-center">
+                <div class="lineacontornoverde-2">
+                    <div class="rectangulogrisoscuro">
+                        <div class="contenedor-inner-contacto-mapa">
+                            <div class="column">
+                                <P class="Contacto">{{mainCtrl.tituloLegales}}</P>
+
+                                <P class="texto-legales">{{mainCtrl.textoLegales}}</P>
+
+                                <div class="botonera">
+                                    <button ng-click="mainCtrl.volverLegales();" id="legales-volver">Volver</button>
+                                </div>
                             </div>
                         </div>
 
@@ -735,25 +750,7 @@
         <div></div>
     </div>
     <div id="footer" class="parallax__group parallax__layer parallax__layer--base">
-        <!--div id="legales">
-            <div class="contenedor inner-center">
-                <div class="lineacontornoverde">
-                    <div class="rectangulogrisoscuro">
-                        <div class="contenedor-inner-contacto-mapa">
-                            <div class="column">
-                                <p class="titulo-legales">{{mainCtrl.tituloLegales}}</p>
 
-                                <p class="texto-legales">{{mainCtrl.textoLegales}}</p>
-                                <div class="botonera">
-                                    <button ng-click="mainCtrl.inicio();" id="contacto-volver">Volver</button>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div-->
         <div class="outer-center footer-outer">
             <div class="inner-center footer-inner">
                 <div class="footer-container">

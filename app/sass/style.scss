@@ -731,8 +731,61 @@ body {
       }
     }
   }
+}
+.lineacontornoverde-2
+{
+  border-style : Solid;
+  border-color : #81BB3F;
+  border-color : rgba(129, 187, 63, 1);
+  border-width : 1px;
+  position : relative;
+  top : 5px;
+  width : 500px;
+  height : 530px;
+  margin: auto;
+  text-align: center;
+  border-radius : 10px;
+  -moz-border-radius : 5px;
+  -webkit-border-radius : 5px;
 
+  @media (max-width: 360px) {
+    width : 350px;
+  }
+  .contenedor-inner-contacto-mapa{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    @media (min-width: 800px){
+      flex-wrap: nowrap;
+    }
 
+    .column{
+      min-width: 100%;
+      min-height: 480px;
+      @media (min-width: 800px) {
+        //min-width: 50%;
+        //max-width: 50%;
+        min-width: 95%;
+        max-width: 95%;
+        margin: 0 auto;
+      }
+
+      .texto-legales{
+        font-family : "Myriad Pro Regular";
+        position: relative;
+        font-size : 15px;
+        color : white;
+        top: 40px;
+        color : rgb(255, 255, 255);
+        margin-left: 5%;
+        margin-right: 5%;
+      }
+
+      .botonera{
+        margin-top: 180px;
+      }
+    }
+  }
 }
 .Nombre
 {

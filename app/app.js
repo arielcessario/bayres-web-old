@@ -113,6 +113,7 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
     vm.textoLegales = '';
     vm.newsLetter = true;
     vm.newsLetterToUpdate = true;
+    vm.volverLegales = volverLegales;
 
     //Manejo de errores
     vm.message_error = '';
@@ -288,6 +289,15 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
     }
 
     function verLegales(option) {
+        scrollTo(0);
+        $location.path('/commerce/legales');
+
+        if(vm.showCategorias)
+            vm.showCategorias = false;
+
+        if(vm.menu_mobile_open)
+            vm.menu_mobile_open = false;
+
         if(option == 1){
             vm.tituloLegales = 'Envios / Devoluciones';
             vm.textoLegales = 'Falta información';
@@ -298,7 +308,7 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
             vm.tituloLegales = 'Condiciones de Uso';
             vm.textoLegales = 'Falta información';
         }else {
-            vm.tituloLegales = 'Quienes Somos';
+            vm.tituloLegales = '¿Quienes Somos?';
             vm.textoLegales = 'Somos una empresa joven dedicada a la distribucion mayorista y minorista de articulos de cultivo.' +
                             'Como principal objetivo buscamos la satisfaccion de nuestros clientes, para conseguirlo brindamos ' +
                             'el mejor asesoramiento personalizado, respondiendo a todas tus consultas pre y post venta. ' +
@@ -309,6 +319,19 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
                             'Te damos las gracias por dedicarle un minuto a leer nuestra muy resumida historia y te invitamos a ' +
                             'registrarte en nuestro sitio';
         }
+    }
+
+    function volverLegales() {
+        vm.menu_selected = 'inicio';
+        scrollTo(2000);
+        //document.getElementById("parallax").scrollTop = 0;
+        //vm.active_form = 'main';
+        $location.path('/commerce/main');
+        if(vm.menu_mobile_open)
+            vm.menu_mobile_open = false;
+
+        if(vm.showCategorias)
+            vm.showCategorias = false;
     }
 
     function inicio() {
