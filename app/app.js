@@ -1085,6 +1085,9 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
                     console.log(carrito);
                     acAngularCarritoServiceAcciones.cancelarCarrito(carrito, function (data) {
                         if (data.status == 1) {
+                            acAngularCarritoServiceAcciones.sendMailCancelarCarrito(carrito, function(data){
+                                console.log(data);
+                            });
                             //vm.carrito_mensaje = '1';
                             //vm.message_error = 'Su pedido fué cancelado satisfactoriamente';
                             alert('Su pedido fue cancelado satisfactoriamente');
@@ -1109,7 +1112,7 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
     }
 
     function getPedidoSelected(pedido) {
-        console.log(pedido);
+        //console.log(pedido);
         vm.carrito_mensaje = '0';
         vm.message_error = '';
     }
