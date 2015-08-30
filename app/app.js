@@ -1085,9 +1085,25 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
                     console.log(carrito);
                     acAngularCarritoServiceAcciones.cancelarCarrito(carrito, function (data) {
                         if (data.status == 1) {
-                            acAngularCarritoServiceAcciones.sendMailCancelarCarrito(carrito, function(data){
+                            //console.log(carrito);
+                            var mensaje_1 = "Su pedido " + carrito.carrito_id + " fue cancelado \n\n" +
+                                "Fecha del Pedido: " + carrito.fecha + "\n\n" +
+                                "Total del Pedido: $" + carrito.total + "\n\n" +
+                                "Saludos \n\n" +
+                                "Bayres No Problem";
+
+                            acAngularCarritoServiceAcciones.sendMailCancelarCarrito(vm.cliente.mail, mensaje_1, function(data){
                                 console.log(data);
                             });
+
+                            var mensaje_2 = "El Cliente " + vm.cliente.nombre + " " + vm.cliente.apellido + " solicito cancelar el pedido " +  carrito.carrito_id + "\n\n" +
+                                "Fecha del Pedido: " + carrito.fecha + "\n\n" +
+                                "Total del Pedido: $" + carrito.total;
+
+                            acAngularCarritoServiceAcciones.sendMailCancelarCarrito("mmaneff@gmail.com", mensaje_2, function(data){
+                                console.log(data);
+                            });
+
                             //vm.carrito_mensaje = '1';
                             //vm.message_error = 'Su pedido fué cancelado satisfactoriamente';
                             alert('Su pedido fue cancelado satisfactoriamente');
