@@ -1082,7 +1082,7 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
             else {
                 var result = confirm('¿Esta seguro que desea Cancelar el Pedido ' + carrito.carrito_id + '?');
                 if (result) {
-                    console.log(carrito);
+                    //console.log(carrito);
                     acAngularCarritoServiceAcciones.cancelarCarrito(carrito, function (data) {
                         if (data.status == 1) {
                             //console.log(carrito);
@@ -1093,7 +1093,7 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
                                 "Bayres No Problem";
 
                             acAngularCarritoServiceAcciones.sendMailCancelarCarrito(vm.cliente.mail, mensaje_1, function(data){
-                                console.log(data);
+                                //console.log(data);
                             });
 
                             var mensaje_2 = "El Cliente " + vm.cliente.nombre + " " + vm.cliente.apellido + " solicito cancelar el pedido " +  carrito.carrito_id + "\n\n" +
@@ -1101,12 +1101,11 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
                                 "Total del Pedido: $" + carrito.total;
 
                             acAngularCarritoServiceAcciones.sendMailCancelarCarrito("mmaneff@gmail.com", mensaje_2, function(data){
-                                console.log(data);
+                                //console.log(data);
                             });
 
-                            //vm.carrito_mensaje = '1';
-                            //vm.message_error = 'Su pedido fué cancelado satisfactoriamente';
-                            alert('Su pedido fue cancelado satisfactoriamente');
+                            vm.carrito_mensaje = '1';
+                            vm.message_error = 'Su pedido fué cancelado satisfactoriamente';
                             vm.historico_pedidos = [];
                             LoginService.getHistoricoPedidos(LoginService.checkLogged().cliente[0].cliente_id,
                                 function (data2) {
@@ -1115,6 +1114,7 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
 
                                     vm.historico_pedidos.unshift(select_one);
                                     vm.pedido = vm.historico_pedidos[0];
+                                    vm.detalle = {};
                                 });
                         }
                         else {
@@ -1129,8 +1129,10 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
 
     function getPedidoSelected(pedido) {
         //console.log(pedido);
-        vm.carrito_mensaje = '0';
-        vm.message_error = '';
+        if(pedido.pedido_id != null || pedido.pedido_id != undefined) {
+            vm.carrito_mensaje = '0';
+            vm.message_error = '';
+        }
     }
 
     function selectDetalle() {
