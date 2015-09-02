@@ -1129,7 +1129,7 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
 
     function getPedidoSelected(pedido) {
         //console.log(pedido);
-        if(pedido.pedido_id != null || pedido.pedido_id != undefined) {
+        if(pedido != null) {
             vm.carrito_mensaje = '0';
             vm.message_error = '';
         }
