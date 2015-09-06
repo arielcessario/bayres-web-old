@@ -3307,7 +3307,9 @@ body {
   color: #8cc63f;
   text-decoration: none;
 }
-
+.recovery-pwd:hover {
+  color:#ffff00;
+}
 /* line 2440, ../sass/classic.scss */
 .with-products {
   background-color: darkred !important;

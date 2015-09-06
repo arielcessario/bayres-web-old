@@ -152,6 +152,7 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
 
     function getByCategoria(categoria_id){
         acAngularProductosService.getProductosByCategoria(categoria_id, function(data){
+            vm.searchTitle = data[0].categoria;
             scrollTo(700);
             $location.path('/commerce/search');
             vm.productos = data;
@@ -776,7 +777,7 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
             if(vm.mail.trim().length > 0) {
                 if (ValidateEmail(vm.mail.trim())) {
                     LoginService.getClienteByEmail(vm.mail.trim(), function (data){
-                        if(data.cliente != "null") {
+                        if(data.result == true) {
                             var new_password = LoginService.generateRandomPassword();
                             //console.log(new_password);
                             //console.log(data.cliente_id);
@@ -800,6 +801,7 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
                             });
                         }
                         else {
+                            console.log('El mail ingresado no existe');
                             vm.message_error = 'El mail ingresado no existe';
                             vm.error_code = 6;
                         }
