@@ -902,26 +902,37 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
         vm.showCategorias = !vm.showCategorias;
     }
 
+    function limpiarRegistro() {
+        vm.nombre = '';
+        vm.apellido = '';
+        vm.fecha_nacimiento = '';
+        vm.telefono = '';
+        vm.direccion = '';
+        vm.mail = '';
+        vm.mail_repeat = '';
+        vm.password = '';
+    }
+
     function comprar(opcion) {
         vm.menu_selected = opcion;
 
         scrollTo(636);
         //document.getElementById("parallax").scrollTop = 636;
         if (!LoginService.checkLogged()) {
-            //vm.active_form = 'login';
+            //console.log('login');
+            limpiarRegistro();
+            vm.creaCliente = false;
+            vm.active_form = 'login';
             $location.path('/commerce/login');
         } else {
+            //console.log('carrito');
             //vm.active_form = 'carrito';
             $location.path('/commerce/carrito');
             vm.info_envio = 'Los envios se realizan por medio de cadeteria, según el tamaño y peso del pedido. El costo del mismo es a cargo del comprador, previo coordinacion con el vendedor';
         }
         if(vm.menu_mobile_open)
             vm.menu_mobile_open = false;
-        //if (!acAngularCarritoServiceAcciones.comprar()) {
-        //    vm.active_form = 'login';
-        //} else {
-        //    vm.active_form = 'carrito';
-        //}
+
         if(vm.showCategorias)
             vm.showCategorias = false;
     }
@@ -933,7 +944,9 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
         scrollTo(636);
         //document.getElementById("parallax").scrollTop = 636;
         if (!LoginService.checkLogged()) {
-            //vm.active_form = 'login';
+            limpiarRegistro();
+            vm.creaCliente = false;
+            vm.active_form = 'login';
             $location.path('/commerce/login');
         } else {
             //vm.active_form = 'cuenta';
