@@ -601,31 +601,41 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
     function finalizarCompra() {
         var envio_retira = (vm.tipo == 0) ? vm.envios : vm.sucursal.nombre;
 
-        var ret_comprar = acAngularCarritoServiceAcciones.comprar(envio_retira, function (data) {
-            vm.info_envio = '';
-            vm.compraTerminada = true;
-            $timeout(function () {
+        if (!LoginService.checkLogged()) {
+            //console.log('login');
+            limpiarRegistro();
+            vm.creaCliente = false;
+            vm.active_form = 'login';
+            vm.active_form_before = 'carrito';
+            $location.path('/commerce/login');
+        }
+        else {
+            var ret_comprar = acAngularCarritoServiceAcciones.comprar(envio_retira, function (data) {
+                vm.info_envio = '';
+                vm.compraTerminada = true;
+                $timeout(function () {
 
-                vm.compraTerminada = false;
-                //vm.active_form = 'main';
-                $location.path('/commerce/main');
+                    vm.compraTerminada = false;
+                    //vm.active_form = 'main';
+                    $location.path('/commerce/main');
 
-                vm.historico_pedidos = [];
-                LoginService.getHistoricoPedidos(LoginService.checkLogged().cliente[0].cliente_id,
-                    function (data2) {
-                        vm.historico_pedidos = data2;
-                        var select_one = {pedido_id:-1, fecha:'Seleccione un pedido'};
+                    vm.historico_pedidos = [];
+                    LoginService.getHistoricoPedidos(LoginService.checkLogged().cliente[0].cliente_id,
+                        function (data2) {
+                            vm.historico_pedidos = data2;
+                            var select_one = {pedido_id:-1, fecha:'Seleccione un pedido'};
 
-                        vm.historico_pedidos.unshift(select_one);
-                        vm.pedido = vm.historico_pedidos[0];
-                        //$scope.$apply();
-                    });
+                            vm.historico_pedidos.unshift(select_one);
+                            vm.pedido = vm.historico_pedidos[0];
+                            //$scope.$apply();
+                        });
 
-            }, 2000);
-        });
+                }, 2000);
+            });
 
-        if (ret_comprar === false) {
-            //console.log('Mensaje de Carrito Vacío');
+            if (ret_comprar === false) {
+                //console.log('Mensaje de Carrito Vacío');
+            }
         }
     }
 
@@ -846,9 +856,14 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
             //document.getElementById("parallax").scrollTop = 636;
             LoginService.login(vm.mail.trim(), vm.password.trim(), function (data) {
                 if (data[0].nombre != null && data[0].nombre.trim().length > 0) {
-                    //vm.active_form = 'carrito';
-                    //$location.path('/commerce/carrito');
-                    $location.path('/commerce/main');
+                    if(vm.active_form_before == 'carrito') {
+                        vm.active_form = 'carrito';
+                        $location.path('/commerce/carrito');
+                    }
+                    else {
+                        $location.path('/commerce/main');
+                    }
+                    vm.active_form_before = '';
                     //vm.nombre = data[0].nombre;
                     vm.user_is_logged = true;
                     //console.log(data[0]);
@@ -918,6 +933,7 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
 
         scrollTo(636);
         //document.getElementById("parallax").scrollTop = 636;
+        /*
         if (!LoginService.checkLogged()) {
             //console.log('login');
             limpiarRegistro();
@@ -925,11 +941,13 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
             vm.active_form = 'login';
             $location.path('/commerce/login');
         } else {
-            //console.log('carrito');
-            //vm.active_form = 'carrito';
             $location.path('/commerce/carrito');
             vm.info_envio = 'Los envios se realizan por medio de cadeteria, según el tamaño y peso del pedido. El costo del mismo es a cargo del comprador, previo coordinacion con el vendedor';
         }
+        */
+        $location.path('/commerce/carrito');
+        vm.info_envio = 'Los envios se realizan por medio de cadeteria, según el tamaño y peso del pedido. El costo del mismo es a cargo del comprador, previo coordinacion con el vendedor';
+
         if(vm.menu_mobile_open)
             vm.menu_mobile_open = false;
 
