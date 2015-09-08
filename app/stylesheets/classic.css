@@ -3030,7 +3030,12 @@ body {
   font-size: 20px;
   margin-bottom: 10px;
 }
-
+@media (min-width: 700px) and (max-width: 1000px) {
+  #menu-categorias-detalle div {
+    margin-left: 6px;
+    font-size: 16px;
+  }
+}
 /* line 2158, ../sass/classic.scss */
 .menu-categoria {
   order: 0;
