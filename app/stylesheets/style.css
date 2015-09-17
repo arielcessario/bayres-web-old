@@ -137,6 +137,7 @@ body {
   /* line 61, ../sass/style.scss */
   #top #shop .shop-menu #menu-logo {
     max-width: 300px;
+    min-width: 300px;
   }
 }
 @media (max-width: 360px) {
@@ -150,6 +151,7 @@ body {
   /* line 82, ../sass/style.scss */
   #top #shop .shop-menu #menu-logo img {
     pointer-events: none;
+    max-width: 250px;
   }
 }
 @media (max-width: 360px) {

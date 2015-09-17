@@ -80,7 +80,10 @@ body {
     background-size: contain;
   }
 }
+.agreement-logo-img {
 
+
+}
 .agreement-titulo {
   font-family: "Myriad Pro Bold Condensed";
   font-size: 50px;
@@ -88,8 +91,8 @@ body {
   line-height: 55px;
   color: rgb(140, 198, 63);
   margin-top: 100px;
-  margin-left: 25%;
-  margin-right: 25%;
+  /*margin-left: 25%;
+  margin-right: 25%;*/
   text-align: center;
 
   @media (max-width: 360px) {
@@ -101,9 +104,9 @@ body {
     margin-right: 0%;
   }
   @media (min-width: 361px) and (max-width: 601px) {
-    font-size: 42px;
+    font-size: 32px;
     margin-top: 60px;
-    width: 600px;
+    //width: 600px;
     top: 10px;
     margin-left: 0%;
     margin-right: 0%;
@@ -112,14 +115,14 @@ body {
 
 .agreement-text {
   font-family: "Myriad Pro";
-  font-size: 15px;
+  font-size: 20px;
   position: relative;
   line-height: 20px;
   top: 10px;
   color: white;
   padding-bottom: 30px;
-  margin-left: 15%;
-  margin-right: 15%;
+  margin-left: 8%;
+  margin-right: 8%;
   text-align: center;
   @media (max-width: 360px) {
     font-size: 14px;
@@ -129,9 +132,9 @@ body {
     margin-right: 0%;
   }
   @media (min-width: 361px) and (max-width: 601px) {
-    font-size: 22px;
+    font-size: 18px;
     margin-top: 50px;
-    width: 580px;
+    //width: 580px;
     margin-left: 0%;
     margin-right: 0%;
   }
@@ -2401,9 +2404,9 @@ body {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#b4ddb4', endColorstr='#006200', GradientType=0);
 
   @media (min-width: 361px) and (max-width: 601px) {
-    width: 150px;
-    height: 45px;
-    font-size: 20px;
+    width: 110px;
+    height: 30px;
+    font-size: 14px;
   }
 }
 
