@@ -1767,18 +1767,19 @@ body {
 .title-results {
   position: absolute;
   text-align: center;
-  width: 80%;
+  //width: 80%;
+  width: 100%;
   min-width: 360px;
-  margin-left: 10%;
+  //margin-left: 10%;
   margin-top: -80px;
   color: white;
   font-size: 71px;
   text-shadow: 2px 2px 3px rgba(#000000, 0.75);
   @media (min-width: 361px) and (max-width: 601px) {
-    margin-left: 12%;
+    //margin-left: 12%;
   }
   @media (max-width: 360px) {
-    margin-left: 0%;
+    //margin-left: 0%;
   }
 }
 
