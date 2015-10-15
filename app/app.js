@@ -1068,22 +1068,28 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
             vm.carrito_mensaje = '1';
             vm.message_error = 'Por favor seleccione un pedido del listado';
         }else {
-            pedido.detalles.forEach(function(producto) {
-                for(var i = 1; i <= producto.cantidad; i++ ){
-                    var prod = {};
+            //console.log(pedido);
+            if(pedido.pedido_id == -1) {
+                vm.carrito_mensaje = '1';
+                vm.message_error = 'Por favor seleccione un pedido del listado';
+            } else {
+                pedido.detalles.forEach(function(producto) {
+                    for(var i = 1; i <= producto.cantidad; i++ ){
+                        var prod = {};
 
-                    prod.oferta_id = -1;
-                    prod.precios = [];
-                    var precio = {precio: 0};
-                    prod.precios.push(precio);
-                    prod.precios[0].precio = producto.precio;
-                    prod.cantidad = producto.cantidad;
-                    prod.producto_id = producto.producto_id;
-                    prod.nombre = producto.nombre;
+                        prod.oferta_id = -1;
+                        prod.precios = [];
+                        var precio = {precio: 0};
+                        prod.precios.push(precio);
+                        prod.precios[0].precio = producto.precio;
+                        prod.cantidad = producto.cantidad;
+                        prod.producto_id = producto.producto_id;
+                        prod.nombre = producto.nombre;
 
-                    addProducto(prod);
-                }
-            });
+                        addProducto(prod);
+                    }
+                });
+            }
         }
     }
 
