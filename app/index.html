@@ -62,8 +62,8 @@
                     <a ng-click="mainCtrl.ingresarCliente();" href="">Ya estoy registrado</a>
                     <!--button-- ng-click="mainCtrl.debug = !mainCtrl.debug">debug</button-->
                 </div>
-                <div ng-if="mainCtrl.user_is_logged">Bienvenido {{mainCtrl.cliente.nombre}}! <a
-                        ng-click="mainCtrl.logout()"
+                <div ng-if="mainCtrl.user_is_logged">Bienvenido {{mainCtrl.usuario.nombre}}! <a
+                        ng-click="mainCtrl.logout();"
                         href="">Salir</a>
                 </div>
             </div>
@@ -121,7 +121,10 @@
                         <span>Compras</span>
                     </div>
                     <div id="menu-detalle-bottom">
-                        <ac-angular-carrito snipet="true" class="snipet"></ac-angular-carrito>
+                        <!--ac-angular-carrito snipet="true" class="snipet"></ac-angular-carrito-->
+                        <div id="ac-angular-carrito-snipet">
+                            <span ng-class="{'ac-snipet-total-modified':mainCtrl.carritoInfo.modified}" style="text-align:right;">{{mainCtrl.carritoInfo.totalAPagar | currency}} ({{mainCtrl.carritoInfo.cantidadDeProductos}})</span>
+                        </div>
                     </div>
                 </div>
                 <div ng-if="!mainCtrl.menu_mobile" id="menu-contacto"
@@ -194,16 +197,16 @@
                                 <P class="Contacto">CONTACTO</P>
 
                                 <P class="Nombre">Nombre:</P>
-                                <input type="text" class="input1" ng-model="mainCtrl.nombreContacto"/>
+                                <input type="text" class="input1" ng-model="mainCtrl.contactoForm.nombre"/>
 
                                 <P class="Apellido">Apellido:</P>
-                                <input type="text" class="input2" ng-model="mainCtrl.apellidoContacto"/>
+                                <input type="text" class="input2" ng-model="mainCtrl.contactoForm.apellido"/>
 
                                 <P class="Email">E-mail:</P>
-                                <input type="text" class="input3" ng-model="mainCtrl.emailContacto"/>
+                                <input type="text" class="input3" ng-model="mainCtrl.contactoForm.mail"/>
 
                                 <P class="Consulta">Consulta:</P>
-                                <textarea rows="5" class="input4" ng-model="mainCtrl.consulta"></textarea>
+                                <textarea rows="5" class="input4" ng-model="mainCtrl.contactoForm.consulta"></textarea>
 
                                 <div class="botonera">
                                     <button ng-click="mainCtrl.enviarConsulta();">Enviar Mail</button>
@@ -275,7 +278,7 @@
                                 <div class="btn-group" style="position: absolute; right: 0%;">
                                     <!--div class="spacer"></div-->
                                     <div class="btn-comprar-detalle detalle"
-                                         ng-click="mainCtrl.agregarProducto(mainCtrl.detalle)">
+                                         ng-click="mainCtrl.agregarCarrito(mainCtrl.detalle)">
                                         <div class="btn-comprar-position" style="margin-right:40px">
                                             <span style="color:red;">$ </span>{{mainCtrl.detalle.precios[0].precio}}
                                         </div>
@@ -309,7 +312,7 @@
                                 <div class="btn-group">
 
                                     <div class="btn-comprar">
-                                        <button ng-click="mainCtrl.agregarProducto(destacado)">
+                                        <button ng-click="mainCtrl.agregarCarrito(destacado)">
                                             <!--<img src="./img/boton.png" alt=""/>-->
                                             <span>$</span>{{destacado.precios[0].precio}}
                                         </button>
@@ -329,45 +332,47 @@
                     <!--<div id="login_form">-->
                     <div id="login-form-container" style="margin-top: 12%;">
                         <div ng-if="mainCtrl.usuario_creado == '-1'" class="mensaje-error">{{mainCtrl.message_error}}</div>
-                        <input ng-if="mainCtrl.creaCliente" ng-model="mainCtrl.nombre" placeholder="Nombre"
+                        <input ng-if="mainCtrl.creaCliente" ng-model="mainCtrl.usuarioFull.nombre" placeholder="Nombre"
                                ng-class="{'input-error' : mainCtrl.error_code == '1'}"
                                type="text"/>
-                        <input ng-if="mainCtrl.creaCliente" ng-model="mainCtrl.apellido" placeholder="Apellido"
+                        <input ng-if="mainCtrl.creaCliente" ng-model="mainCtrl.usuarioFull.apellido" placeholder="Apellido"
                                ng-class="{'input-error' : mainCtrl.error_code == '2'}"
                                type="text"/>
                         <!--<input ng-model="mainCtrl.mail" placeholder="Mail" type="text"/>-->
                         <input ng-if="mainCtrl.creaCliente"
-                               ng-model="mainCtrl.fecha_nacimiento" placeholder="Fecha de Nacimiento (dd/mm/aaaa)"
+                               ng-model="mainCtrl.usuarioFull.fecha_nacimiento" placeholder="Fecha de Nacimiento (dd/mm/aaaa)"
                                ng-class="{'input-error' : mainCtrl.error_code == '3'}"
                                type="text"/>
-                        <input ng-if="mainCtrl.creaCliente" ng-model="mainCtrl.telefono" placeholder="Telefono"
+                        <input ng-if="mainCtrl.creaCliente" ng-model="mainCtrl.usuarioFull.telefono" placeholder="Telefono"
                                ng-class="{'input-error' : mainCtrl.error_code == '4'}"
                                type="text"/>
-                        <input ng-if="mainCtrl.creaCliente" ng-model="mainCtrl.direccion" placeholder="Dirección"
+                        <input ng-if="mainCtrl.creaCliente" ng-model="mainCtrl.usuarioFull.direccion" placeholder="Dirección"
                                ng-class="{'input-error' : mainCtrl.error_code == '5'}"
                                type="text"/>
-                        <input ng-model="mainCtrl.mail" placeholder="Mail"
+                        <input ng-model="mainCtrl.usuarioFull.mail" placeholder="Mail"
                                ng-class="{'input-error' : mainCtrl.error_code == '6'}"
                                type="text"/>
                         <input ng-if="mainCtrl.creaCliente" ng-model="mainCtrl.mail_repeat" placeholder="Repita Mail"
                                ng-class="{'input-error' : mainCtrl.error_code == '7'}"
                                type="text"/>
-                        <input ng-model="mainCtrl.password" type="password" placeholder="Password"
+                        <input ng-model="mainCtrl.usuarioFull.password" type="password" placeholder="Password"
                                ng-keyup="mainCtrl.ingresarClienteEnter($event);"
                                ng-class="{'input-error' : mainCtrl.error_code == '8'}"/>
                         <label ng-if="mainCtrl.creaCliente" class="news-letter">
-                            <input type="checkbox" ng-model="mainCtrl.newsLetter" style="width: 30px;"><span>Suscribirse a Newsletter</span>
+                            <input type="checkbox" ng-model="mainCtrl.usuarioFull.news_letter" style="width: 30px;"><span>Suscribirse a Newsletter</span>
                         </label>
 
                         <div ng-if="mainCtrl.recovery_pwd == '1'" >
                             <a ng-click="mainCtrl.recoveryPwd();" href="" class="recovery-pwd">Recuperar contraseña</a>
                         </div>
                         <div>
-                            <button ng-if="!mainCtrl.creaCliente" ng-click="mainCtrl.ingresar();">Aceptar</button>
+                            <!--button ng-if="!mainCtrl.creaCliente" ng-click="mainCtrl.ingresar();">Aceptar</button-->
+                            <button ng-if="!mainCtrl.creaCliente" ng-click="mainCtrl.login();">Aceptar</button>
                             <button ng-if="!mainCtrl.creaCliente" ng-click="mainCtrl.goToCrearCliente();">Nuevo Usuario</button>
                         </div>
                         <div style="margin-bottom: 20px">
-                            <button ng-if="mainCtrl.creaCliente" ng-click="mainCtrl.nuevoCliente();">Aceptar</button>
+                            <!--button ng-if="mainCtrl.creaCliente" ng-click="mainCtrl.nuevoCliente();">Aceptar</button-->
+                            <button ng-if="mainCtrl.creaCliente" ng-click="mainCtrl.createUsuario();">Aceptar</button>
                             <button ng-if="mainCtrl.creaCliente" ng-click="mainCtrl.goToIngresar();">Ingresar</button>
                         </div>
 
@@ -391,23 +396,23 @@
                                         <div class="row-3">
                                             <div class="cuenta-controls">
                                                 <label for="">Apellido</label><br>
-                                                <input ng-model="mainCtrl.cliente.apellido" placeholder="Apellido"
+                                                <input ng-model="mainCtrl.usuario.apellido" placeholder="Apellido"
                                                        type="text"/>
                                             </div>
                                             <div class="cuenta-controls">
                                                 <label for="">Nombre</label><br>
-                                                <input ng-model="mainCtrl.cliente.nombre" placeholder="Nombre"
+                                                <input ng-model="mainCtrl.usuario.nombre" placeholder="Nombre"
                                                        type="text"/>
                                             </div>
                                         </div>
                                         <div class="row-3">
                                             <div class="cuenta-controls">
                                                 <label for="">Mail</label><br>
-                                                <input ng-model="mainCtrl.cliente.mail" placeholder="Mail" type="text"/>
+                                                <input ng-model="mainCtrl.usuario.mail" placeholder="Mail" type="text"/>
                                             </div>
                                             <div class="cuenta-controls">
                                                 <label for="">Dirección</label><br>
-                                                <input ng-model="mainCtrl.cliente.direccion" placeholder="Dirección"
+                                                <input ng-model="mainCtrl.usuario.direccion" placeholder="Dirección"
                                                        type="text"/>
                                             </div>
                                         </div>
@@ -417,7 +422,7 @@
                                                 <input type="checkbox" ng-model="mainCtrl.newsLetterToUpdate" style="width: 30px;">
                                             </label>
                                             <div class="margin-button" style="margin-top:0">
-                                                <button ng-if="!mainCtrl.creaCliente" ng-click="mainCtrl.actualizarCliente();" class="small-button" style="margin-top:17px">Ok</button>
+                                                <button ng-if="!mainCtrl.creaCliente" ng-click="mainCtrl.actualizarUsuario();" class="small-button" style="margin-top:17px">Ok</button>
                                             </div>
                                         </div>
                                     </div>
@@ -435,18 +440,18 @@
                                         <div class="row-3">
                                             <div class="cuenta-controls">
                                                 <label for="">Contraseña vieja</label><br>
-                                                <input ng-model="mainCtrl.pass_old" placeholder="Contraseña vieja"
+                                                <input ng-model="mainCtrl.passwordForm.oldPassword" placeholder="Contraseña vieja"
                                                        type="password"/>
                                             </div>
                                             <div class="cuenta-controls">
                                                 <label for="">Contraseña nueva</label><br>
-                                                <input ng-model="mainCtrl.pass_new" placeholder="Contraseña nueva"
+                                                <input ng-model="mainCtrl.passwordForm.newPassword" placeholder="Contraseña nueva"
                                                        type="password"/>
                                             </div>
                                         </div>
                                         <div class="row-1">
                                             <div class="margin-button">
-                                                <button ng-click="mainCtrl.modificarPass();"
+                                                <button ng-click="mainCtrl.modificarPassword();"
                                                         class="small-button">Ok
                                                 </button>
                                             </div>
@@ -465,10 +470,10 @@
                                 <div class="historial-pedidos-form-container">
                                     <div class="ultimos-pedidos">
                                         <label class="title-mi-cuenta" style="margin-right: 10px">Ultimos pedidos</label>
-                                        <select ng-click="mainCtrl.detalle = mainCtrl.pedido.detalles;"
+                                        <select ng-click="mainCtrl.detalle = mainCtrl.pedido.productos;"
                                                 ng-change="mainCtrl.getPedidoSelected(mainCtrl.pedido);"
                                                 ng-model="mainCtrl.pedido"
-                                                ng-options="pedido.carrito_id + ' - ' + pedido.fecha + ' - ' + pedido.total for  pedido in mainCtrl.historico_pedidos"
+                                                ng-options="pedido.carrito_id + ' - ' + pedido.fecha.substring(0, 10) + ' - ' + pedido.total for  pedido in mainCtrl.historico_pedidos"
                                                 class="mob-pedidos">
                                         </select>
                                     </div>
@@ -484,9 +489,9 @@
                                             <div class="detalle-fila">
                                                 <label class="producto-nombre-2">{{detalle.nombre}}: </label>
                                                 <span class="producto-cantidad">{{detalle.cantidad}}</span>
-                                                <span class="producto-precio">{{detalle.precio | currency}}</span>
-                                                <span class="producto-precio">{{detalle.precio * detalle.cantidad | currency}}</span>
-                                                <a href="" ng-click="mainCtrl.agregarCarrito(detalle);">
+                                                <span class="producto-precio">{{detalle.precio_unitario | currency}}</span>
+                                                <span class="producto-precio">{{detalle.precio_unitario * detalle.cantidad | currency}}</span>
+                                                <a href="" ng-click="mainCtrl.repetirProducto(detalle);">
                                                     <img src="img/cart.png" title="Agregar Producto al Carrito" />
                                                 </a>
                                                 <!--input ng-model="detalle.total" ng-init="detalle.total = detalle.precio * detalle.cantidad;" type="text" readonly class="info-detalle"/-->
@@ -526,7 +531,26 @@
                     <div class="title-results">Carrito</div>
                     <div id="carrito-form-container">
 
-                        <ac-angular-carrito ng-if="!mainCtrl.compraTerminada" snipet="false"></ac-angular-carrito>
+                        <!--BORRAR ESTA LINEA, NO LA SACO AHORA XQ ME QUITA EL EFECTO DEL DESPLAZAMIENTO ENTRE PANELES-->
+                        <ac-angular-carrito ng-if="!mainCtrl.compraTerminada" snipet="false" hidden="true"></ac-angular-carrito>
+                        <!--==========================================================================================-->
+                        <div id="ac-angular-carrito-form" ng-if="!snipet">
+                            <div id="ac-carrito-productos-container">
+                                <div ng-repeat="producto in mainCtrl.carritoDetalles" class="ac-carrito-producto">
+                                    <span id="ac-carrito-descr">{{producto.nombre}}</span>
+                                    <span id="ac-carrito-precio-uni">{{producto.precio_unitario | currency}}</span>
+                                    <input id="ac-carrito-prod-input" ng-change="(producto.cantidad < 0) ? producto.cantidad = 0 : producto.cantidad; mainCtrl.actualizarMiProducto(producto);"
+                                           type="number" ng-model="producto.cantidad"/>
+                                    <img src="img/lupa.png" ng-mouseover="producto.precio_unitario * producto.cantidad | currency"
+                                         ng-click="producto.precio_unitario * producto.cantidad | currency"
+                                         alt="SubTotal: {{producto.precio_unitario * producto.cantidad | currency}}" title="SubTotal: {{producto.precio_unitario * producto.cantidad | currency}}" class="lupa"/>
+                                    <button id="ac-carrito-remover" ng-click="mainCtrl.removerProducto($index);"></button>
+                                </div>
+                            </div>
+                            <div id="ac-carrito-total">
+                                {{mainCtrl.carritoInfo.totalAPagar | currency}}
+                            </div>
+                        </div>
 
                         <div ng-if="!mainCtrl.compraTerminada" id="carrito-retira-por">
 
@@ -576,63 +600,64 @@
         <div id="ofertas" ng-if="mainCtrl.active_form == 'main';">
             <div id="ofertas-container-01" ng-if="mainCtrl.slider_nro == 1;">
 
-                <img ng-src="./img/{{mainCtrl.ofertas[0].imagen}}" alt="{{mainCtrl.ofertas[0].imagen}}"/>
-                <span class="oferta-titulo">{{mainCtrl.ofertas[0].titulo}}</span>
+                <img ng-src="./img/{{mainCtrl.ofertas[0].fotos[0].nombre}}" alt="{{mainCtrl.ofertas[0].fotos[0].nombre}}"/>
+                <span class="oferta-titulo">{{mainCtrl.ofertas[0].nombre}}</span>
 
                 <p>{{mainCtrl.ofertas[0].descripcion.substring(0, 120) + "..."}}</p>
 
                 <div class="btn-group">
-                    <div class="btn-comprar" ng-click="mainCtrl.agregarOferta(mainCtrl.ofertas[0])">
+                    <div class="btn-comprar" ng-click="mainCtrl.agregarCarrito(mainCtrl.ofertas[0])">
                         <div class="btn-comprar-position">
-                            <span style="color:red;">$ </span>{{mainCtrl.ofertas[0].precio}}
+                            <span style="color:red;">$ </span>{{mainCtrl.ofertas[0].precios[0].precio}}
                         </div>
                     </div>
-                    <div class="btn-info" ng-click="mainCtrl.showDetailsOferta(mainCtrl.ofertas[0]);"></div>
+                    <!--div class="btn-info" ng-click="mainCtrl.showDetailsOferta(mainCtrl.ofertas[0]);"></div-->
+                    <div class="btn-info" ng-click="mainCtrl.showDetails(mainCtrl.ofertas[0], 'slider');"></div>
                 </div>
             </div>
             <div id="ofertas-container-02" ng-if="mainCtrl.slider_nro == 2;">
-                <img ng-src="./img/{{mainCtrl.ofertas[1].imagen}}" alt="{{mainCtrl.ofertas[1].imagen}}"/>
-                <span class="oferta-titulo">{{mainCtrl.ofertas[1].titulo}}</span>
+                <img ng-src="./img/{{mainCtrl.ofertas[1].fotos[0].nombre}}" alt="{{mainCtrl.ofertas[1].fotos[0].nombre}}"/>
+                <span class="oferta-titulo">{{mainCtrl.ofertas[1].nombre}}</span>
 
                 <p>{{mainCtrl.ofertas[1].descripcion.substring(0, 120) + "..."}}</p>
 
                 <div class="btn-group">
-                    <div class="btn-comprar" ng-click="mainCtrl.agregarOferta(mainCtrl.ofertas[1])">
+                    <div class="btn-comprar" ng-click="mainCtrl.agregarCarrito(mainCtrl.ofertas[1])">
                         <div class="btn-comprar-position">
-                            <span style="color:red;">$ </span>{{mainCtrl.ofertas[1].precio}}
+                            <span style="color:red;">$ </span>{{mainCtrl.ofertas[1].precios[0].precio}}
                         </div>
                     </div>
-                    <div class="btn-info" ng-click="mainCtrl.showDetailsOferta(mainCtrl.ofertas[1]);"></div>
+                    <div class="btn-info" ng-click="mainCtrl.showDetails(mainCtrl.ofertas[1], 'slider');"></div>
                 </div>
             </div>
             <div id="ofertas-container-03" ng-if="mainCtrl.slider_nro == 3;">
-                <img ng-src="./img/{{mainCtrl.ofertas[2].imagen}}" alt="{{mainCtrl.ofertas[2].imagen}}"/>
-                <span class="oferta-titulo">{{mainCtrl.ofertas[2].titulo}}</span>
+                <img ng-src="./img/{{mainCtrl.ofertas[2].fotos[0].nombre}}" alt="{{mainCtrl.ofertas[2].fotos[0].nombre}}"/>
+                <span class="oferta-titulo">{{mainCtrl.ofertas[2].nombre}}</span>
 
                 <p>{{mainCtrl.ofertas[2].descripcion.substring(0, 120) + "..."}}</p>
 
                 <div class="btn-group">
-                    <div class="btn-comprar" ng-click="mainCtrl.agregarOferta(mainCtrl.ofertas[2])">
+                    <div class="btn-comprar" ng-click="mainCtrl.agregarCarrito(mainCtrl.ofertas[2])">
                         <div class="btn-comprar-position">
-                            <span style="color:red;">$ </span>{{mainCtrl.ofertas[2].precio}}
+                            <span style="color:red;">$ </span>{{mainCtrl.ofertas[2].precios[0].precio}}
                         </div>
                     </div>
-                    <div class="btn-info" ng-click="mainCtrl.showDetailsOferta(mainCtrl.ofertas[2]);"></div>
+                    <div class="btn-info" ng-click="mainCtrl.showDetails(mainCtrl.ofertas[2], 'slider');"></div>
                 </div>
             </div>
             <div id="ofertas-container-04" ng-if="mainCtrl.slider_nro == 4;">
-                <img ng-src="./img/{{mainCtrl.ofertas[3].imagen}}" alt="{{mainCtrl.ofertas[3].imagen}}"/>
-                <span class="oferta-titulo">{{mainCtrl.ofertas[3].titulo}}</span>
+                <img ng-src="./img/{{mainCtrl.ofertas[3].fotos[0].nombre}}" alt="{{mainCtrl.ofertas[3].fotos[0].nombre}}"/>
+                <span class="oferta-titulo">{{mainCtrl.ofertas[3].nombre}}</span>
 
                 <p>{{mainCtrl.ofertas[3].descripcion.substring(0, 120) + "..."}}</p>
 
                 <div class="btn-group">
-                    <div class="btn-comprar" ng-click="mainCtrl.agregarOferta(mainCtrl.ofertas[3])">
+                    <div class="btn-comprar" ng-click="mainCtrl.agregarCarrito(mainCtrl.ofertas[3])">
                         <div class="btn-comprar-position">
-                            <span style="color:red;">$ </span>{{mainCtrl.ofertas[3].precio}}
+                            <span style="color:red;">$ </span>{{mainCtrl.ofertas[3].precios[0].precio}}
                         </div>
                     </div>
-                    <div class="btn-info" ng-click="mainCtrl.showDetailsOferta(mainCtrl.ofertas[3]);"></div>
+                    <div class="btn-info" ng-click="mainCtrl.showDetails(mainCtrl.ofertas[3], 'slider');"></div>
                 </div>
             </div>
 
@@ -680,12 +705,12 @@
                         <div class="btn-group">
 
                             <div class="btn-comprar">
-                                <button ng-click="mainCtrl.agregarProducto(destacado)">
+                                <button ng-click="mainCtrl.agregarCarrito(destacado)">
                                     <!--<img src="./img/boton.png" alt=""/>-->
                                     <span>$</span>{{destacado.precios[0].precio}}
                                 </button>
                             </div>
-                            <div class="btn-info" ng-click="mainCtrl.showDetails(destacado);"></div>
+                            <div class="btn-info" ng-click="mainCtrl.showDetails(destacado, 'destacados');"></div>
                         </div>
                     </div>
                 </div>
@@ -714,12 +739,12 @@
                         <div class="btn-group">
 
                             <div class="btn-comprar">
-                                <button ng-click="mainCtrl.agregarProducto(destacado)">
+                                <button ng-click="mainCtrl.agregarCarrito(destacado)">
                                     <!--<img src="./img/boton.png" alt=""/>-->
                                     <span>$</span>{{destacado.precios[0].precio}}
                                 </button>
                             </div>
-                            <div class="btn-info" ng-click="mainCtrl.showDetails(destacado);"></div>
+                            <div class="btn-info" ng-click="mainCtrl.showDetails(destacado, 'masVendidos');"></div>
                         </div>
                     </div>
                 </div>
@@ -820,6 +845,14 @@
 <script src="bower_components/ac-angular-carrito/app/carrito.js"></script>
 <script src="bower_components/ac-angular-login-carrito/app/login.js"></script>
 <script src="bower_components/ac-angular-login-carrito/app/ac-login-ingresar.js"></script>
+
+<script src="bower_components/a0-angular-storage/dist/angular-storage.min.js"></script>
+<script src="bower_components/angular-jwt/dist/angular-jwt.min.js"></script>
+<script src="bower_components/ac-angular-utils/ac-utils.js"></script>
+<script src="bower_components/ac-angular-usuarios/ac-usuarios.js"></script>
+<script src="bower_components/ac-angular-productos/ac-productos.js"></script>
+<script src="bower_components/ac-angular-sucursales/ac-sucursales.js"></script>
+
 <script src="app.js"></script>
 </body>
 </html>
