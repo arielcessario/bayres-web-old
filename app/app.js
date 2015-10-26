@@ -1573,7 +1573,7 @@ function MainService($http) {
             + "Consulta de " + contactoForm.apellido.trim().capitalize() + ", "
             + contactoForm.nombre.trim().capitalize() + "\n\n"
             + "Correo: " + contactoForm.mail.toLowerCase().trim();
-        return $http.post('mails/mailer.php',
+        return $http.post('mailer/mailer.php',
             {
                 function: 'sendConsulta',
                 'email': contactoForm.mail.toLowerCase().trim(),
@@ -1595,7 +1595,7 @@ function MainService($http) {
      * @returns {*}
      */
     function sendMailCancelarCarrito(destinatario, mensaje, callback) {
-        return $http.post('mails/mailer.php',
+        return $http.post('mailer/mailer.php',
             {
                 function: 'sendCancelarCarrito',
                 'destinatario': destinatario,
@@ -1619,7 +1619,7 @@ function MainService($http) {
      * @param callback
      */
     function sendMailComprador(mail, nombre, carrito, sucursal, direccion, callback) {
-        return $http.post('mails/mailer.php',
+        return $http.post('mailer/mailer.php',
             {
                 function: 'sendCarritoComprador',
                 'email': mail,
@@ -1647,7 +1647,7 @@ function MainService($http) {
      * @returns {*}
      */
     function sendMailVendedor(mail, nombre, carrito, sucursal, direccion, callback) {
-        return $http.post('mails/mailer.php',
+        return $http.post('mailer/mailer.php',
             {
                 function: 'sendCarritoVendedor',
                 'email': mail,
