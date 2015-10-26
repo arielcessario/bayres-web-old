@@ -17,9 +17,11 @@ $decoded = json_decode($data);
 
 if ($decoded != null) {
     if ($decoded->function == 'sendConsulta') {
-        sendConsulta($decoded->email, $decoded->mensaje);
-    } else if ($decoded->function == 'sendCancelarCarrito') {
-        sendCancelarCarrito($decoded->destinatario, $decoded->mensaje);
+        sendConsulta($decoded->contactoForm);
+    } else if ($decoded->function == 'sendCancelarCarritoComprador') {
+        sendCancelarCarritoComprador($decoded->usuario, $decoded->carrito);
+    } else if ($decoded->function == 'sendCancelarCarritoVendedor') {
+        sendCancelarCarritoVendedor($decoded->usuario, $decoded->email, $decoded->carrito);
     } else if ($decoded->function == 'sendCarritoComprador') {
         sendCarritoComprador($decoded->email, $decoded->nombre, $decoded->carrito, $decoded->sucursal, $decoded->direccion);
     } else if ($decoded->function == 'sendCarritoVendedor') {
@@ -28,11 +30,12 @@ if ($decoded != null) {
 }
 
 /**
- * @param $email
- * @param $mensaje
+ * @param $contactoForm
  */
-function sendConsulta($email, $mensaje)
+function sendConsulta($contactoForm)
 {
+    $contacto = json_decode($contactoForm);
+
     $mail = new PHPMailer;
     $mail->isSMTP();                                      // Set mailer to use SMTP
     $mail->Host = 'gator4184.hostgator.com';  // Specify main and backup SMTP servers
@@ -42,15 +45,88 @@ function sendConsulta($email, $mensaje)
     $mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
     $mail->Port = 465;
 
-    $mail->From = $email;
-    $mail->FromName = 'Cliente';
+    $mail->From = $contacto->mail;
+    $mail->FromName = $contacto->apellido . ", " . $contacto->nombre;
     $mail->addAddress('mmaneff@gmail.com');     // Add a recipient
     $mail->addAddress('juan.dilello@gmail.com');               // Name is optional
     //$mail->addAddress('info@bayresnoproblem.com.ar');  //ESTE CORREO SOLO SE HABILITA EN PRODUCCION
     $mail->isHTML(true);    // Name is optional
 
-    $mail->Subject = 'Consulta';
-    $mail->Body = $mensaje;
+    $mail->Subject = "Consulta de " . $contacto->apellido . ", " . $contacto->nombre;
+    $mail->Body = "<table>
+                    <tr>
+                        <td>Consulta de " . $contacto->apellido . ", " . $contacto->nombre . "</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>" . $contacto->consulta . "</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>" . $contacto->mail . "</td>
+                    </tr>
+                </table>";
+    //$mail->AltBody = "Nuevo Mail:" . $new_password;
+
+    if (!$mail->send()) {
+        echo 'Message could not be sent.';
+        echo 'Mailer Error: ' . $mail->ErrorInfo;
+    } else {
+        echo 'Message has been sent';
+    }
+}
+
+/**
+ * @param $usuario
+ * @param $carrito
+ */
+function sendCancelarCarritoComprador($usuario, $carrito)
+{
+    $carritoInfo = json_decode($carrito);
+
+    $mail = new PHPMailer;
+    $mail->isSMTP();                                      // Set mailer to use SMTP
+    $mail->Host = 'gator4184.hostgator.com';  // Specify main and backup SMTP servers
+    $mail->SMTPAuth = true;                               // Enable SMTP authentication
+    $mail->Username = 'ventas@ac-desarrollos.com';                 // SMTP username
+    $mail->Password = 'ventas';                           // SMTP password
+    $mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
+    $mail->Port = 465;
+
+    $mail->From = 'info@bayresnoproblem.com.ar'; //ESTE CORREO SOLO SE HABILITA EN PRODUCCION
+    $mail->FromName = 'Bayres No Problem';
+    $mail->addAddress($usuario);     // Add a recipient
+    $mail->addAddress('juan.dilello@gmail.com');               // Name is optional
+    $mail->isHTML(true);    // Name is optional
+
+    $mail->Subject = "Cancelar Pedido " . $carritoInfo->carrito_id;
+    $mail->Body = "<table>
+                    <tr>
+                        <td>Su pedido " . $carritoInfo->carrito_id . " fue cancelado</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Fecha del Pedido: " . $carritoInfo->fecha ."</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Total del Pedido: " . $carritoInfo->total ."</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Saludos Bayres No Problem</td>
+                    </tr>
+                </table>";
     //$mail->AltBody = "Nuevo Mail:" . $new_password;
 
     if (!$mail->send()) {
@@ -65,8 +141,10 @@ function sendConsulta($email, $mensaje)
  * @param $destinatario
  * @param $mensaje
  */
-function sendCancelarCarrito($destinatario, $mensaje)
+function sendCancelarCarritoVendedor($usuario, $email, $carrito)
 {
+    $carritoInfo = json_decode($carrito);
+
     $mail = new PHPMailer;
     $mail->isSMTP();                                      // Set mailer to use SMTP
     $mail->Host = 'gator4184.hostgator.com';  // Specify main and backup SMTP servers
@@ -76,15 +154,36 @@ function sendCancelarCarrito($destinatario, $mensaje)
     $mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
     $mail->Port = 465;
 
-    $mail->From = 'mmaneff@gmail.com';
-    //$mail->From = 'info@bayresnoproblem.com.ar'; //ESTE CORREO SOLO SE HABILITA EN PRODUCCION
-    $mail->FromName = 'Cliente';
-    $mail->addAddress($destinatario);     // Add a recipient
+    $mail->From = $email;
+    $mail->FromName = $usuario;
+    $mail->addAddress($usuario);     // Add a recipient
     $mail->addAddress('juan.dilello@gmail.com');               // Name is optional
     $mail->isHTML(true);    // Name is optional
 
-    $mail->Subject = 'Cancelar Pedido';
-    $mail->Body = $mensaje;
+    $mail->Subject = "Cancelar Pedido " . $carritoInfo->carrito_id;
+    $mail->Body = "<table>
+                    <tr>
+                        <td>El cliente " . $usuario . "</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Solicito cancelar el pedido: " . $carritoInfo->carrito_id ."</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Fecha del Pedido: " . $carritoInfo->fecha ."</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Total del Pedido: " . $carritoInfo->total ."</td>
+                    </tr>
+                </table>";
     //$mail->AltBody = "Nuevo Mail:" . $new_password;
 
     if (!$mail->send()) {

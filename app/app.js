@@ -451,40 +451,20 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
     }
 
     /****************************************************************
-     * Armar el mensaje del mail que sera enviado al comprador
-     *****************************************************************/
-    function mailCancelarCarritoComprador(carrito) {
-        var mensaje = "Su pedido " + carrito.carrito_id + " fue cancelado \n\n" +
-            "Fecha del Pedido: " + carrito.fecha + "\n\n" +
-            "Total del Pedido: $" + carrito.total + "\n\n" +
-            "Saludos \n\n" +
-            "Bayres No Problem";
-
-        return mensaje;
-    }
-
-    /****************************************************************
-     * Armar el mensaje del mail que sera enviado al vendedor
-     *****************************************************************/
-    function mailCancelarCarritoVendedor(usuario, carrito) {
-        var mensaje = "El Cliente " + usuario.nombre + " " + usuario.apellido +
-            " solicito cancelar el pedido " +  carrito.carrito_id + "\n\n" +
-            "Fecha del Pedido: " + carrito.fecha + "\n\n" +
-            "Total del Pedido: $" + carrito.total;
-
-        return mensaje
-    }
-
-    /****************************************************************
      * Me retorna un historico de pedidos por Usuario
      *****************************************************************/
     function getHistoricoDePedidos(usuario) {
         console.log(usuario);
         //Obtengo el listado de carritos
         CartService.getByParams("status","1","true",usuario.usuario_id, function(data){
-            vm.historico_pedidos = data;
+            //Cargo el historico de pedidos ordenado en forma desc por carrito_id
+            vm.historico_pedidos = data.sort(function(a, b){
+                return b.carrito_id - a.carrito_id;
+            });
+            //Agrego un nuevo registro en el arreglo con la leyenda seleccione un pedido
             var select_one = { pedido_id:-1, fecha:'Seleccione un pedido' };
             vm.historico_pedidos.unshift(select_one);
+            //Muestro el primer elemento del arreglo
             vm.pedido = vm.historico_pedidos[0];
         });
     }
@@ -513,7 +493,9 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
             }
         }
         vm.carritoDetalles.push(miProducto);
-
+        //Ordeno carrito detalles por nombre del producto
+        vm.carritoDetalles.sort(function(a, b){ return a.nombre - b.nombre; });
+        console.log(vm.carritoDetalles);
         calcularCarritoTotal();
     }
 
@@ -1016,6 +998,9 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
             var borrarOk = confirm('¿Desea borrar el producto '+ detalle +'?');
             if(borrarOk){
                 vm.carritoDetalles.splice( index, 1 );
+                //Ordeno el arreglo por nombre
+                vm.carritoDetalles.sort(function(a, b){ return a.nombre - b.nombre; });
+                console.log(vm.carritoDetalles);
                 calcularCarritoTotal();
             } else {
                 return;
@@ -1069,6 +1054,8 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
                         }
                     }
                     vm.carritoDetalles.push(miProducto);
+                    //Ordeno el arreglo por nombre
+                    vm.carritoDetalles.sort(function(a, b){ return a.nombre - b.nombre; });
                     console.log(vm.carritoDetalles);
 
                     calcularCarritoTotal();
@@ -1102,19 +1089,16 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
                         if(data != -1){
                             var usuario = UserService.getLogged();
 
-                            //Arma el mensaje de los dos mails informando que el carrito fue cancelado
-                            var mensajeComprador = mailCancelarCarritoComprador(carrito);
-                            var mensajeVendedor = mailCancelarCarritoVendedor(usuario, carrito);
-
                             //Envio los mails al comprador y vendedor para informar de la cancelación del carrito
-                            MainService.sendMailCancelarCarrito(usuario.mail, mensajeComprador, function(data){
+                            MainService.sendMailCancelarCarritoComprador(usuario.mail, carrito, function(data){
                                 if(data) {
                                     console.log('Se envio el mail con la confirmación');
                                 } else {
                                     console.log('Error enviando el mail');
                                 }
                             });
-                            MainService.sendMailCancelarCarrito("mmaneff@gmail.com", mensajeVendedor, function(data){
+                            var usuarioNombre = usuario.apellido + ', ' + usuario.nombre;
+                            MainService.sendMailCancelarCarritoVendedor(usuarioNombre, usuario.mail, carrito, function(data){
                                 if(data) {
                                     console.log('Se envio el mail con la confirmación');
                                 } else {
@@ -1290,7 +1274,7 @@ function MainController(acAngularProductosService, acAngularCarritoServiceAccion
         }
         else {
             if (AcUtils.validateEmail(vm.contactoForm.mail.trim())) {
-                MainService.sendMail(vm.contactoForm, function(data) {
+                MainService.sendMailConsulta(vm.contactoForm, function(data) {
                     console.log(data);
                     if(data) {
                         clearDatosContacto();
@@ -1555,29 +1539,26 @@ function MainService($http) {
     //Variables
     var service = {};
 
-    service.sendMail = sendMail;
-    service.sendMailCancelarCarrito = sendMailCancelarCarrito;
+    service.sendMailConsulta = sendMailConsulta;
+    service.sendMailCancelarCarritoComprador = sendMailCancelarCarritoComprador;
+    service.sendMailCancelarCarritoVendedor = sendMailCancelarCarritoVendedor;
     service.sendMailComprador = sendMailComprador;
     service.sendMailVendedor = sendMailVendedor;
 
     return service;
 
+
     /**
-     * @Description Envia una consulta
+     *
      * @param contactoForm
      * @param callback
      * @returns {*}
      */
-    function sendMail(contactoForm, callback) {
-        var  mensaje = contactoForm.consulta.trim() + "\n\n"
-            + "Consulta de " + contactoForm.apellido.trim().capitalize() + ", "
-            + contactoForm.nombre.trim().capitalize() + "\n\n"
-            + "Correo: " + contactoForm.mail.toLowerCase().trim();
+    function sendMailConsulta(contactoForm, callback) {
         return $http.post('mailer/mailer.php',
             {
                 function: 'sendConsulta',
-                'email': contactoForm.mail.toLowerCase().trim(),
-                'mensaje': mensaje
+                'contactoForm': JSON.stringify(contactoForm)
             })
             .success(function (data) {
                 callback(data);
@@ -1589,17 +1570,41 @@ function MainService($http) {
 
     /**
      *
-     * @param destinatario
-     * @param mensaje
+     * @param usuario
+     * @param carrito
      * @param callback
      * @returns {*}
      */
-    function sendMailCancelarCarrito(destinatario, mensaje, callback) {
+    function sendMailCancelarCarritoComprador(usuario, carrito, callback) {
         return $http.post('mailer/mailer.php',
             {
-                function: 'sendCancelarCarrito',
-                'destinatario': destinatario,
-                'mensaje': mensaje
+                function: 'sendCancelarCarritoComprador',
+                'usuario': usuario,
+                'carrito': JSON.stringify(carrito)
+            })
+            .success(function (data) {
+                callback(data);
+            })
+            .error(function (data) {
+                callback(data);
+            });
+    }
+
+    /**
+     *
+     * @param usuario
+     * @param email
+     * @param carrito
+     * @param callback
+     * @returns {*}
+     */
+    function sendMailCancelarCarritoVendedor(usuario, email, carrito, callback) {
+        return $http.post('mailer/mailer.php',
+            {
+                function: 'sendCancelarCarritoVendedor',
+                'usuario': usuario,
+                'email': email,
+                'carrito': JSON.stringify(carrito)
             })
             .success(function (data) {
                 callback(data);
